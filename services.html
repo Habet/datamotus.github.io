@@ -32,7 +32,7 @@ services_right:
     desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
 
 section_id: services
-services_left:
+services_left1:
   - icon: bandcamp
     title: Predictive Mod
     desc: Predictive modeling is a process that uses data mining and probability to forecast outcomes for your business. Our models help predict a number of things such as which of your website surfers like certain products, which of your customers are more likely to make a purchase or which of them are more likely to churn in the nearest future. 
@@ -45,7 +45,7 @@ services_left:
   - icon: lock
     title: Anomaly detection
     desc: Usually, we use anomaly detection to detect errors or frauds. Using accurate machine learning processes boosts the speed of detection. 
-services_right:
+services_right1:
   - icon: compass
     title: Customer segmentation/unsupervised learning
     desc: You don’t have to be a GOD of marketing to feel the need of customer segmentation. We offer a customer segmentation model that helps allocate your marketing resources and maximize selling opportunities. 
@@ -107,7 +107,7 @@ services_right:
   <div class='row'>
   <h3>Machine Learning/ Statistical Analysis</h3>
     <div class='medium-6 columns'>
-      {% for service in page.services_left %}
+      {% for service in page.services_left1 %}
         <div class='fadein mod modIconText' data-delay='{{ 300 | times:forloop.index0 }}'>
           <div class='icon-text-simple'>
             <i class='fa fa-{{service.icon}}'></i>
@@ -119,7 +119,7 @@ services_right:
       {% endfor %}
     </div>
     <div class='medium-6 columns'>
-      {% for service in page.services_right %}
+      {% for service in page.services_right1 %}
         <div class='fadein mod modIconText' data-delay='{{ 300 | times:forloop.index0 }}'>
           <div class='icon-text-simple'>
             <i class='fa fa-{{service.icon}}'></i>
