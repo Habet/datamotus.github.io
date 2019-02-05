@@ -14,9 +14,7 @@ services_left:
   - icon: pagelines
     title: Churn modeling
     desc: Customer churn is one of the most unpleasant events for a business. Churn modeling is a tool that defines the steps of customer churn and helps you predict and avoid it over time. Without predicting churn, your actions will be based on mere assumptions and won’t usually have a positive impact.   
-  - icon: lock
-    title: Anomaly detection
-    desc: Usually, we use anomaly detection to detect errors or frauds. Using accurate machine learning processes boosts the speed of detection. 
+  
 services_right:
   - icon: compass
     title: Customer segmentation/unsupervised learning
@@ -24,12 +22,9 @@ services_right:
   - icon: image
     title: Structural Equation Modeling
     desc: This one is a complex procedure that we conduct to assess the so-called “latent” construct. Whatever that has passed unnoticed from your eyes will be identified through Structural equation modeling. 
-  - icon: database
-    title: Data
-    desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
-  - icon: film
-    title: Video
-    desc: Acusamus laborum totam omnis inventore et error aut et eos aut. fuga mollitia vitae id enim omnis perspiciatis. modi maxime eos.
+  - icon: lock
+    title: Anomaly detection
+    desc: Usually, we use anomaly detection to detect errors or frauds. Using accurate machine learning processes boosts the speed of detection. 
 
 section_id: services
 services_left_mr:
@@ -53,7 +48,21 @@ services_right_mr:
     title: Marketing surveys and analytics
     desc: How to find the right product-market fit? Of course, through long nights of market research. We will do the boring part; you will get the survey and analytics results. 
   
-
+  section_id: services
+services_left_d:
+  - icon: bandcamp
+    title: Creating and deploying R shiny applications
+    desc: R Shiny is what we use to easily build interactive web apps straight from R and visualize for you what your data has told us.
+  - icon: check
+    title: Training on R programming and Statistics
+    desc: Want to rock R programming just like us? You and your team are welcome at our training hub. You already know the value of statistical analysis for businesses. You can learn to conduct statistical analysis by yourself. We are here to help! 
+services_right_d:
+  - icon: compass
+    title: Management decision support systems – based on data analytics
+    desc: Sometimes the amount of analytics results is so huge that people freak out. No worries! We will manage your decision support system (DSS) and help you figure out everything in a very short period of time. 
+  - icon: bandcamp
+    title: Conjoint Analysis Training
+    desc: Learn how to conduct the right types of surveys the right way and come up with valuable analysis for your business or clients. 
 ---
 
 <div class='full parallax' style='background-image: url(images/@stock/service-page-header.jpg); color: #fff;'>
@@ -114,6 +123,37 @@ services_right_mr:
     </div>
     <div class='medium-6 columns'>
       {% for service in page.services_right_mr %}
+        <div class='fadein mod modIconText' data-delay='{{ 300 | times:forloop.index0 }}'>
+          <div class='icon-text-simple'>
+            <i class='fa fa-{{service.icon}}'></i>
+            <h3>{{service.title}}</h3>
+            <p>{{service.desc}}</p>
+          </div>
+          <div class='two spacing'></div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class='spacing'></div>
+</div>
+
+<div class='full'>
+  <div class='row'>
+  <h3>Data Visualization and Corporate trainings</h3>
+    <div class='medium-6 columns'>
+      {% for service in page.services_left_d %}
+        <div class='fadein mod modIconText' data-delay='{{ 300 | times:forloop.index0 }}'>
+          <div class='icon-text-simple'>
+            <i class='fa fa-{{service.icon}}'></i>
+            <h3>{{service.title}}</h3>
+            <p>{{service.desc}}</p>
+          </div>
+          <div class='two spacing'></div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class='medium-6 columns'>
+      {% for service in page.services_right_d %}
         <div class='fadein mod modIconText' data-delay='{{ 300 | times:forloop.index0 }}'>
           <div class='icon-text-simple'>
             <i class='fa fa-{{service.icon}}'></i>
