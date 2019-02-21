@@ -43,7 +43,8 @@ works:
     link_to: portfolio-item-8.html
     klass: graphic-design
     desc: Design &amp; Development
-  - image: images/@stock/work-9.jpg
+  - icon: accessible-icon
+    #image: images/@stock/work-9.jpg
     title: Customer churn modeling 
     link_to: portfolio-item-9.html
     klass: development print
@@ -127,7 +128,14 @@ works:
         {% for work in page.works %}
           <li class="{{ work.klass }}">
             <a href='{{ work.link_to }}'>
+              {% if work.icon %}
+              <i class='fa fa-{{ work.icon }}'></i>
+              {% else %}
               <img alt="" src="{{ work.image }}" />
+              {% endif %}
+
+
+              
               <div class='overlay'>
                 <div class='thumb-info'>
                   <h3>{{ work.title }}</h3>
