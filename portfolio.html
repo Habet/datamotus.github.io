@@ -43,7 +43,7 @@ works:
     link_to: portfolio-item-8.html
     klass: graphic-design
     desc: Design &amp; Development
-  - icon: bandcamp
+  - icon: sign-out-alt
     #image: images/@stock/work-9.jpg
     title: Customer churn modeling 
     link_to: portfolio-item-9.html
@@ -130,7 +130,7 @@ works:
           <li class="{{ work.klass }}">
             <a href='{{ work.link_to }}'>
               {% if work.icon %}
-              <i class="fa fa-{{ work.icon }}" aria-hidden="true"></i>
+              <i class="fas fa-{{ work.icon }}"></i>
               {% else %}
               <img alt="" src="{{ work.image }}" />
               {% endif %}
