@@ -118,6 +118,8 @@ milestones:
 ---
 
 
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
 <div class='mod modDefaultSlider'>
   <div class='sequence' data-autostop='on' data-timeout='0'>
     <a class='sequence-prev' href='javascript:void(0);'>
@@ -211,8 +213,14 @@ milestones:
     <ul class="gallery small-block-grid-2 medium-block-grid-3 large-block-grid-4">
       {% for work in page.works %}
         <li class="{{ work.klass }}">
-          <a href='{{ work.link_to }}'>
+          <a href='{{ work.link_to }}' style="font-size: 100px; text-align: center; color: #1F0E42;">
+            
+            {% if work.icon %}
+            <i class="fas fa-{{ work.icon }}"></i>
+            {% else %}
             <img alt="" src="{{ work.image }}" />
+            {% endif %}
+
             <div class='overlay'>
               <div class='thumb-info'>
                 <h3>{{ work.title }}</h3>
