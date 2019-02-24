@@ -9,6 +9,8 @@ slides:
     title:
       klass: bottom-to-top
       text: We turn data into actionable insights for your business
+
+{%- comment -%}   
   - bg: images/@stock/slide-4.jpg
     klass: centered-text
     small_title:
@@ -37,7 +39,7 @@ slides:
       items:
         - text: Learn More
           link_to: http://themeforest.net/user/honryou/portfolio?ref=honryou
-
+ {%- endcomment -%}
 
 
 works:
@@ -315,7 +317,7 @@ milestones:
   -->
   <div class='row'>
     {% for post in site.posts %}
-      {% if forloop.index > 3 %}
+      {% if forloop.index > -1 %}
         {% break %}
       {% endif %}
 
