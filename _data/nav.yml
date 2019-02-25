@@ -9,7 +9,7 @@
   section_id: services
 - name: Portfolio
   path: portfolio.html
-#  section_id: portfolio
+  section_id: portfolio
 #  children:
 #    - name: Portfolio
 #      path: portfolio.html
