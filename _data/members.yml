@@ -3,14 +3,14 @@
   position: Co-Founder, CEO
   socials:
     - link: https://www.linkedin.com/in/habetmadoyanmba/
-      icon: fab fa-linkedin
+      icon: fab fa-linkedin fa-2x
     - link: https://github.com/Habet
-      icon: fab fa-github
+      icon: fab fa-github fa-2x
   desc: Habet Madoyan (Co-founder, CEO) is a Data Science program chair and Assistant Professor at the College of Science and Engineering at the American University of Armenia. 
 - avatar: images/@stock/VaheMovsisyan.jpg
   name: Vahe Movsisyan
   position: Co-Founder, Data Scientist
   socials:
     - link: https://www.linkedin.com/in/vahe-movsisyan-1a2b043b/
-      icon: fab-linkedin
+      icon: fab fa-linkedin fa-2x
   desc: Vahe Movsisyan is the co-founder of Datamotus and is one of the lead economists of the Central Bank of Armenia. He holds a Ph.D. in Economics from the Moscow State University of Economics, Statistics, and Informatics.
