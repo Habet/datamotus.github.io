@@ -5,7 +5,12 @@
   path: about.html
   section_id: about
 - name: Services
-  path: services.html
+ # path: services.html
+  children:
+    - name: Services
+      path: services.html
+    - name: Training in R
+      path: training-r.html
   section_id: services
 - name: Portfolio
   path: portfolio.html
