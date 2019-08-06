@@ -1,0 +1,84 @@
+---
+layout: default
+title: Portfolio
+section_id: portfolio
+---
+
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
+
+<div class='full parallax' style='background-image: url(images/@stock/portfolio.jpeg); color: #fff;'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      {% include section-header.html title="Our portfolio" tagline="Have a look at our work" color="#fff" class="big" %}
+    </div>
+  </div>
+  <div class='four spacing'></div>
+</div>
+
+
+
+<div class='full'>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <div class='mod modBoxedSlider'>
+        <div class='slides'>
+          <div class='slide'>
+            <img alt="" src="images/@stock/big-work-1.jpg" />
+          </div>
+          <div class='slide'>
+            <img alt="" src="images/@stock/big-work-2.jpg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='spacing'></div>
+  <div class='row'>
+    <div class='large-8 columns'>
+   <h3>Cash demand forecasting </h3>
+      <p>
+        <p><b>Customer problem</b></p>
+        <p>A US state bank is experiencing issues with cash management in its ATMs. 
+          This results in an ATM going out of cash on a regular basis or stacking excessive cash in the machine.
+         To overcome the issue, the Bank requires a model that would forecast daily cash demand per ATM. </p>
+        <p><b>Datamotus approach</b></p>
+        <p> We have done excessive data cleaning and EDA. The goal of the EDA was to reveal the factors affecting cash demand per ATM. 
+        Among others, “weekday effect” and “holiday effect” were examined. </p>
+        <p> Two different approaches were taken for the time series forecasting. </p>
+        <ol>
+        <li>Cluster individual ATMs and make forecasts for the cluster in general rather than individual ATM. 
+        Time Series KMeans and Global Alignment Kernel KMeans algorithms were used for clustering.</li>
+        <li>Forecasting on individual ATM level.</li>
+        </ol>
+        <p>The following forecasting methods were used for both clustered and individual data: ARIMA, ARIMAX, Time series regression, Exponential smoothing, LSTM (deep learning).  
+        The forecasting accuracy of all the models was compared and the best option was chosen. </p>
+        <p>The search for the best forecasting model was done in R, the best one was modeled in Python as a ready to go production code.</p>
+        <p><b>Results</b></p>
+        <p>The Bank was able to significantly reduce excessive cash in ATMs, 
+        decrease the number of cash-outs as well as improve the cash management process.</p>
+      <div class='spacing'></div>
+    </div>
+    <div class='large-4 columns'>
+      <ul class='info'>
+        <li>
+          <strong>Client:</strong>
+          Commercial Bank, USA
+        </li>
+        <li>
+          <div class='spacing'></div>
+          <a href='portfolio-item-17.html' title='previous'>
+            <i class='icon-left-open'></i>
+          </a>
+          <a href='portfolio.html' title='back to work list'>
+            <i class='icon-layout'></i>
+          </a>
+          <a href='portfolio-item-17.html' title='next'>
+            <i class='icon-right-open'></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class='four spacing'></div>
+</div>
