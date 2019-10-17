@@ -21,7 +21,7 @@ project is worth replicating.
 Assuming all the mentioned steps were adhered to and the evaluation of
 the effectiveness of the program for university and school students has
 been launched, let us review the artificially generated
-[data](Chess.csv). The summary of the dataset is presented below.
+[data](/2019-10-15-Propensity-Score-Matching_files/Chess.csv). The summary of the dataset is presented below.
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
