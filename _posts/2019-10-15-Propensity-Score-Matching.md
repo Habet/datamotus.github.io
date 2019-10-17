@@ -1,4 +1,4 @@
-﻿Introduction
+Introduction
 ============
 
 The research question is whether playing chess is correlated with the
@@ -229,31 +229,31 @@ correct answers at Pre- and Post-test.
 The result of linear regression is in the output below:
 
     ## 
-    ## Call:
-    ## lm(formula = Answers ~ Treatment.Type + PrePost + Treatment.Type * 
-    ##     PrePost, data = ChessLong)
-    ## 
-    ## Residuals:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -24.6921  -2.8321   0.5199   3.3079  14.3079 
-    ## 
-    ## Coefficients:
-    ##                                     Estimate Std. Error t value Pr(>|t|)
-    ## (Intercept)                          12.4801     0.2165  57.634   <2e-16
-    ## Treatment.TypeTreatment               0.2583     0.3430   0.753   0.4516
-    ## PrePostPost                          -0.6480     0.3062  -2.116   0.0345
-    ## Treatment.TypeTreatment:PrePostPost  12.6017     0.4851  25.976   <2e-16
-    ##                                        
-    ## (Intercept)                         ***
-    ## Treatment.TypeTreatment                
-    ## PrePostPost                         *  
-    ## Treatment.TypeTreatment:PrePostPost ***
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-    ## 
-    ## Residual standard error: 5.097 on 1838 degrees of freedom
-    ## Multiple R-squared:  0.487,  Adjusted R-squared:  0.4862 
-    ## F-statistic: 581.7 on 3 and 1838 DF,  p-value: < 2.2e-16
+    ## ===============================================================
+    ##                                         Dependent variable:    
+    ##                                     ---------------------------
+    ##                                               Answers          
+    ## ---------------------------------------------------------------
+    ## Treatment.TypeTreatment                        0.258           
+    ##                                               (0.343)          
+    ##                                                                
+    ## PrePostPost                                  -0.648**          
+    ##                                               (0.306)          
+    ##                                                                
+    ## Treatment.TypeTreatment:PrePostPost          12.602***         
+    ##                                               (0.485)          
+    ##                                                                
+    ## Constant                                     12.480***         
+    ##                                               (0.217)          
+    ##                                                                
+    ## ---------------------------------------------------------------
+    ## Observations                                   1,842           
+    ## R2                                             0.487           
+    ## Adjusted R2                                    0.486           
+    ## Residual Std. Error                      5.097 (df = 1838)     
+    ## F Statistic                          581.677*** (df = 3; 1838) 
+    ## ===============================================================
+    ## Note:                               *p<0.1; **p<0.05; ***p<0.01
 
 <br> The coefficient of `Group * Time (Treatment * Post)` itself is the
 difference in differences estimator which tells us whether the expected
@@ -451,7 +451,7 @@ The propensity score is the estimated conditional probability
 (propensity) of receiving treatment based on the covariates included in
 the propensity score model:
 
-$$PS = P(X=1|Z=z),$$ 
+<pre>$$PS = P(X=1|Z=z),$$ </pre>
 
 where `PS` is propensity score, X is the binary variable with 0 value,
 if the student is in the control group and, `X = 1`, then a student is
@@ -462,8 +462,9 @@ logistic regression model, where treatment status is regressed on a
 common set of explanatory variables (gender, age, math grade, overall
 grade of a student), such as:
 
-
+<pre>
 $$log \frac{P(X = 1)}{1-P(X = 1)} = \beta_0 + \beta_1Z_1 +...+\beta_kZ_k$$
+</pre>
 
 The propensity score plays an important role in balancing the study
 groups to make the treated and untreated groups comparable. The authors
