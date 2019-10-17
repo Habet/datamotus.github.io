@@ -1,4 +1,4 @@
-Introduction
+﻿Introduction
 ============
 
 The research question is whether playing chess is correlated with the
@@ -229,31 +229,32 @@ correct answers at Pre- and Post-test.
 The result of linear regression is in the output below:
 
     ## 
-    ## ===============================================================
-    ##                                         Dependent variable:    
-    ##                                     ---------------------------
-    ##                                               Answers          
-    ## ---------------------------------------------------------------
-    ## Treatment.TypeTreatment                        0.258           
-    ##                                               (0.343)          
-    ##                                                                
-    ## PrePostPost                                  -0.648**          
-    ##                                               (0.306)          
-    ##                                                                
-    ## Treatment.TypeTreatment:PrePostPost          12.602***         
-    ##                                               (0.485)          
-    ##                                                                
-    ## Constant                                     12.480***         
-    ##                                               (0.217)          
-    ##                                                                
-    ## ---------------------------------------------------------------
-    ## Observations                                   1,842           
-    ## R2                                             0.487           
-    ## Adjusted R2                                    0.486           
-    ## Residual Std. Error                      5.097 (df = 1838)     
-    ## F Statistic                          581.677*** (df = 3; 1838) 
-    ## ===============================================================
-    ## Note:                               *p<0.1; **p<0.05; ***p<0.01
+    ## DID Results
+    ## ===========================================================
+    ##                                     Dependent variable:    
+    ##                                 ---------------------------
+    ##                                           Answers          
+    ## -----------------------------------------------------------
+    ## Group (Treatment)                          0.258           
+    ##                                           (0.343)          
+    ##                                                            
+    ## Time (Post)                              -0.648**          
+    ##                                           (0.306)          
+    ##                                                            
+    ## Group * Time (Treatment * Post)          12.602***         
+    ##                                           (0.485)          
+    ##                                                            
+    ## Constant                                 12.480***         
+    ##                                           (0.217)          
+    ##                                                            
+    ## -----------------------------------------------------------
+    ## Observations                               1,842           
+    ## R2                                         0.487           
+    ## Adjusted R2                                0.486           
+    ## Residual Std. Error                  5.097 (df = 1838)     
+    ## F Statistic                      581.677*** (df = 3; 1838) 
+    ## ===========================================================
+    ## Note:                           *p<0.1; **p<0.05; ***p<0.01
 
 <br> The coefficient of `Group * Time (Treatment * Post)` itself is the
 difference in differences estimator which tells us whether the expected
@@ -451,7 +452,7 @@ The propensity score is the estimated conditional probability
 (propensity) of receiving treatment based on the covariates included in
 the propensity score model:
 
-<pre>$$PS = P(X=1|Z=z),$$ </pre>
+$$PS = P(X=1|Z=z),$$
 
 where `PS` is propensity score, X is the binary variable with 0 value,
 if the student is in the control group and, `X = 1`, then a student is
@@ -462,9 +463,9 @@ logistic regression model, where treatment status is regressed on a
 common set of explanatory variables (gender, age, math grade, overall
 grade of a student), such as:
 
-<pre>
+
 $$log \frac{P(X = 1)}{1-P(X = 1)} = \beta_0 + \beta_1Z_1 +...+\beta_kZ_k$$
-</pre>
+
 
 The propensity score plays an important role in balancing the study
 groups to make the treated and untreated groups comparable. The authors
