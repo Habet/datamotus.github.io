@@ -1,4 +1,5 @@
-# Introduction
+Introduction
+============
 
 The research question is whether playing chess is correlated with the
 improvement in logical thinking. Previous research, conducted in a
@@ -11,357 +12,187 @@ university students and schoolchildren by playing chess, the following
 steps are to be taken. Once the population, sampling method, sample size
 and other crucial elements of research are defined, the sample should be
 taught how to play a game of chess This may be reached by including a
-relevant curriculum into the syllabus\[1\]. The second step to take
-would be to conduct pre- and post-tests to measure the performance
-before and after a six-month course. Finally, the analyses of the data
-would indicate whether the experiment had a significant effect and
-whether the project is worth replicating.
+relevant curriculum into the syllabus[1]. The second step to take would
+be to conduct pre- and post-tests to measure the performance before and
+after a six-month course. Finally, the analyses of the data would
+indicate whether the experiment had a significant effect and whether the
+project is worth replicating.
 
 Assuming all the mentioned steps were adhered to and the evaluation of
 the effectiveness of the program for university and school students has
 been launched, let us review the artificially generated
 [data](https://drive.google.com/file/d/1JEZChzlwKD9l7MrXu2WVbqy38C4B2gL4/view?usp=sharing).
-The summary of the dataset is presented
-below.
+The summary of the dataset is presented below.
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-
 <thead>
-
 <tr>
-
 <th style="text-align:left;">
-
 </th>
-
 <th style="text-align:left;">
-
 Treatment.Type
-
 </th>
-
 <th style="text-align:left;">
-
 Pre
-
 </th>
-
 <th style="text-align:left;">
-
 Post
-
 </th>
-
 <th style="text-align:left;">
-
 Gender
-
 </th>
-
 <th style="text-align:left;">
-
 Age
-
 </th>
-
 <th style="text-align:left;">
-
 Math.Grade
-
 </th>
-
 <th style="text-align:left;">
-
 Overall.Grade
-
 </th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 Control :554
-
 </td>
-
 <td style="text-align:left;">
-
 Min. : 0.00
-
 </td>
-
 <td style="text-align:left;">
-
 Min. : 0.00
-
 </td>
-
 <td style="text-align:left;">
-
 Boy :460
-
 </td>
-
 <td style="text-align:left;">
-
 Min. : 6.00
-
 </td>
-
 <td style="text-align:left;">
-
 Min. : 4.00
-
 </td>
-
 <td style="text-align:left;">
-
 Average :412
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 Treatment:367
-
 </td>
-
 <td style="text-align:left;">
-
 1st Qu.:10.00
-
 </td>
-
 <td style="text-align:left;">
-
 1st Qu.:10.00
-
 </td>
-
 <td style="text-align:left;">
-
 Girl:461
-
 </td>
-
 <td style="text-align:left;">
-
 1st Qu.:11.00
-
 </td>
-
 <td style="text-align:left;">
-
 1st Qu.: 7.00
-
 </td>
-
 <td style="text-align:left;">
-
 Excellent:386
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 Median :13.00
-
 </td>
-
 <td style="text-align:left;">
-
 Median :15.00
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 Median :16.00
-
 </td>
-
 <td style="text-align:left;">
-
 Median : 8.00
-
 </td>
-
 <td style="text-align:left;">
-
 Poor :123
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 Mean :12.58
-
 </td>
-
 <td style="text-align:left;">
-
 Mean :16.96
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 Mean :15.95
-
 </td>
-
 <td style="text-align:left;">
-
 Mean : 7.55
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 3rd Qu.:16.00
-
 </td>
-
 <td style="text-align:left;">
-
 3rd Qu.:22.00
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 3rd Qu.:21.00
-
 </td>
-
 <td style="text-align:left;">
-
 3rd Qu.: 9.00
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 Max. :26.00
-
 </td>
-
 <td style="text-align:left;">
-
 Max. :39.00
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 Max. :25.00
-
 </td>
-
 <td style="text-align:left;">
-
 Max. :10.00
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 </tr>
-
 </tbody>
-
 </table>
 
 We have 7 variables and 921 observations without any missing values. The
@@ -383,10 +214,9 @@ between Pre and Post surveys across the control and treatment groups
 difference in difference
 [(DiD)](https://en.wikipedia.org/wiki/Difference_in_differences)
 analysis. Before conducting regression analysis let us observe the
-visual display of the treatment
-effect:
+visual display of the treatment effect:
 
-![](/2019-10-15-Propensity-Score-Matching_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](/2019-10-15-Propensity-Score-Matching_files/figure-markdown_strict/unnamed-chunk-4-1.png)
 
 It is clear that unlike the pre-test results *after* the teaching
 program students from the treatment group tend to answer most of the
@@ -439,16 +269,16 @@ omitted something”. Let us discuss briefly the concepts of
 [confounding](https://en.wikipedia.org/wiki/Confounding) variable or
 confounding factor and the ways in which it can be eliminated.
 
------
+------------------------------------------------------------------------
 
-# The problem
+The problem
+===========
 
-## Confounding bias and Randomization test
+Confounding bias and Randomization test
+---------------------------------------
 
 <center>
-
-![](/2019-10-15-Propensity-Score-Matching_files/PsmConfounding.png)
-
+<img src="/2019-10-15-Propensity-Score-Matching_files/PsmConfounding.png" style="width:25.0%" />
 </center>
 
 <br>
@@ -475,186 +305,106 @@ We can use the Chi-squared test of independence for categorical
 variables (gender and overall grade), and ANOVA for numeric variable
 `Math.grade` and `age`.
 
-> Chi-squared test
-result
+> Chi-squared test result
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-
 <thead>
-
 <tr>
-
 <th style="text-align:left;">
-
 Variable
-
 </th>
-
 <th style="text-align:right;">
-
 ChiSquare
-
 </th>
-
 <th style="text-align:right;">
-
 P.value
-
 </th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr>
-
 <td style="text-align:left;">
-
 Gender
-
 </td>
-
 <td style="text-align:right;">
-
 0.012
-
 </td>
-
 <td style="text-align:right;">
-
 0.9142
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Overall.Grade
-
 </td>
-
 <td style="text-align:right;">
-
 11.150
-
 </td>
-
 <td style="text-align:right;">
-
 0.0038
-
 </td>
-
 </tr>
-
 </tbody>
-
 </table>
 
-> ANOVA
-results
+> ANOVA results
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-
 <thead>
-
 <tr>
-
 <th style="text-align:left;">
-
 Variable
-
 </th>
-
 <th style="text-align:right;">
-
 F
-
 </th>
-
 <th style="text-align:right;">
-
 P.value
-
 </th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr>
-
 <td style="text-align:left;">
-
 Math.Grade
-
 </td>
-
 <td style="text-align:right;">
-
 30.615
-
 </td>
-
 <td style="text-align:right;">
-
 0.0000
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Age
-
 </td>
-
 <td style="text-align:right;">
-
 5.853
-
 </td>
-
 <td style="text-align:right;">
-
 0.0157
-
 </td>
-
 </tr>
-
 </tbody>
-
 </table>
 
-For variables with the p \> .05 , we do not reject the null hypothesis
+For variables with the p &gt; .05 , we do not reject the null hypothesis
 of independence of variables. We can conclude that the groups are
 independent from the gender at .05 significance level. However, the
 statistics for the remaining variables show that students in different
 groups (treatment and control) have different personal characteristics.
 To avoid being overly technical, we can describe the problem of the
-randomization through the graphs
-below:
+randomization through the graphs below:
 
-![](/2019-10-15-Propensity-Score-Matching_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](/2019-10-15-Propensity-Score-Matching_files/figure-markdown_strict/unnamed-chunk-10-1.png)
 
 The graphs illustrate that the distribution of students by gender in
 both groups are similar, however, the median value of math grade of
 students in the treatment group is noticeably higher and they had
-obtained higher math grades the previous
-semester.
+obtained higher math grades the previous semester.
 
-![](/2019-10-15-Propensity-Score-Matching_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](/2019-10-15-Propensity-Score-Matching_files/figure-markdown_strict/unnamed-chunk-12-1.png)
 
 The students/pupils in the control group are older and their overall
 grades are lower in comparison with the students in the treatment group.
@@ -671,11 +421,13 @@ seminars, because baseline characteristics of students differ
 systematically from those of untreated students. What should be done?
 The answer is to *randomize* the existing data.
 
------
+------------------------------------------------------------------------
 
-# The solution
+The solution
+============
 
-## Propensity scores
+Propensity scores
+-----------------
 
 There are different ways of performing randomization. In this case, we
 will discuss the method called Propensity Score Matching (PSM), normally
@@ -705,7 +457,7 @@ where `PS` is propensity score, X is the binary variable with 0 value,
 if the student is in the control group and, `X = 1`, then a student is
 in the treatment group, and `Z` is covariates (student characteristics).
 
-The propensity score is most often (not always\[2\]) estimated using a
+The propensity score is most often (not always[2]) estimated using a
 logistic regression model, where treatment status is regressed on a
 common set of explanatory variables (gender, age, math grade, overall
 grade of a student), such as:
@@ -732,7 +484,8 @@ scores rather than all covariates individually, so we have a chance to
 control for many confounding factors simultaneously by matching on a
 single scalar variable.
 
-## Matching
+Matching
+--------
 
 The propensity score can be used to reduce confounding via **matching**,
 stratification, regression adjustment, or any combination of these
@@ -747,11 +500,7 @@ level. To that end, we need the **distribution of covariates** to be the
 **similar** within the matched treated and control groups.
 
 <center>
-
-![[For more details see Schneeweiss S. A basic study design for
-expedited safety signal evaluation based on electronic healthcare
-data.](https://www.ncbi.nlm.nih.gov/pubmed/20681003)](/2019-10-15-Propensity-Score-Matching_files/PsmDensity.PNG)
-
+<img src="/2019-10-15-Propensity-Score-Matching_files/PsmDensity.PNG" alt="For more details see Schneeweiss S. A basic study design for expedited safety signal evaluation based on electronic healthcare data." style="width:60.0%" />
 </center>
 
 On the left extreme end of the distributions are the students and pupils
@@ -780,51 +529,29 @@ nearest-neighbor matching algorithm, the pairwise nearest-neighbor
 matching algorithm, is computationally fast and provides better balance
 among the treatment groups. That is why we use this method in our
 calculations. Let us now return to our case study. Before taking any
-randomization steps we have the following proportion of
-groups:
+randomization steps we have the following proportion of groups:
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-
 <thead>
-
 <tr>
-
 <th style="text-align:right;">
-
 Control
-
 </th>
-
 <th style="text-align:right;">
-
 Treatment
-
 </th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr>
-
 <td style="text-align:right;">
-
 554
-
 </td>
-
 <td style="text-align:right;">
-
 367
-
 </td>
-
 </tr>
-
 </tbody>
-
 </table>
 
 To show the result of propensity score matching, we will use the R
@@ -842,311 +569,184 @@ assigned by the investigator, or the random assignment goes wrong. The
 main command matchit() implements the matching procedures. Here is the
 simple case for balancing the data.
 
-``` r
-ChessWide <- read.csv("chess.csv")
-# Use install.packages("MatchIt") to install the package, call it by the function library().
-library(MatchIt)
+    ChessWide <- read.csv("chess.csv")
+    # Use install.packages("MatchIt") to install the package, call it by the function library().
+    library(MatchIt)
 
-# Changing the labels of target variable for matchit() function.
-ChessWide$Treatment.Type = ifelse(ChessWide$Treatment.Type == "Control", 0, 1)
+    # Changing the labels of target variable for matchit() function.
+    ChessWide$Treatment.Type = ifelse(ChessWide$Treatment.Type == "Control", 0, 1)
 
-# Data will be matched without one variable (Gender).
-# Different matched data can be obtained, for reproducible result the set.seed is used.
-set.seed(2708)
+    # Data will be matched without one variable (Gender).
+    # Different matched data can be obtained, for reproducible result the set.seed is used.
+    set.seed(2708)
 
-# The dependent variable is dichotomous treatment variable.
-# The covariates are pre-treatment characteristics of students.
+    # The dependent variable is dichotomous treatment variable.
+    # The covariates are pre-treatment characteristics of students.
 
-# This command creates the MatchIt object called match.
-match <- matchit(Treatment.Type ~ Age + Math.Grade + Overall.Grade, 
-  data = ChessWide, method = "nearest")
+    # This command creates the MatchIt object called match.
+    match <- matchit(Treatment.Type ~ Age + Math.Grade + Overall.Grade, 
+      data = ChessWide, method = "nearest")
 
-# The function match.data() is used to create the matched data from the MatchIt.
-# output object by excluding unmatched units from the original data.
+    # The function match.data() is used to create the matched data from the MatchIt.
+    # output object by excluding unmatched units from the original data.
 
-matcheddata <- match.data(match)
+    matcheddata <- match.data(match)
 
-# Creating function for comparison (results of Chi-squared and ANOVA tests).
-comparetable <- function(data){
-  
+    # Creating function for comparison (results of Chi-squared and ANOVA tests).
+    comparetable <- function(data){
+      
 
-  pacman::p_load(tableone)
+      pacman::p_load(tableone)
 
-  tab <- CreateTableOne( vars =  c("Gender", "Age", "Math.Grade", "Overall.Grade"), 
-                         data = data, 
-                         factorVars =  c("Gender", "Overall.Grade"), 
-                         strata = 'Treatment.Type')
+      tab <- CreateTableOne( vars =  c("Gender", "Age", "Math.Grade", "Overall.Grade"), 
+                             data = data, 
+                             factorVars =  c("Gender", "Overall.Grade"), 
+                             strata = 'Treatment.Type')
 
-  tab <- print(tab, printToggle = FALSE, noSpaces = TRUE)
-  tab[,-4]
-}
+      tab <- print(tab, printToggle = FALSE, noSpaces = TRUE)
+      tab[,-4]
+    }
 
-# Relabel the data and see the result.
-matcheddata$Treatment.Type = ifelse(matcheddata$Treatment.Type == 0,"Control", "Treatment")
-knitr::kable(comparetable(matcheddata)) %>%
-  kableExtra::kable_styling(bootstrap_options = "striped", full_width = F)
-```
+    # Relabel the data and see the result.
+    matcheddata$Treatment.Type = ifelse(matcheddata$Treatment.Type == 0,"Control", "Treatment")
+    knitr::kable(comparetable(matcheddata)) %>%
+      kableExtra::kable_styling(bootstrap_options = "striped", full_width = F)
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
-
 <thead>
-
 <tr>
-
 <th style="text-align:left;">
-
 </th>
-
 <th style="text-align:left;">
-
 Control
-
 </th>
-
 <th style="text-align:left;">
-
 Treatment
-
 </th>
-
 <th style="text-align:left;">
-
 p
-
 </th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr>
-
 <td style="text-align:left;">
-
 n
-
 </td>
-
 <td style="text-align:left;">
-
 367
-
 </td>
-
 <td style="text-align:left;">
-
 367
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Gender = Girl (%)
-
 </td>
-
 <td style="text-align:left;">
-
 177 (48.2)
-
 </td>
-
 <td style="text-align:left;">
-
 185 (50.4)
-
 </td>
-
 <td style="text-align:left;">
-
 0.605
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Age (mean (SD))
-
 </td>
-
 <td style="text-align:left;">
-
 15.41 (5.47)
-
 </td>
-
 <td style="text-align:left;">
-
 15.40 (5.74)
-
 </td>
-
 <td style="text-align:left;">
-
 0.979
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Math.Grade (mean (SD))
-
 </td>
-
 <td style="text-align:left;">
-
 7.73 (1.25)
-
 </td>
-
 <td style="text-align:left;">
-
 7.83 (1.33)
-
 </td>
-
 <td style="text-align:left;">
-
 0.305
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Overall.Grade (%)
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 <td style="text-align:left;">
-
 0.568
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Average
-
 </td>
-
 <td style="text-align:left;">
-
 161 (43.9)
-
 </td>
-
 <td style="text-align:left;">
-
 148 (40.3)
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Excellent
-
 </td>
-
 <td style="text-align:left;">
-
 164 (44.7)
-
 </td>
-
 <td style="text-align:left;">
-
 178 (48.5)
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 </tr>
-
 <tr>
-
 <td style="text-align:left;">
-
 Poor
-
 </td>
-
 <td style="text-align:left;">
-
 42 (11.4)
-
 </td>
-
 <td style="text-align:left;">
-
 41 (11.2)
-
 </td>
-
 <td style="text-align:left;">
-
 </td>
-
 </tr>
-
 </tbody>
-
 </table>
 
-`Treatment.Type` is the dichotomous treatment variable, `Gender, Age,
-Math.grade, Overall.Grade` pre-treatment covariates, all of which are
-contained in the data frame ChessWide\[3\]. The dependent variable may
-be included in ChessWide for convenience but is never used by MatchIt or
-included in the
-formula.
+`Treatment.Type` is the dichotomous treatment variable,
+`Gender, Age, Math.grade, Overall.Grade` pre-treatment covariates, all
+of which are contained in the data frame ChessWide[3]. The dependent
+variable may be included in ChessWide for convenience but is never used
+by MatchIt or included in the formula.
 
-![](/2019-10-15-Propensity-Score-Matching_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](/2019-10-15-Propensity-Score-Matching_files/figure-markdown_strict/unnamed-chunk-16-1.png)
 
-![](/2019-10-15-Propensity-Score-Matching_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](/2019-10-15-Propensity-Score-Matching_files/figure-markdown_strict/unnamed-chunk-18-1.png)
 
 The distribution of variables across treatment and control group is
 relatively similar, the test result also indicates that there is no
@@ -1157,12 +757,10 @@ outcome for untreated students in the matched sample. Although there is
 no noticeable difference between results, the second parametric analysis
 is more reliable because it is based on matched data.
 
-``` r
-# For regression analysis we use the data in the long format
-MLong <- tidyr::gather(matcheddata, PrePost, Answers, c(Pre,Post), factor_key=TRUE)
-matchedmodel <- lm(Answers ~ Treatment.Type + PrePost + Treatment.Type * PrePost, data = MLong)
-summary(matchedmodel)
-```
+    # For regression analysis we use the data in the long format
+    MLong <- tidyr::gather(matcheddata, PrePost, Answers, c(Pre,Post), factor_key=TRUE)
+    matchedmodel <- lm(Answers ~ Treatment.Type + PrePost + Treatment.Type * PrePost, data = MLong)
+    summary(matchedmodel)
 
     ## 
     ## Call:
@@ -1191,9 +789,10 @@ summary(matchedmodel)
     ## Multiple R-squared:  0.5089, Adjusted R-squared:  0.5079 
     ## F-statistic: 505.6 on 3 and 1464 DF,  p-value: < 2.2e-16
 
------
+------------------------------------------------------------------------
 
-# Conclusion
+Conclusion
+==========
 
 All in all, randomization is a popular method to block or minimize
 potential imbalance between the treatment and control groups in order to
@@ -1229,9 +828,10 @@ covariates. Thus, unmeasured confounding bias cannot be excluded. Other
 illustrations of PSM drawbacks maay be found
 [here](https://gking.harvard.edu/files/gking/files/psnot.pdf).
 
------
+------------------------------------------------------------------------
 
-# Reference List
+Reference List
+==============
 
 > *P. Rosenbaum, D. Rubin, “The Central Role of the Propensity Score in
 > Observational Studies for Causal Effects.”*
@@ -1242,14 +842,14 @@ illustrations of PSM drawbacks maay be found
 > *S. Schneeweiss, “A basic study design for expedited safety signal
 > evaluation based on electronic healthcare data.”*
 
------
+------------------------------------------------------------------------
 
-1.  Chess became a compulsory subject in the national school curriculum
-    of Armenia since 2011
+[1] Chess became a compulsory subject in the national school curriculum
+of Armenia since 2011
 
-2.  The use of bagging or boosting, recursive partitioning or tree-based
-    methods, random forests and other methods for estimating the
-    propensity score can be examined.
+[2] The use of bagging or boosting, recursive partitioning or tree-based
+methods, random forests and other methods for estimating the propensity
+score can be examined.
 
-3.  The long format of data is for regression analysis, and wide format
-    for matching and visualization.
+[3] The long format of data is for regression analysis, and wide format
+for matching and visualization.
