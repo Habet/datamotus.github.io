@@ -20,8 +20,9 @@ project is worth replicating.
 
 Assuming all the mentioned steps were adhered to and the evaluation of
 the effectiveness of the program for university and school students has
-been launched, let us review the artificially generated
-! [data](/2019-10-15-Propensity-Score-Matching_files/Chess.csv). The summary of the dataset is presented below.
+been launched, let us review the artificially generated !
+[data](/2019-10-15-Propensity-Score-Matching_files/Chess.csv). The
+summary of the dataset is presented below.
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -450,7 +451,7 @@ The propensity score is the estimated conditional probability
 (propensity) of receiving treatment based on the covariates included in
 the propensity score model:
 
-<pre>$$PS = P(X=1|Z=z),$$ </pre>
+$$PS = P(X=1|Z=z),$$ 
 
 where `PS` is propensity score, X is the binary variable with 0 value,
 if the student is in the control group and, `X = 1`, then a student is
@@ -461,9 +462,8 @@ logistic regression model, where treatment status is regressed on a
 common set of explanatory variables (gender, age, math grade, overall
 grade of a student), such as:
 
-<pre>
+
 $$log \frac{P(X = 1)}{1-P(X = 1)} = \beta_0 + \beta_1Z_1 +...+\beta_kZ_k$$
-</pre>
 
 The propensity score plays an important role in balancing the study
 groups to make the treated and untreated groups comparable. The authors
