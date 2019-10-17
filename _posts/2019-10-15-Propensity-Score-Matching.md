@@ -761,34 +761,45 @@ is more reliable because it is based on matched data.
     # For regression analysis we use the data in the long format
     MLong <- tidyr::gather(matcheddata, PrePost, Answers, c(Pre,Post), factor_key=TRUE)
     matchedmodel <- lm(Answers ~ Treatment.Type + PrePost + Treatment.Type * PrePost, data = MLong)
-    summary(matchedmodel)
+    stargazer::stargazer(matchedmodel,
+      title = "DID Results",
+      dep.var.labels = c("Answers"),
+      out="models.htm",
+      type = "text",
+      header=FALSE, 
+      covariate.labels = c(
+        "Group (Treatment)",
+        "Time (Post)",
+        "Group * Time (Treatment * Post)"
+      ))
 
     ## 
-    ## Call:
-    ## lm(formula = Answers ~ Treatment.Type + PrePost + Treatment.Type * 
-    ##     PrePost, data = MLong)
-    ## 
-    ## Residuals:
-    ##      Min       1Q   Median       3Q      Max 
-    ## -24.6921  -3.3815   0.6185   3.4523  14.3079 
-    ## 
-    ## Coefficients:
-    ##                                     Estimate Std. Error t value Pr(>|t|)
-    ## (Intercept)                          12.3815     0.2782  44.511   <2e-16
-    ## Treatment.TypeTreatment               0.3569     0.3934   0.907   0.3644
-    ## PrePostPost                          -0.8338     0.3934  -2.120   0.0342
-    ## Treatment.TypeTreatment:PrePostPost  12.7875     0.5563  22.986   <2e-16
-    ##                                        
-    ## (Intercept)                         ***
-    ## Treatment.TypeTreatment                
-    ## PrePostPost                         *  
-    ## Treatment.TypeTreatment:PrePostPost ***
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-    ## 
-    ## Residual standard error: 5.329 on 1464 degrees of freedom
-    ## Multiple R-squared:  0.5089, Adjusted R-squared:  0.5079 
-    ## F-statistic: 505.6 on 3 and 1464 DF,  p-value: < 2.2e-16
+    ## DID Results
+    ## ===========================================================
+    ##                                     Dependent variable:    
+    ##                                 ---------------------------
+    ##                                           Answers          
+    ## -----------------------------------------------------------
+    ## Group (Treatment)                          0.357           
+    ##                                           (0.393)          
+    ##                                                            
+    ## Time (Post)                              -0.834**          
+    ##                                           (0.393)          
+    ##                                                            
+    ## Group * Time (Treatment * Post)          12.787***         
+    ##                                           (0.556)          
+    ##                                                            
+    ## Constant                                 12.381***         
+    ##                                           (0.278)          
+    ##                                                            
+    ## -----------------------------------------------------------
+    ## Observations                               1,468           
+    ## R2                                         0.509           
+    ## Adjusted R2                                0.508           
+    ## Residual Std. Error                  5.329 (df = 1464)     
+    ## F Statistic                      505.610*** (df = 3; 1464) 
+    ## ===========================================================
+    ## Note:                           *p<0.1; **p<0.05; ***p<0.01
 
 ------------------------------------------------------------------------
 
