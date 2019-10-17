@@ -1,4 +1,4 @@
-Introduction
+﻿Introduction
 ============
 
 The research question is whether playing chess is correlated with the
@@ -500,7 +500,7 @@ level. To that end, we need the **distribution of covariates** to be the
 **similar** within the matched treated and control groups.
 
 <center>
-<img src="/_posts/2019-10-15-Propensity-Score-Matching_files/PsmDensity.PNG" alt="For more details see Schneeweiss S. A basic study design for expedited safety signal evaluation based on electronic healthcare data." style="width:60.0%" />
+<img src="/2019-10-15-Propensity-Score-Matching_files/PsmDensity.PNG" alt="For more details see Schneeweiss S. A basic study design for expedited safety signal evaluation based on electronic healthcare data." style="width:60.0%" />
 </center>
 
 On the left extreme end of the distributions are the students and pupils
