@@ -216,7 +216,7 @@ difference in difference
 analysis. Before conducting regression analysis let us observe the
 visual display of the treatment effect:
 
-![](/_posts/2019-10-15-Propensity-Score-Matching_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](/2019-10-15-Propensity-Score-Matching_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 It is clear that unlike the pre-test results *after* the teaching
 program students from the treatment group tend to answer most of the
@@ -397,14 +397,14 @@ groups (treatment and control) have different personal characteristics.
 To avoid being overly technical, we can describe the problem of the
 randomization through the graphs below:
 
-![](/_posts/2019-10-15-Propensity-Score-Matching_files/figure-markdown_github/unnamed-chunk-10-1.png)
+![](/2019-10-15-Propensity-Score-Matching_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
 The graphs illustrate that the distribution of students by gender in
 both groups are similar, however, the median value of math grade of
 students in the treatment group is noticeably higher and they had
 obtained higher math grades the previous semester.
 
-![](/_posts/2019-10-15-Propensity-Score-Matching_files/figure-markdown_github/unnamed-chunk-12-1.png)
+![](/2019-10-15-Propensity-Score-Matching_files/figure-markdown_github/unnamed-chunk-12-1.png)
 
 The students/pupils in the control group are older and their overall
 grades are lower in comparison with the students in the treatment group.
@@ -746,9 +746,9 @@ of which are contained in the data frame ChessWide[3]. The dependent
 variable may be included in ChessWide for convenience but is never used
 by MatchIt or included in the formula.
 
-![](/_posts/2019-10-15-Propensity-Score-Matching_files/figure-markdown_github/unnamed-chunk-16-1.png)
+![](/2019-10-15-Propensity-Score-Matching_files/figure-markdown_github/unnamed-chunk-16-1.png)
 
-![](/_posts/2019-10-15-Propensity-Score-Matching_files/figure-markdown_github/unnamed-chunk-18-1.png)
+![](/2019-10-15-Propensity-Score-Matching_files/figure-markdown_github/unnamed-chunk-18-1.png)
 
 The distribution of variables across treatment and control group is
 relatively similar, the test result also indicates that there is no
