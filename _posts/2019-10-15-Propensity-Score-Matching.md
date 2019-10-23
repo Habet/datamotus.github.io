@@ -743,7 +743,7 @@ Poor
 `Gender, Age, Math.grade, Overall.Grade` pre-treatment covariates, all
 of which are contained in the data frame ChessWide[3]. The dependent
 variable may be included in ChessWide for convenience but is never used
-by MatchIt or included in the formula.
+by MatchIt or included in the formula. 
 
 ![](/2019-10-15-Propensity-Score-Matching_files/figure-gfm/unnamed-chunk-16-1.png)
 
