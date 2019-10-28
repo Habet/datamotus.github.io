@@ -1,4 +1,4 @@
-﻿Introduction
+Introduction
 ============
 
 Nowadays, having a business implies awning a website. The primary aim of
@@ -174,7 +174,7 @@ The result of fitted linear regression is presented in the output below:
       title = "DID Results",
       dep.var.labels = c("Answers"),
       out="models.htm",# out.header=TRUE,
-      type = "html",
+      type = "text",
       header=FALSE, 
       covariate.labels = c(
         "Budget",
@@ -185,221 +185,39 @@ The result of fitted linear regression is presented in the output below:
       )
       )
 
-<table style="text-align:center">
-<caption>
-<strong>DID Results</strong>
-</caption>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-<em>Dependent variable:</em>
-</td>
-</tr>
-<tr>
-<td>
-</td>
-<td colspan="1" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-Answers
-</td>
-</tr>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Budget
-</td>
-<td>
-1.017<sup>\*\*\*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(0.032)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Outdoor Ads
-</td>
-<td>
-17.623
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(28.957)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Radio and Podcasts
-</td>
-<td>
-31.784
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(29.003)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Social Media Ads
-</td>
-<td>
--40.288
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(29.366)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Video Ads
-</td>
-<td>
--10.368
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(28.737)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Constant
-</td>
-<td>
-3,995.437<sup>\*\*\*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(26.096)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Observations
-</td>
-<td>
-1,000
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-R<sup>2</sup>
-</td>
-<td>
-0.506
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Adjusted R<sup>2</sup>
-</td>
-<td>
-0.504
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Residual Std. Error
-</td>
-<td>
-293.017 (df = 994)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-F Statistic
-</td>
-<td>
-203.633<sup>\*\*\*</sup> (df = 5; 994)
-</td>
-</tr>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-<em>Note:</em>
-</td>
-<td style="text-align:right">
-<sup>*</sup>p&lt;0.1; <sup>**</sup>p&lt;0.05; <sup>***</sup>p&lt;0.01
-</td>
-</tr>
-</table>
+    ## 
+    ## DID Results
+    ## =======================================================
+    ##                                 Dependent variable:    
+    ##                             ---------------------------
+    ##                                       Answers          
+    ## -------------------------------------------------------
+    ## Budget                               1.017***          
+    ##                                       (0.032)          
+    ##                                                        
+    ## Ad Type: Outdoor Ads                  17.623           
+    ##                                      (28.957)          
+    ##                                                        
+    ## Ad Type: Radio and Podcasts           31.784           
+    ##                                      (29.003)          
+    ##                                                        
+    ## Ad Type: Social Media Ads             -40.288          
+    ##                                      (29.366)          
+    ##                                                        
+    ## Ad Type: Video Ads                    -10.368          
+    ##                                      (28.737)          
+    ##                                                        
+    ## Constant                           3,995.437***        
+    ##                                      (26.096)          
+    ##                                                        
+    ## -------------------------------------------------------
+    ## Observations                           1,000           
+    ## R2                                     0.506           
+    ## Adjusted R2                            0.504           
+    ## Residual Std. Error             293.017 (df = 994)     
+    ## F Statistic                  203.633*** (df = 5; 994)  
+    ## =======================================================
+    ## Note:                       *p<0.1; **p<0.05; ***p<0.01
 
 It is not surprising that the coefficients for the unique levels of
 variable `AdType` are not significant, because there is no effect on the
@@ -589,7 +407,8 @@ $X\_i'=\\frac{X\_i}{\\sigma\_{\\epsilon\_i}}$,
 $\\epsilon\_i'=\\frac{\\epsilon\_i}{\\sigma\_{\\epsilon\_i}}$
 
 **Note** that there should not be a constant term in the equation. By
-regressing $Y'$
+regressing
+<pre>$Y'$</pre>
 
 on *h* and *X*′, we will obtain efficient estimates of *β*<sub>1</sub>
 and *β*<sub>2</sub> with unbiased standard errors. The general solution
@@ -656,7 +475,7 @@ The result of fitted models will be:
       dep.var.labels = c("Visits"),
       column.labels = c("-","1/Budget", "1/Budget\\^2", "1/y", "1/y\\^2", "1/e\\^2","1/|e|"),
       out="models.htm",
-      type = "html",
+      type = "text",
       header=FALSE, 
       covariate.labels = c(
         "Budget",
@@ -667,649 +486,50 @@ The result of fitted models will be:
       )
       )
 
-<table style="text-align:center">
-<caption>
-<strong>WOLS Results</strong>
-</caption>
-<tr>
-<td colspan="8" style="border-bottom: 1px solid black">
-</td>
+WOLS Results
+============
+
+                                                                Dependent variable:                                     
+                               --------------------------------------------------------------------------------------------
+                                                                          Visits                                           
+                                    -         1/Budget    1/Budget^2      1/y         1/y^2         1/e^2         1/|e|    
+                                   (1)          (2)          (3)          (4)          (5)           (6)           (7)     
+
+<table>
+<colgroup>
+<col style="width: 100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Budget 1.017*** 1.014*** 1.018*** 1.015*** 1.014*** 1.018*** 1.014*** (0.032) (0.024) (0.022) (0.031) (0.031) (0.001) (0.008)</td>
 </tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td colspan="7">
-<em>Dependent variable:</em>
-</td>
+<tr class="even">
+<td style="text-align: left;">Ad Type: Outdoor Ads 17.623 9.016 1.778 17.291 16.927 18.380*** 16.810** (28.957) (19.540) (10.354) (28.251) (27.531) (1.405) (8.426)</td>
 </tr>
-<tr>
-<td>
-</td>
-<td colspan="7" style="border-bottom: 1px solid black">
-</td>
+<tr class="odd">
+<td style="text-align: left;">Ad Type: Radio and Podcasts 31.784 15.184 1.457 30.884 29.894 31.647*** 28.276*** (29.003) (19.823) (10.732) (28.302) (27.591) (1.562) (9.309)</td>
 </tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td colspan="7">
-Visits
-</td>
+<tr class="even">
+<td style="text-align: left;">Ad Type: Social Media Ads -40.288 -10.390 -0.402 -36.504 -32.869 -39.380*** -36.515*** (29.366) (19.315) (10.069) (28.470) (27.571) (1.498) (9.223)</td>
 </tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-\-
-</td>
-<td>
-1/Budget
-</td>
-<td>
-1/Budget^2
-</td>
-<td>
-1/y
-</td>
-<td>
-1/y^2
-</td>
-<td>
-1/e^2
-</td>
-<td>
-1/|e|
-</td>
+<tr class="odd">
+<td style="text-align: left;">Ad Type: Video Ads -10.368 3.876 11.703 -7.915 -5.622 -8.910*** -8.182 (28.737) (20.532) (12.335) (27.977) (27.217) (1.597) (9.493)</td>
 </tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(1)
-</td>
-<td>
-(2)
-</td>
-<td>
-(3)
-</td>
-<td>
-(4)
-</td>
-<td>
-(5)
-</td>
-<td>
-(6)
-</td>
-<td>
-(7)
-</td>
+<tr class="even">
+<td style="text-align: left;">Constant 3,995.437*** 3,993.525*** 3,992.827*** 3,995.256*** 3,995.106*** 3,994.459*** 3,996.948*** (26.096) (14.600) (7.216) (24.978) (23.908) (1.388) (7.472)</td>
 </tr>
-<tr>
-<td colspan="8" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Budget
-</td>
-<td>
-1.017<sup>\*\*\*</sup>
-</td>
-<td>
-1.014<sup>\*\*\*</sup>
-</td>
-<td>
-1.018<sup>\*\*\*</sup>
-</td>
-<td>
-1.015<sup>\*\*\*</sup>
-</td>
-<td>
-1.014<sup>\*\*\*</sup>
-</td>
-<td>
-1.018<sup>\*\*\*</sup>
-</td>
-<td>
-1.014<sup>\*\*\*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(0.032)
-</td>
-<td>
-(0.024)
-</td>
-<td>
-(0.022)
-</td>
-<td>
-(0.031)
-</td>
-<td>
-(0.031)
-</td>
-<td>
-(0.001)
-</td>
-<td>
-(0.008)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Outdoor Ads
-</td>
-<td>
-17.623
-</td>
-<td>
-9.016
-</td>
-<td>
-1.778
-</td>
-<td>
-17.291
-</td>
-<td>
-16.927
-</td>
-<td>
-18.380<sup>\*\*\*</sup>
-</td>
-<td>
-16.810<sup>\*\*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(28.957)
-</td>
-<td>
-(19.540)
-</td>
-<td>
-(10.354)
-</td>
-<td>
-(28.251)
-</td>
-<td>
-(27.531)
-</td>
-<td>
-(1.405)
-</td>
-<td>
-(8.426)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Radio and Podcasts
-</td>
-<td>
-31.784
-</td>
-<td>
-15.184
-</td>
-<td>
-1.457
-</td>
-<td>
-30.884
-</td>
-<td>
-29.894
-</td>
-<td>
-31.647<sup>\*\*\*</sup>
-</td>
-<td>
-28.276<sup>\*\*\*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(29.003)
-</td>
-<td>
-(19.823)
-</td>
-<td>
-(10.732)
-</td>
-<td>
-(28.302)
-</td>
-<td>
-(27.591)
-</td>
-<td>
-(1.562)
-</td>
-<td>
-(9.309)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Social Media Ads
-</td>
-<td>
--40.288
-</td>
-<td>
--10.390
-</td>
-<td>
--0.402
-</td>
-<td>
--36.504
-</td>
-<td>
--32.869
-</td>
-<td>
--39.380<sup>\*\*\*</sup>
-</td>
-<td>
--36.515<sup>\*\*\*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(29.366)
-</td>
-<td>
-(19.315)
-</td>
-<td>
-(10.069)
-</td>
-<td>
-(28.470)
-</td>
-<td>
-(27.571)
-</td>
-<td>
-(1.498)
-</td>
-<td>
-(9.223)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Video Ads
-</td>
-<td>
--10.368
-</td>
-<td>
-3.876
-</td>
-<td>
-11.703
-</td>
-<td>
--7.915
-</td>
-<td>
--5.622
-</td>
-<td>
--8.910<sup>\*\*\*</sup>
-</td>
-<td>
--8.182
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(28.737)
-</td>
-<td>
-(20.532)
-</td>
-<td>
-(12.335)
-</td>
-<td>
-(27.977)
-</td>
-<td>
-(27.217)
-</td>
-<td>
-(1.597)
-</td>
-<td>
-(9.493)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Constant
-</td>
-<td>
-3,995.437<sup>\*\*\*</sup>
-</td>
-<td>
-3,993.525<sup>\*\*\*</sup>
-</td>
-<td>
-3,992.827<sup>\*\*\*</sup>
-</td>
-<td>
-3,995.256<sup>\*\*\*</sup>
-</td>
-<td>
-3,995.106<sup>\*\*\*</sup>
-</td>
-<td>
-3,994.459<sup>\*\*\*</sup>
-</td>
-<td>
-3,996.948<sup>\*\*\*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(26.096)
-</td>
-<td>
-(14.600)
-</td>
-<td>
-(7.216)
-</td>
-<td>
-(24.978)
-</td>
-<td>
-(23.908)
-</td>
-<td>
-(1.388)
-</td>
-<td>
-(7.472)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td colspan="8" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Observations
-</td>
-<td>
-1,000
-</td>
-<td>
-1,000
-</td>
-<td>
-1,000
-</td>
-<td>
-1,000
-</td>
-<td>
-1,000
-</td>
-<td>
-1,000
-</td>
-<td>
-1,000
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-R<sup>2</sup>
-</td>
-<td>
-0.506
-</td>
-<td>
-0.645
-</td>
-<td>
-0.691
-</td>
-<td>
-0.517
-</td>
-<td>
-0.528
-</td>
-<td>
-1.000
-</td>
-<td>
-0.940
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Adjusted R<sup>2</sup>
-</td>
-<td>
-0.504
-</td>
-<td>
-0.644
-</td>
-<td>
-0.689
-</td>
-<td>
-0.515
-</td>
-<td>
-0.526
-</td>
-<td>
-1.000
-</td>
-<td>
-0.939
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Residual Std. Error (df = 994)
-</td>
-<td>
-293.017
-</td>
-<td>
-11.263
-</td>
-<td>
-0.492
-</td>
-<td>
-4.242
-</td>
-<td>
-0.061
-</td>
-<td>
-1.000
-</td>
-<td>
-14.521
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-F Statistic (df = 5; 994)
-</td>
-<td>
-203.633<sup>\*\*\*</sup>
-</td>
-<td>
-361.792<sup>\*\*\*</sup>
-</td>
-<td>
-444.545<sup>\*\*\*</sup>
-</td>
-<td>
-213.209<sup>\*\*\*</sup>
-</td>
-<td>
-222.603<sup>\*\*\*</sup>
-</td>
-<td>
-585,907.100<sup>\*\*\*</sup>
-</td>
-<td>
-3,091.199<sup>\*\*\*</sup>
-</td>
-</tr>
-<tr>
-<td colspan="8" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-<em>Note:</em>
-</td>
-<td colspan="7" style="text-align:right">
-<sup>*</sup>p&lt;0.1; <sup>**</sup>p&lt;0.05; <sup>***</sup>p&lt;0.01
-</td>
-</tr>
+</tbody>
 </table>
+
+Observations 1,000 1,000 1,000 1,000 1,000 1,000 1,000  
+R2 0.506 0.645 0.691 0.517 0.528 1.000 0.940  
+Adjusted R2 0.504 0.644 0.689 0.515 0.526 1.000 0.939  
+Residual Std. Error (df = 994) 293.017 11.263 0.492 4.242 0.061 1.000
+14.521  
+F Statistic (df = 5; 994) 203.633\*\*\* 361.792\*\*\* 444.545\*\*\*
+213.209\*\*\* 222.603\*\*\* 585,907.100\*\*\* 3,091.199***
+===========================================================================================================================
+Note: *p&lt;0.1; **p&lt;0.05; \*\*\*p&lt;0.01
 
 Weighted least squares estimates of the coefficients will usually be
 nearly the same as the “ordinary” unweighted estimates. In the models
