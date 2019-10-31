@@ -164,9 +164,9 @@ role.
 To understand the effect of advertising let us consider the following
 multiple linear regression model:
 
-</pre>
+
 *V**i**s**i**t**s*<sub>*i*</sub> = *β*<sub>0</sub> + *β*<sub>1</sub>*B**u**d**g**e**t*<sub>*i*</sub> + *β*<sub>2</sub>*A**d**T**y**p**e*<sub>*i*</sub> + *ϵ*<sub>*i*</sub>
-</pre>
+
 
 The result of fitted linear regression is presented in the output below:
 
@@ -430,10 +430,10 @@ in heteroscedasticity. Mathematically, homoscedasticity and
 heteroscedasticity may be defined as:
 
 -   **Homoscedasticity:**
-    <pre>$\sigma_{\epsilon_i}^2=\sigma_{\epsilon}^2$ </pre>
+    $\sigma_{\epsilon_i}^2=\sigma_{\epsilon}^2$ 
     the same for all observations
 -   **Heteroscedasticity:**
-    <pre>$\sigma_{\epsilon_i}^2$ </pre>
+    $\sigma_{\epsilon_i}^2$ 
     is not the same for all observations.
 
 See the visual demonstration of homoscedasticity and heteroscedasticity
@@ -444,15 +444,15 @@ below:
 </center>
 The left picture illustrates homoscedasticity. Let us start with the
 first observation, where
-<pre>$X$</pre>
+$X$
 has the value of
-<pre>$X_1$ </pre>
+$X_1$ 
 . If there was no disturbance term in the model, the observation would
 be represented by the circle lied on line
-<pre>$Y = \beta_1+\beta_2X$</pre>
+$Y = \beta_1+\beta_2X$
 . The effect of the disturbance term is to shift the observation upwards
 or downwards vertically (downwards in case of
-<pre>$X_1$</pre>
+$X_1$
 
 ). The potential distribution of the disturbance term, before the
 observation was generated, is shown by the normal distribution.
@@ -500,7 +500,7 @@ Nevertheless, two concerns are raised:
     heteroscedasticity, the OLS regression coefficients have the lowest
     variances of all the unbiased estimators that are linear functions
     of the observations of
-    <pre>$Y$</pre>
+    $Y$
 
     . If heteroscedasticity is present, the OLS estimators are
     inefficient because it is possible to find other estimators that
@@ -562,59 +562,59 @@ poor guides to the location of the line. Thus, it may be concluded that
 if we can find a way of assigning more weight to high-quality
 observations and less to the unreliable ones, we are likely to obtain a
 better fit. In other words, our estimators of
-<pre>$\beta_1$</pre>
+$\beta_1$
 and
-<pre>$\beta_2$</pre>
+$\beta_2$
 will be more efficient. WOLS works by incorporating extra nonnegative
 constants (weights) associated with each data point into the fitting
 criterion. We shall see how to do this below. Suppose the true
 relationship is
-<pre>
+
 $$Y_i = \beta_1+\beta_2X_i + \epsilon_i$$
-</pre>
+
 and
-<pre>
+
 $$var(\epsilon_i) = \sigma_{\epsilon_i}^2$$
-</pre>
+
 
 So we have a heteroscedastic model. We could eliminate the
 heteroscedasticity by dividing each observation by its value of
 *σ*<sub>*ϵ*<sub>*i*</sub></sub>. The model becomes
 
-<pre>
+
 $$\frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}$$
-</pre>
+
 The disturbance term
-<pre>$\frac{\epsilon_i}{\sigma_{\epsilon_i}}$</pre>
+$\frac{\epsilon_i}{\sigma_{\epsilon_i}}$
 is homoscedastic because
-<pre>
+
 $$E[(\frac{\epsilon_i}{\sigma_{\epsilon_i}})^2] = \frac{1}{\sigma_{\epsilon_i}^2}E(\epsilon_i^2)=\frac{1}{\sigma_{\epsilon_i}^2}\sigma_{\epsilon_i}^2=1$$
-</pre>
+
 Therefore, every observation will have a disturbance term drawn from a
 distribution with population variance 1, and the model will be
 homoscedastic. By rewriting the model, we will have
-<pre>
+
 $$Y_i' = \beta_1h_i + \beta_2X_i'+\epsilon_i',$$
-</pre>
+
 where
-<pre>$Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}$, $h_i=\frac{1}{\sigma_{\epsilon_i}}$, $X_i'=\frac{X_i}{\sigma_{\epsilon_i}}$, $\epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$
-</pre>
+$Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}$, $h_i=\frac{1}{\sigma_{\epsilon_i}}$, $X_i'=\frac{X_i}{\sigma_{\epsilon_i}}$, $\epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$
+
 **Note** that there should not be a constant term in the equation. By
 regressing
-<pre>$Y'$</pre>
+$Y'$
 on *h* and *X*′, we will obtain efficient estimates of
-<pre>$\beta_1$</pre>
+$\beta_1$
 and
-<pre>$\beta_2$</pre>
+$\beta_2$
 
 with unbiased standard errors. The general solution to this is
 
-<pre>
+
 $$\hat{\beta}=(X^TWX)^{-1}(X^TWY),$$
-</pre>
+
 where *W* is the diagonal martrix with diagonal entries equal to weights
 and
-<pre>$Var(\epsilon)=W^{-1}\sigma^2$</pre>
+$Var(\epsilon)=W^{-1}\sigma^2$
 
 .
 
@@ -627,55 +627,55 @@ based on, for instance, the distribution of the error term. There are
 the following common types of situations and weights:
 
 -   When the variance is proportional to some predictor
-    <pre>$x_i$</pre>
+    $x_i$
     , then
-    <pre>$Var(y_i)=x_i\sigma^2$</pre>
+    $Var(y_i)=x_i\sigma^2$
     thus we set
-    <pre>$w_i = 1/x_i$</pre>
+    $w_i = 1/x_i$
 -   When the
-    <pre>$i^{th}$</pre>
+    $i^{th}$
     value of y is an average of
-    <pre>$n_i$</pre>
+    $n_i$
     observations
-    <pre>$var(y_i)=\frac{\sigma^2}{n_i}$</pre>
+    $var(y_i)=\frac{\sigma^2}{n_i}$
     , thus we set
-    <pre>$w_i=n_i$</pre>
+    $w_i=n_i$
 
     (this situation often occurs in cluster surveys).
 
 -   When the
-    <pre>$i^{th}$</pre>
+    $i^{th}$
     value of y is a total of
-    <pre>$n_i$</pre>
+    $n_i$
     observations
-    <pre>$var(y_i)={\sigma^2}{n_i}$</pre>
+    $var(y_i)={\sigma^2}{n_i}$
     , thus we set
-    <pre>$w_i=1/n_i$</pre>
+    $w_i=1/n_i$
 
     .
 
 If the structure of weights is unknown, we have to perform a two-stage
 estimation procedure. We need to estimate an ordinary least squares
 regression to obtain the estimate of
-<pre>${\sigma_i^2}$</pre>
+${\sigma_i^2}$
 for
-<pre>$i^{th}$</pre>
+$i^{th}$
 squared residual and the absolute value of standard deviation (in case
 of outliers). Thus, we can have different weights depending on
-<pre>${\sigma_i^2}$</pre>
+${\sigma_i^2}$
 . Often the weights are determined by fitted values rather than the
 independent variable. Let us show these different models via statistical
 package R. Fortunately, the R function `lm()` ,which is used to perform
 the ordinary least squares, provides the argument `weights` to perform
 WOLS. By default the value of weights in `lm()` is `NULL`, weighted
 least squares are used with weights `weights`, minimizing the sum of
-<pre>$w*e^2$</pre>
+$w*e^2$
 
 .
 
 Suppose we do not know the pattern of weights, and we want to fit the
 models with the following weights
-<pre>$w_i=\frac{1}{x_i}$, $w_i=\frac{1}{x_i^2}$, $w_i=\frac{1}{y_i^2}$, $w=\frac{1}{y_{hat}^2}$, $w_i=\frac{1}{\sigma_i^2}$, $w_i=\frac{1}{|\sigma_i|}$</pre>
+$w_i=\frac{1}{x_i}$, $w_i=\frac{1}{x_i^2}$, $w_i=\frac{1}{y_i^2}$, $w=\frac{1}{y_{hat}^2}$, $w_i=\frac{1}{\sigma_i^2}$, $w_i=\frac{1}{|\sigma_i|}$
 
 .
 
@@ -1390,7 +1390,7 @@ irrelevant to the weights used in the analysis.
 ![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown_strict/unnamed-chunk-8-2.png)
 
 It seems that the second WOLS model with the following weights
-<pre>$w_i=\frac{1}{x_i^2}$</pre>
+$w_i=\frac{1}{x_i^2}$
 
 , because the variability of residuals is the same for all predicted
 values. We can now be more confident in results and state that with
