@@ -910,9 +910,9 @@ constants (weights) associated with each data point into the fitting
 criterion. We shall see how to do this below. Suppose the true
 relationship is
 
-<pre>
+
 $$Y_i = \beta_1+\beta_2X_i + \epsilon_i$$
-</pre>
+
 
 and
 
