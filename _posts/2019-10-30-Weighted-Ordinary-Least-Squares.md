@@ -166,9 +166,7 @@ role.
 To understand the effect of advertising let us consider the following
 multiple linear regression model:
 
-</pre>
 $$Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i$$
-</pre>
 
 The result of fitted linear regression is presented in the output below:
 
@@ -435,9 +433,8 @@ heteroscedasticity may be defined as:
 
 -   **Homoscedasticity:** $\sigma_{\epsilon_i}^2=\sigma_{\epsilon}^2$
     the same for all observations
--   **Heteroscedasticity:**
-    <pre>$\sigma_{\epsilon_i}^2$ </pre>
-    is not the same for all observations.
+-   **Heteroscedasticity:** $\sigma_{\epsilon_i}^2$ is not the same for
+    all observations.
 
 See the visual demonstration of homoscedasticity and heteroscedasticity
 below:
@@ -445,20 +442,15 @@ below:
 <center>
 [![HvsH](HHSKED.png)](https://towardsdatascience.com/the-concept-of-heteroscedasticity-c5652b746223){width="50%"}
 </center>
-The left picture illustrates homoscedasticity. Let us start with the
-first observation, where
-<pre>$X$</pre>
-has the value of
-<pre>$X_1$ </pre>
-. If there was no disturbance term in the model, the observation would
-be represented by the circle lied on line
-<pre>$Y = \beta_1+\beta_2X$</pre>
-. The effect of the disturbance term is to shift the observation upwards
-or downwards vertically (downwards in case of
-<pre>$X_1$</pre>
 
-). The potential distribution of the disturbance term, before the
-observation was generated, is shown by the normal distribution.
+The left picture illustrates homoscedasticity. Let us start with the
+first observation, where $X$ has the value of $X_1$ . If there was no
+disturbance term in the model, the observation would be represented by
+the circle lied on line $Y = \beta_1+\beta_2X$. The effect of the
+disturbance term is to shift the observation upwards or downwards
+vertically (downwards in case of $X_1$). The potential distribution of
+the disturbance term, before the observation was generated, is shown by
+the normal distribution.
 
 Although homoscedasticity is often taken for granted in regression
 analysis, it is common to suppose that the distribution of the
@@ -502,12 +494,9 @@ Nevertheless, two concerns are raised:
 -   *The variances of the regression coefficients*: if there is no
     heteroscedasticity, the OLS regression coefficients have the lowest
     variances of all the unbiased estimators that are linear functions
-    of the observations of
-    <pre>$Y$</pre>
-
-    . If heteroscedasticity is present, the OLS estimators are
-    inefficient because it is possible to find other estimators that
-    have smaller variances and are still unbiased.
+    of the observations of $Y$. If heteroscedasticity is present, the
+    OLS estimators are inefficient because it is possible to find other
+    estimators that have smaller variances and are still unbiased.
 
 -   *The estimators of the standard errors of the regression
     coefficients* will be wrong and, as a consequence, the t-tests as
@@ -566,11 +555,7 @@ giving equal weight to each, irrespective of whether they are good or
 poor guides to the location of the line. Thus, it may be concluded that
 if we can find a way of assigning more weight to high-quality
 observations and less to the unreliable ones, we are likely to obtain a
-better fit. In other words, our estimators of
-<pre>$\beta_1$</pre>
-and
-<pre>$\beta_2$</pre>
-
+better fit. In other words, our estimators of $\beta_1$ and $\beta_2$
 will be more efficient. WOLS works by incorporating extra nonnegative
 constants (weights) associated with each data point into the fitting
 criterion. We shall see how to do this below. Suppose the true
@@ -579,50 +564,40 @@ relationship is
 $$Y_i = \beta_1+\beta_2X_i + \epsilon_i$$
 
 and
-<pre>
+
 $$var(\epsilon_i) = \sigma_{\epsilon_i}^2$$
-</pre>
 
 So we have a heteroscedastic model. We could eliminate the
 heteroscedasticity by dividing each observation by its value of
 $\sigma_{\epsilon_i}$. The model becomes
 
-<pre>
 $$\frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}$$
-</pre>
-The disturbance term
-<pre>$\frac{\epsilon_i}{\sigma_{\epsilon_i}}$</pre>
-is homoscedastic because
-<pre>
+
+The disturbance term $\frac{\epsilon_i}{\sigma_{\epsilon_i}}$ is
+homoscedastic because
+
 $$E[(\frac{\epsilon_i}{\sigma_{\epsilon_i}})^2] = \frac{1}{\sigma_{\epsilon_i}^2}E(\epsilon_i^2)=\frac{1}{\sigma_{\epsilon_i}^2}\sigma_{\epsilon_i}^2=1$$
-</pre>
+
 Therefore, every observation will have a disturbance term drawn from a
 distribution with population variance 1, and the model will be
 homoscedastic. By rewriting the model, we will have
-<pre>
+
 $$Y_i' = \beta_1h_i + \beta_2X_i'+\epsilon_i',$$
-</pre>
-where
-<pre>$Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}$, $h_i=\frac{1}{\sigma_{\epsilon_i}}$, $X_i'=\frac{X_i}{\sigma_{\epsilon_i}}$, $\epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$
-</pre>
+
+where $Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}$,
+$h_i=\frac{1}{\sigma_{\epsilon_i}}$,
+$X_i'=\frac{X_i}{\sigma_{\epsilon_i}}$,
+$\epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$
+
 **Note** that there should not be a constant term in the equation. By
-regressing
-<pre>$Y'$</pre>
-on $h$ and $X'$, we will obtain efficient estimates of
-<pre>$\beta_1$</pre>
-and
-<pre>$\beta_2$</pre>
+regressing $Y'$ on $h$ and $X'$, we will obtain efficient estimates of
+$\beta_1$ and $\beta_2$ with unbiased standard errors. The general
+solution to this is
 
-with unbiased standard errors. The general solution to this is
-
-<pre>
 $$\hat{\beta}=(X^TWX)^{-1}(X^TWY),$$
-</pre>
-where $W$ is the diagonal martrix with diagonal entries equal to weights
-and
-<pre>$Var(\epsilon)=W^{-1}\sigma^2$</pre>
 
-.
+where $W$ is the diagonal martrix with diagonal entries equal to weights
+and $Var(\epsilon)=W^{-1}\sigma^2$.
 
 In some cases, the values of the weights may be based on theory or prior
 research. In our model, the standard deviations tend to increase as the
@@ -632,58 +607,33 @@ weights are unknown, we can try different models and choose the best one
 based on, for instance, the distribution of the error term. There are
 the following common types of situations and weights:
 
--   When the variance is proportional to some predictor
-    <pre>$x_i$</pre>
-    , then
-    <pre>$Var(y_i)=x_i\sigma^2$</pre>
-    thus we set
-    <pre>$w_i = 1/x_i$</pre>
--   When the
-    <pre>$i^{th}$</pre>
-    value of y is an average of
-    <pre>$n_i$</pre>
-    observations
-    <pre>$var(y_i)=\frac{\sigma^2}{n_i}$</pre>
-    , thus we set
-    <pre>$w_i=n_i$</pre>
+-   When the variance is proportional to some predictor $x_i$, then
+    $Var(y_i)=x_i\sigma^2$ thus we set $w_i = 1/x_i$
 
-    (this situation often occurs in cluster surveys).
+-   When the $i^{th}$ value of y is an average of $n_i$ observations
+    $var(y_i)=\frac{\sigma^2}{n_i}$, thus we set $w_i=n_i$ (this
+    situation often occurs in cluster surveys).
 
--   When the
-    <pre>$i^{th}$</pre>
-    value of y is a total of
-    <pre>$n_i$</pre>
-    observations
-    <pre>$var(y_i)={\sigma^2}{n_i}$</pre>
-    , thus we set
-    <pre>$w_i=1/n_i$</pre>
-
-    .
+-   When the $i^{th}$ value of y is a total of $n_i$ observations
+    $var(y_i)={\sigma^2}{n_i}$, thus we set $w_i=1/n_i$.
 
 If the structure of weights is unknown, we have to perform a two-stage
 estimation procedure. We need to estimate an ordinary least squares
-regression to obtain the estimate of
-<pre>${\sigma_i^2}$</pre>
-for
-<pre>$i^{th}$</pre>
-squared residual and the absolute value of standard deviation (in case
-of outliers). Thus, we can have different weights depending on
-<pre>${\sigma_i^2}$</pre>
-. Often the weights are determined by fitted values rather than the
-independent variable. Let us show these different models via statistical
-package R. Fortunately, the R function `lm()` ,which is used to perform
-the ordinary least squares, provides the argument `weights` to perform
-WOLS. By default the value of weights in `lm()` is `NULL`, weighted
-least squares are used with weights `weights`, minimizing the sum of
-<pre>$w*e^2$</pre>
-
-.
+regression to obtain the estimate of ${\sigma_i^2}$ for $i^{th}$ squared
+residual and the absolute value of standard deviation (in case of
+outliers). Thus, we can have different weights depending on
+${\sigma_i^2}$. Often the weights are determined by fitted values rather
+than the independent variable. Let us show these different models via
+statistical package R. Fortunately, the R function `lm()` ,which is used
+to perform the ordinary least squares, provides the argument `weights`
+to perform WOLS. By default the value of weights in `lm()` is `NULL`,
+weighted least squares are used with weights `weights`, minimizing the
+sum of $w*e^2$.
 
 Suppose we do not know the pattern of weights, and we want to fit the
-models with the following weights
-<pre>$w_i=\frac{1}{x_i}$, $w_i=\frac{1}{x_i^2}$, $w_i=\frac{1}{y_i^2}$, $w=\frac{1}{y_{hat}^2}$, $w_i=\frac{1}{\sigma_i^2}$, $w_i=\frac{1}{|\sigma_i|}$</pre>
-
-.
+models with the following weights $w_i=\frac{1}{x_i}$,
+$w_i=\frac{1}{x_i^2}$, $w_i=\frac{1}{y_i^2}$, $w=\frac{1}{y_{hat}^2}$,
+$w_i=\frac{1}{\sigma_i^2}$, $w_i=\frac{1}{|\sigma_i|}$.
 
 ``` {.r}
 wols1 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/Budget)
@@ -1406,15 +1356,13 @@ resid_auxpanel(residuals = sqrt(1/web$Budget^2)*resid(wols2),
 ![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown/unnamed-chunk-8-2.png)
 
 It seems that the second WOLS model with the following weights
-<pre>$w_i=\frac{1}{x_i^2}$</pre>
-
-, because the variability of residuals is the same for all predicted
-values. We can now be more confident in results and state that with
-every \$100 increase in the amount of money spent on advertising the
-number of website visitors will rise by, on average, 102. The absence of
-heteroscedasticity and the fact that the standard deviation of
-coefficient is less than in the original model allow to make predictions
-with higher level of certainty.
+$w_i=\frac{1}{x_i^2}$, because the variability of residuals is the same
+for all predicted values. We can now be more confident in results and
+state that with every \$100 increase in the amount of money spent on
+advertising the number of website visitors will rise by, on average,
+102. The absence of heteroscedasticity and the fact that the standard
+deviation of coefficient is less than in the original model allow to
+make predictions with higher level of certainty.
 
 Conclusion
 ==========
