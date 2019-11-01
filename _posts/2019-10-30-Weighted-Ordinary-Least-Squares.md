@@ -1,5 +1,4 @@
-Introduction
-============
+# Introduction
 
 Nowadays, having a business implies awning a website. The primary aim of
 a website is to provide information, which is crucial in the modern
@@ -14,128 +13,246 @@ important advertising is. Let us review the artificially generated
 [data](https://drive.google.com/file/d/1Yb8_vaWtkmXOWxXT2n4ENCvlalILFYUg/view?usp=sharing).
 The summary of the dataset is presented below.
 
-    web <- as.data.frame(read.csv("website.csv"))
-    options(knitr.kable.NA = '')
-    kable(summary(web), digits=2)%>%
-     kable_styling(bootstrap_options = "striped", 
-       full_width = F)
+``` r
+web <- as.data.frame(read.csv("website.csv"))
+options(knitr.kable.NA = '')
+kable(summary(web), digits=2)%>%
+ kable_styling(bootstrap_options = "striped", 
+   full_width = F)
+```
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
+
 <thead>
+
 <tr>
+
 <th style="text-align:left;">
+
 </th>
+
 <th style="text-align:left;">
+
 Company
+
 </th>
+
 <th style="text-align:left;">
+
 Budget
+
 </th>
+
 <th style="text-align:left;">
+
 Visits
+
 </th>
+
 <th style="text-align:left;">
+
 AdType
+
 </th>
+
 </tr>
+
 </thead>
+
 <tbody>
+
 <tr>
+
 <td style="text-align:left;">
+
 </td>
+
 <td style="text-align:left;">
+
 Min. : 1.0
+
 </td>
+
 <td style="text-align:left;">
+
 Min. : 50.0
+
 </td>
+
 <td style="text-align:left;">
+
 Min. :3695
+
 </td>
+
 <td style="text-align:left;">
+
 Direct Mail :213
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 </td>
+
 <td style="text-align:left;">
+
 1st Qu.: 250.8
+
 </td>
+
 <td style="text-align:left;">
+
 1st Qu.: 299.8
+
 </td>
+
 <td style="text-align:left;">
+
 1st Qu.:4228
+
 </td>
+
 <td style="text-align:left;">
+
 Outdoor Ads :199
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 </td>
+
 <td style="text-align:left;">
+
 Median : 500.5
+
 </td>
+
 <td style="text-align:left;">
+
 Median : 549.5
+
 </td>
+
 <td style="text-align:left;">
+
 Median :4460
+
 </td>
+
 <td style="text-align:left;">
+
 Radio and Podcasts:197
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 </td>
+
 <td style="text-align:left;">
+
 Mean : 500.5
+
 </td>
+
 <td style="text-align:left;">
+
 Mean : 549.5
+
 </td>
+
 <td style="text-align:left;">
+
 Mean :4554
+
 </td>
+
 <td style="text-align:left;">
+
 Social Media Ads :187
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 </td>
+
 <td style="text-align:left;">
+
 3rd Qu.: 750.2
+
 </td>
+
 <td style="text-align:left;">
+
 3rd Qu.: 799.2
+
 </td>
+
 <td style="text-align:left;">
+
 3rd Qu.:4799
+
 </td>
+
 <td style="text-align:left;">
+
 Video Ads :204
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left;">
+
 </td>
+
 <td style="text-align:left;">
+
 Max. :1000.0
+
 </td>
+
 <td style="text-align:left;">
+
 Max. :1049.0
+
 </td>
+
 <td style="text-align:left;">
+
 Max. :6060
+
 </td>
+
 <td style="text-align:left;">
+
 </td>
+
 </tr>
+
 </tbody>
+
 </table>
 
 The data consists of 4 variables and 1000 observations without any
@@ -145,9 +262,10 @@ of website visits per week. The variables `AdType` and `Budget` show the
 **main type** of advertising done by the company and the average monthly
 amount spent on this advertisement, respectively. There are the 5 types
 of advertisement in the data: Radio and Podcasts, Direct Mail, Video
-Ads, Social Media Ads, Outdoor Ads.
+Ads, Social Media Ads, Outdoor
+Ads.
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown_strict/unnamed-chunk-2-1.png)
+![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 The left graph indicates that there is a positive correlation between
 the money spent on advertisement and the number of website visits. The
@@ -164,243 +282,461 @@ role.
 To understand the effect of advertising let us consider the following
 multiple linear regression model:
 
+</pre>
 
-*V**i**s**i**t**s*<sub>*i*</sub> = *β*<sub>0</sub> + *β*<sub>1</sub>*B**u**d**g**e**t*<sub>*i*</sub> + *β*<sub>2</sub>*A**d**T**y**p**e*<sub>*i*</sub> + *ϵ*<sub>*i*</sub>
+\[Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i\]
 
+</pre>
 
 The result of fitted linear regression is presented in the output below:
 
-    model <- lm(Visits ~ Budget + AdType, data = web)
+``` r
+model <- lm(Visits ~ Budget + AdType, data = web)
 
-    stargazer::stargazer(model,
-      title = "DID Results",
-      dep.var.labels = c("Answers"),
-      out="models.htm",# out.header=TRUE,
-      type = "html",
-      header=FALSE, 
-      covariate.labels = c(
-        "Budget",
-        "Ad Type: Outdoor Ads",
-        "Ad Type: Radio and Podcasts",
-        "Ad Type: Social Media Ads",
-        "Ad Type: Video Ads"
-      )
-      )
+stargazer::stargazer(model,
+  title = "DID Results",
+  dep.var.labels = c("Answers"),
+  out="models.htm",# out.header=TRUE,
+  type = "html",
+  header=FALSE, 
+  covariate.labels = c(
+    "Budget",
+    "Ad Type: Outdoor Ads",
+    "Ad Type: Radio and Podcasts",
+    "Ad Type: Social Media Ads",
+    "Ad Type: Video Ads"
+  )
+  )
+```
 
 <table style="text-align:center">
+
 <caption>
+
 <strong>DID Results</strong>
+
 </caption>
+
 <tr>
+
 <td colspan="2" style="border-bottom: 1px solid black">
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 <em>Dependent variable:</em>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td>
+
 </td>
+
 <td colspan="1" style="border-bottom: 1px solid black">
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 Answers
+
 </td>
+
 </tr>
+
 <tr>
+
 <td colspan="2" style="border-bottom: 1px solid black">
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Budget
+
 </td>
+
 <td>
+
 1.017<sup>\*\*\*</sup>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (0.032)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Ad Type: Outdoor Ads
+
 </td>
+
 <td>
+
 17.623
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (28.957)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Ad Type: Radio and Podcasts
+
 </td>
+
 <td>
+
 31.784
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (29.003)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Ad Type: Social Media Ads
+
 </td>
+
 <td>
--40.288
+
+\-40.288
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (29.366)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Ad Type: Video Ads
+
 </td>
+
 <td>
--10.368
+
+\-10.368
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (28.737)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Constant
+
 </td>
+
 <td>
+
 3,995.437<sup>\*\*\*</sup>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (26.096)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td colspan="2" style="border-bottom: 1px solid black">
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Observations
+
 </td>
+
 <td>
+
 1,000
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 R<sup>2</sup>
+
 </td>
+
 <td>
+
 0.506
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Adjusted R<sup>2</sup>
+
 </td>
+
 <td>
+
 0.504
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Residual Std. Error
+
 </td>
+
 <td>
+
 293.017 (df = 994)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 F Statistic
+
 </td>
+
 <td>
+
 203.633<sup>\*\*\*</sup> (df = 5; 994)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td colspan="2" style="border-bottom: 1px solid black">
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 <em>Note:</em>
+
 </td>
+
 <td style="text-align:right">
-<sup>*</sup>p&lt;0.1; <sup>**</sup>p&lt;0.05; <sup>***</sup>p&lt;0.01
+
+<sup>*</sup>p\<0.1; <sup>**</sup>p\<0.05; <sup>***</sup>p\<0.01
+
 </td>
+
 </tr>
+
 </table>
 
 It is not surprising that the coefficients for the unique levels of
@@ -417,11 +753,9 @@ been omitted. We will now discuss briefly the concepts of
 heteroscedasticity, the causes and effects of nonconstant variance and
 the ways of solving this problem.
 
-The problem
-===========
+# The problem
 
-Nonconstant variance
---------------------
+## Nonconstant variance
 
 One of the Gauss–Markov conditions states that the variance of the
 disturbance term in each observation should be constant. This
@@ -429,30 +763,32 @@ assumption, however, is clearly violated in most of the models resulting
 in heteroscedasticity. Mathematically, homoscedasticity and
 heteroscedasticity may be defined as:
 
--   **Homoscedasticity:**
-    $\sigma_{\epsilon_i}^2=\sigma_{\epsilon}^2$ 
+  - **Homoscedasticity:**
+    <pre>$\sigma_{\epsilon_i}^2=\sigma_{\epsilon}^2$ </pre>
     the same for all observations
--   **Heteroscedasticity:**
-    $\sigma_{\epsilon_i}^2$ 
+  - **Heteroscedasticity:**
+    <pre>$\sigma_{\epsilon_i}^2$ </pre>
     is not the same for all observations.
 
 See the visual demonstration of homoscedasticity and heteroscedasticity
 below:
 
 <center>
-<a href="https://towardsdatascience.com/the-concept-of-heteroscedasticity-c5652b746223" width="50%"><img src="HHSKED.png" alt="HvsH" /></a>
+
+[![HvsH](HHSKED.png)](https://towardsdatascience.com/the-concept-of-heteroscedasticity-c5652b746223)
+
 </center>
+
 The left picture illustrates homoscedasticity. Let us start with the
-first observation, where
-$X$
-has the value of
-$X_1$ 
+first observation, where $X$ has the value of $X_1$ 
+
 . If there was no disturbance term in the model, the observation would
-be represented by the circle lied on line
-$Y = \beta_1+\beta_2X$
+be represented by the circle lied on line $Y = \beta_1+\beta_2X$ 
+
 . The effect of the disturbance term is to shift the observation upwards
 or downwards vertically (downwards in case of
-$X_1$
+
+<pre>$X_1$</pre>
 
 ). The potential distribution of the disturbance term, before the
 observation was generated, is shown by the normal distribution.
@@ -478,14 +814,14 @@ guarantee of large traffic.
 
 Heteroscedasticity is more likely to occur, for example, when
 
--   The values of the variables in the sample vary substantially in
+  - The values of the variables in the sample vary substantially in
     different observations.
--   The explanatory variable increases, the response tends to diverge.
+  - The explanatory variable increases, the response tends to diverge.
     For example, families with low incomes will spend relatively little
     on luxury goods, and the variations in expenditures across such
     families will be small. But for families with large incomes, the
     amount of discretionary income will be higher.
--   The model is misspecified (using response instead of the log of
+  - The model is misspecified (using response instead of the log of
     response or instead of X^2 using X etc). Important variables may be
     omitted from the model.
 
@@ -496,17 +832,18 @@ unbiased.
 
 Nevertheless, two concerns are raised:
 
--   *The variances of the regression coefficients*: if there is no
+  - *The variances of the regression coefficients*: if there is no
     heteroscedasticity, the OLS regression coefficients have the lowest
     variances of all the unbiased estimators that are linear functions
     of the observations of
-    $Y$
-
+    
+    <pre>$Y$</pre>
+    
     . If heteroscedasticity is present, the OLS estimators are
     inefficient because it is possible to find other estimators that
     have smaller variances and are still unbiased.
 
--   *The estimators of the standard errors of the regression
+  - *The estimators of the standard errors of the regression
     coefficients* will be wrong and, as a consequence, the t-tests as
     well as the usual F tests will be invalid. It is quite likely that
     the standard errors will be underestimated, so the t statistics will
@@ -515,8 +852,7 @@ Nevertheless, two concerns are raised:
     that a coefficient is significantly different from 0, at a given
     significance level, when, in fact, it is not.
 
-How to detect
--------------
+## How to detect
 
 Since there is no limit to the possible variety of heteroscedasticity, a
 large number of different tests appropriate for different circumstances
@@ -524,37 +860,37 @@ has been proposed. There are also a lot of statistical tests called to
 test whether heteroscedasticity is present. The list includes but is not
 limited to the following:
 
--   The Spearman Rank Correlation Test
--   The Goldfeld–Quandt Test
--   The Glejser Test
--   The Breusch-Pagan test
--   The White test
+  - The Spearman Rank Correlation Test
+  - The Goldfeld–Quandt Test
+  - The Glejser Test
+  - The Breusch-Pagan test
+  - The White test
 
 Despite the large number of the available tests, we will opt for a
 simple technique to detect heteroscedasticity, which is looking at the
 residual plot of our model. We can diagnose the heteroscedasticity by
 plotting the residual against the predicted response variable.
 
-    library(ggResidpanel)
-    resid_auxpanel(residuals = resid(model), 
-                   predicted = fitted(model), 
-                   plots = c("resid", "index"))
+``` r
+library(ggResidpanel)
+resid_auxpanel(residuals = resid(model), 
+               predicted = fitted(model), 
+               plots = c("resid", "index"))
+```
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown_strict/unnamed-chunk-4-1.png)
+![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 In our case we can conclude that as budget increases, the website visits
 tend to diverge.
 
-The solution
-============
+# The solution
 
 The two most common strategies for dealing with the possibility of
 heteroskedasticity is heteroskedasticity-consistent standard errors (or
 [robust errors](http://afhayes.com/public/BRM2007.pdf)) developed by
 White and **Weighted Ordinary Least Squares**.
 
-WOLS
-----
+## WOLS
 
 OLS does not discriminate between the quality of the observations,
 giving equal weight to each, irrespective of whether they are good or
@@ -562,59 +898,82 @@ poor guides to the location of the line. Thus, it may be concluded that
 if we can find a way of assigning more weight to high-quality
 observations and less to the unreliable ones, we are likely to obtain a
 better fit. In other words, our estimators of
-$\beta_1$
+
+<pre>$\beta_1$</pre>
+
 and
-$\beta_2$
+
+<pre>$\beta_2$</pre>
+
 will be more efficient. WOLS works by incorporating extra nonnegative
 constants (weights) associated with each data point into the fitting
 criterion. We shall see how to do this below. Suppose the true
 relationship is
 
+<pre>
 $$Y_i = \beta_1+\beta_2X_i + \epsilon_i$$
+</pre>
 
 and
 
+<pre>
 $$var(\epsilon_i) = \sigma_{\epsilon_i}^2$$
-
+</pre>
 
 So we have a heteroscedastic model. We could eliminate the
 heteroscedasticity by dividing each observation by its value of
-*σ*<sub>*ϵ*<sub>*i*</sub></sub>. The model becomes
+\(\sigma_{\epsilon_i}\). The model becomes
 
-
+<pre>
 $$\frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}$$
+</pre>
 
 The disturbance term
-$\frac{\epsilon_i}{\sigma_{\epsilon_i}}$
+
+<pre>$\frac{\epsilon_i}{\sigma_{\epsilon_i}}$</pre>
+
 is homoscedastic because
 
+<pre>
 $$E[(\frac{\epsilon_i}{\sigma_{\epsilon_i}})^2] = \frac{1}{\sigma_{\epsilon_i}^2}E(\epsilon_i^2)=\frac{1}{\sigma_{\epsilon_i}^2}\sigma_{\epsilon_i}^2=1$$
+</pre>
 
 Therefore, every observation will have a disturbance term drawn from a
 distribution with population variance 1, and the model will be
 homoscedastic. By rewriting the model, we will have
 
+<pre>
 $$Y_i' = \beta_1h_i + \beta_2X_i'+\epsilon_i',$$
+</pre>
 
 where
-$Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}$, $h_i=\frac{1}{\sigma_{\epsilon_i}}$, $X_i'=\frac{X_i}{\sigma_{\epsilon_i}}$, $\epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$
+
+<pre>$Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}$, $h_i=\frac{1}{\sigma_{\epsilon_i}}$, $X_i'=\frac{X_i}{\sigma_{\epsilon_i}}$, $\epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$
+</pre>
 
 **Note** that there should not be a constant term in the equation. By
 regressing
-$Y'$
-on *h* and *X*′, we will obtain efficient estimates of
-$\beta_1$
+
+<pre>$Y'$</pre>
+
+on \(h\) and \(X'\), we will obtain efficient estimates of
+
+<pre>$\beta_1$</pre>
+
 and
-$\beta_2$
+
+<pre>$\beta_2$</pre>
 
 with unbiased standard errors. The general solution to this is
 
-
+<pre>
 $$\hat{\beta}=(X^TWX)^{-1}(X^TWY),$$
+</pre>
 
-where *W* is the diagonal martrix with diagonal entries equal to weights
-and
-$Var(\epsilon)=W^{-1}\sigma^2$
+where \(W\) is the diagonal martrix with diagonal entries equal to
+weights and
+
+<pre>$Var(\epsilon)=W^{-1}\sigma^2$</pre>
 
 .
 
@@ -626,726 +985,1378 @@ weights are unknown, we can try different models and choose the best one
 based on, for instance, the distribution of the error term. There are
 the following common types of situations and weights:
 
--   When the variance is proportional to some predictor
-    $x_i$
+  - When the variance is proportional to some predictor
+    <pre>$x_i$</pre>
     , then
-    $Var(y_i)=x_i\sigma^2$
+    <pre>$Var(y_i)=x_i\sigma^2$</pre>
     thus we set
-    $w_i = 1/x_i$
--   When the
-    $i^{th}$
+    <pre>$w_i = 1/x_i$</pre>
+  - When the
+    <pre>$i^{th}$</pre>
     value of y is an average of
-    $n_i$
+    <pre>$n_i$</pre>
     observations
-    $var(y_i)=\frac{\sigma^2}{n_i}$
+    <pre>$var(y_i)=\frac{\sigma^2}{n_i}$</pre>
     , thus we set
-    $w_i=n_i$
-
+    <pre>$w_i=n_i$</pre>
     (this situation often occurs in cluster surveys).
-
--   When the
-    $i^{th}$
+  - When the
+    <pre>$i^{th}$</pre>
     value of y is a total of
-    $n_i$
+    <pre>$n_i$</pre>
     observations
-    $var(y_i)={\sigma^2}{n_i}$
+    <pre>$var(y_i)={\sigma^2}{n_i}$</pre>
     , thus we set
-    $w_i=1/n_i$
-
+    <pre>$w_i=1/n_i$</pre>
     .
 
 If the structure of weights is unknown, we have to perform a two-stage
 estimation procedure. We need to estimate an ordinary least squares
 regression to obtain the estimate of
-${\sigma_i^2}$
+
+<pre>${\sigma_i^2}$</pre>
+
 for
-$i^{th}$
+
+<pre>$i^{th}$</pre>
+
 squared residual and the absolute value of standard deviation (in case
 of outliers). Thus, we can have different weights depending on
-${\sigma_i^2}$
+
+<pre>${\sigma_i^2}$</pre>
+
 . Often the weights are determined by fitted values rather than the
 independent variable. Let us show these different models via statistical
 package R. Fortunately, the R function `lm()` ,which is used to perform
 the ordinary least squares, provides the argument `weights` to perform
 WOLS. By default the value of weights in `lm()` is `NULL`, weighted
 least squares are used with weights `weights`, minimizing the sum of
-$w*e^2$
+
+<pre>$w*e^2$</pre>
 
 .
 
 Suppose we do not know the pattern of weights, and we want to fit the
-models with the following weights
-$w_i=\frac{1}{x_i}$, $w_i=\frac{1}{x_i^2}$, $w_i=\frac{1}{y_i^2}$, $w=\frac{1}{y_{hat}^2}$, $w_i=\frac{1}{\sigma_i^2}$, $w_i=\frac{1}{|\sigma_i|}$
+models with the following
+weights
+
+<pre>$w_i=\frac{1}{x_i}$, $w_i=\frac{1}{x_i^2}$, $w_i=\frac{1}{y_i^2}$, $w=\frac{1}{y_{hat}^2}$, $w_i=\frac{1}{\sigma_i^2}$, $w_i=\frac{1}{|\sigma_i|}$</pre>
 
 .
 
-    wols1 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/Budget)
-    wols2 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/Budget^2)
-    wols3 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/fitted(model))
-    wols4 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/fitted(model)^2)
-    wols5 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/resid(model)^2)
-    wols6 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/abs(resid(model)))
+``` r
+wols1 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/Budget)
+wols2 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/Budget^2)
+wols3 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/fitted(model))
+wols4 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/fitted(model)^2)
+wols5 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/resid(model)^2)
+wols6 <- lm(Visits ~ Budget + AdType, data = web, weights = 1/abs(resid(model)))
+```
 
 The result of fitted models will be:
 
-    stargazer::stargazer(model, wols1, wols2, wols3, wols4, wols5, wols6,
-      title = "WOLS Results",
-      dep.var.labels = c("Visits"),
-      column.labels = c("-","1/Budget", "1/Budget\\^2", "1/y", "1/y\\^2", "1/e\\^2","1/|e|"),
-      out="models.htm",
-      type = "html",
-      header=FALSE, 
-      covariate.labels = c(
-        "Budget",
-        "Ad Type: Outdoor Ads",
-        "Ad Type: Radio and Podcasts",
-        "Ad Type: Social Media Ads",
-        "Ad Type: Video Ads"
-      )
-      )
+``` r
+stargazer::stargazer(model, wols1, wols2, wols3, wols4, wols5, wols6,
+  title = "WOLS Results",
+  dep.var.labels = c("Visits"),
+  column.labels = c("-","1/Budget", "1/Budget\\^2", "1/y", "1/y\\^2", "1/e\\^2","1/|e|"),
+  out="models.htm",
+  type = "html",
+  header=FALSE, 
+  covariate.labels = c(
+    "Budget",
+    "Ad Type: Outdoor Ads",
+    "Ad Type: Radio and Podcasts",
+    "Ad Type: Social Media Ads",
+    "Ad Type: Video Ads"
+  )
+  )
+```
 
 <table style="text-align:center">
+
 <caption>
+
 <strong>WOLS Results</strong>
+
 </caption>
+
 <tr>
+
 <td colspan="8" style="border-bottom: 1px solid black">
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td colspan="7">
+
 <em>Dependent variable:</em>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td>
+
 </td>
+
 <td colspan="7" style="border-bottom: 1px solid black">
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td colspan="7">
+
 Visits
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 \-
+
 </td>
+
 <td>
+
 1/Budget
+
 </td>
+
 <td>
+
 1/Budget^2
+
 </td>
+
 <td>
+
 1/y
+
 </td>
+
 <td>
+
 1/y^2
+
 </td>
+
 <td>
+
 1/e^2
+
 </td>
+
 <td>
+
 1/|e|
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (1)
+
 </td>
+
 <td>
+
 (2)
+
 </td>
+
 <td>
+
 (3)
+
 </td>
+
 <td>
+
 (4)
+
 </td>
+
 <td>
+
 (5)
+
 </td>
+
 <td>
+
 (6)
+
 </td>
+
 <td>
+
 (7)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td colspan="8" style="border-bottom: 1px solid black">
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Budget
+
 </td>
+
 <td>
+
 1.017<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 1.014<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 1.018<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 1.015<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 1.014<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 1.018<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 1.014<sup>\*\*\*</sup>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (0.032)
+
 </td>
+
 <td>
+
 (0.024)
+
 </td>
+
 <td>
+
 (0.022)
+
 </td>
+
 <td>
+
 (0.031)
+
 </td>
+
 <td>
+
 (0.031)
+
 </td>
+
 <td>
+
 (0.001)
+
 </td>
+
 <td>
+
 (0.008)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Ad Type: Outdoor Ads
+
 </td>
+
 <td>
+
 17.623
+
 </td>
+
 <td>
+
 9.016
+
 </td>
+
 <td>
+
 1.778
+
 </td>
+
 <td>
+
 17.291
+
 </td>
+
 <td>
+
 16.927
+
 </td>
+
 <td>
+
 18.380<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 16.810<sup>\*\*</sup>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (28.957)
+
 </td>
+
 <td>
+
 (19.540)
+
 </td>
+
 <td>
+
 (10.354)
+
 </td>
+
 <td>
+
 (28.251)
+
 </td>
+
 <td>
+
 (27.531)
+
 </td>
+
 <td>
+
 (1.405)
+
 </td>
+
 <td>
+
 (8.426)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Ad Type: Radio and Podcasts
+
 </td>
+
 <td>
+
 31.784
+
 </td>
+
 <td>
+
 15.184
+
 </td>
+
 <td>
+
 1.457
+
 </td>
+
 <td>
+
 30.884
+
 </td>
+
 <td>
+
 29.894
+
 </td>
+
 <td>
+
 31.647<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 28.276<sup>\*\*\*</sup>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (29.003)
+
 </td>
+
 <td>
+
 (19.823)
+
 </td>
+
 <td>
+
 (10.732)
+
 </td>
+
 <td>
+
 (28.302)
+
 </td>
+
 <td>
+
 (27.591)
+
 </td>
+
 <td>
+
 (1.562)
+
 </td>
+
 <td>
+
 (9.309)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Ad Type: Social Media Ads
+
 </td>
+
 <td>
--40.288
+
+\-40.288
+
 </td>
+
 <td>
--10.390
+
+\-10.390
+
 </td>
+
 <td>
--0.402
+
+\-0.402
+
 </td>
+
 <td>
--36.504
+
+\-36.504
+
 </td>
+
 <td>
--32.869
+
+\-32.869
+
 </td>
+
 <td>
--39.380<sup>\*\*\*</sup>
+
+\-39.380<sup>\*\*\*</sup>
+
 </td>
+
 <td>
--36.515<sup>\*\*\*</sup>
+
+\-36.515<sup>\*\*\*</sup>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (29.366)
+
 </td>
+
 <td>
+
 (19.315)
+
 </td>
+
 <td>
+
 (10.069)
+
 </td>
+
 <td>
+
 (28.470)
+
 </td>
+
 <td>
+
 (27.571)
+
 </td>
+
 <td>
+
 (1.498)
+
 </td>
+
 <td>
+
 (9.223)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Ad Type: Video Ads
+
 </td>
+
 <td>
--10.368
+
+\-10.368
+
 </td>
+
 <td>
+
 3.876
+
 </td>
+
 <td>
+
 11.703
+
 </td>
+
 <td>
--7.915
+
+\-7.915
+
 </td>
+
 <td>
--5.622
+
+\-5.622
+
 </td>
+
 <td>
--8.910<sup>\*\*\*</sup>
+
+\-8.910<sup>\*\*\*</sup>
+
 </td>
+
 <td>
--8.182
+
+\-8.182
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (28.737)
+
 </td>
+
 <td>
+
 (20.532)
+
 </td>
+
 <td>
+
 (12.335)
+
 </td>
+
 <td>
+
 (27.977)
+
 </td>
+
 <td>
+
 (27.217)
+
 </td>
+
 <td>
+
 (1.597)
+
 </td>
+
 <td>
+
 (9.493)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Constant
+
 </td>
+
 <td>
+
 3,995.437<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 3,993.525<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 3,992.827<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 3,995.256<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 3,995.106<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 3,994.459<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 3,996.948<sup>\*\*\*</sup>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 (26.096)
+
 </td>
+
 <td>
+
 (14.600)
+
 </td>
+
 <td>
+
 (7.216)
+
 </td>
+
 <td>
+
 (24.978)
+
 </td>
+
 <td>
+
 (23.908)
+
 </td>
+
 <td>
+
 (1.388)
+
 </td>
+
 <td>
+
 (7.472)
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 <td>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td colspan="8" style="border-bottom: 1px solid black">
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Observations
+
 </td>
+
 <td>
+
 1,000
+
 </td>
+
 <td>
+
 1,000
+
 </td>
+
 <td>
+
 1,000
+
 </td>
+
 <td>
+
 1,000
+
 </td>
+
 <td>
+
 1,000
+
 </td>
+
 <td>
+
 1,000
+
 </td>
+
 <td>
+
 1,000
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 R<sup>2</sup>
+
 </td>
+
 <td>
+
 0.506
+
 </td>
+
 <td>
+
 0.645
+
 </td>
+
 <td>
+
 0.691
+
 </td>
+
 <td>
+
 0.517
+
 </td>
+
 <td>
+
 0.528
+
 </td>
+
 <td>
+
 1.000
+
 </td>
+
 <td>
+
 0.940
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Adjusted R<sup>2</sup>
+
 </td>
+
 <td>
+
 0.504
+
 </td>
+
 <td>
+
 0.644
+
 </td>
+
 <td>
+
 0.689
+
 </td>
+
 <td>
+
 0.515
+
 </td>
+
 <td>
+
 0.526
+
 </td>
+
 <td>
+
 1.000
+
 </td>
+
 <td>
+
 0.939
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 Residual Std. Error (df = 994)
+
 </td>
+
 <td>
+
 293.017
+
 </td>
+
 <td>
+
 11.263
+
 </td>
+
 <td>
+
 0.492
+
 </td>
+
 <td>
+
 4.242
+
 </td>
+
 <td>
+
 0.061
+
 </td>
+
 <td>
+
 1.000
+
 </td>
+
 <td>
+
 14.521
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 F Statistic (df = 5; 994)
+
 </td>
+
 <td>
+
 203.633<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 361.792<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 444.545<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 213.209<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 222.603<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 585,907.100<sup>\*\*\*</sup>
+
 </td>
+
 <td>
+
 3,091.199<sup>\*\*\*</sup>
+
 </td>
+
 </tr>
+
 <tr>
+
 <td colspan="8" style="border-bottom: 1px solid black">
+
 </td>
+
 </tr>
+
 <tr>
+
 <td style="text-align:left">
+
 <em>Note:</em>
+
 </td>
+
 <td colspan="7" style="text-align:right">
-<sup>*</sup>p&lt;0.1; <sup>**</sup>p&lt;0.05; <sup>***</sup>p&lt;0.01
+
+<sup>*</sup>p\<0.1; <sup>**</sup>p\<0.05; <sup>***</sup>p\<0.01
+
 </td>
+
 </tr>
+
 </table>
 
 Weighted least squares estimates of the coefficients will usually be
@@ -1353,20 +2364,22 @@ nearly the same as the “ordinary” unweighted estimates. In the models
 with explanatory variables such as weight `weights = 1/Budget^2`
 produces the smallest standard errors. The summary of models shows that
 the fitted equations are highly similar yet again. Overall, the smallest
-standard errors are presented by the model with
-`weights = 1/resid(model)^2`.
+standard errors are presented by the model with `weights
+= 1/resid(model)^2`.
 
 > Inverse of x and residuals with weights
 
 However, as we know the pattern of weight allows to examine the residual
 plots for the first two weighted OLS models.
 
-    resid_compare(models = list(wols1, 
-                                wols2),
-                  plots = c("resid", "index"),
-                  title.opt = FALSE)
+``` r
+resid_compare(models = list(wols1, 
+                            wols2),
+              plots = c("resid", "index"),
+              title.opt = FALSE)
+```
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown_strict/unnamed-chunk-7-1.png)
+![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 Apparently, the nonconstant variance of the residuals still results in
 heteroscedasticity. The issue is that the plots above use unweighted
@@ -1376,21 +2389,26 @@ account the weights which change variance. The usual residuals fail to
 do this and will maintain the same non-constant variance pattern
 irrelevant to the weights used in the analysis.
 
-    # Weighted residuals by corresponding weight
-    resid_auxpanel(residuals = sqrt(1/web$Budget)*resid(wols1), 
-                   predicted = fitted(wols1), 
-                   plots = c("resid", "index"))
+``` r
+# Weighted residuals by corresponding weight
+resid_auxpanel(residuals = sqrt(1/web$Budget)*resid(wols1), 
+               predicted = fitted(wols1), 
+               plots = c("resid", "index"))
+```
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown_strict/unnamed-chunk-8-1.png)
+![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
-    resid_auxpanel(residuals = sqrt(1/web$Budget^2)*resid(wols2), 
-                   predicted = fitted(wols2), 
-                   plots = c("resid", "index"))
+``` r
+resid_auxpanel(residuals = sqrt(1/web$Budget^2)*resid(wols2), 
+               predicted = fitted(wols2), 
+               plots = c("resid", "index"))
+```
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown_strict/unnamed-chunk-8-2.png)
+![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
 
 It seems that the second WOLS model with the following weights
-$w_i=\frac{1}{x_i^2}$
+
+<pre>$w_i=\frac{1}{x_i^2}$</pre>
 
 , because the variability of residuals is the same for all predicted
 values. We can now be more confident in results and state that with
@@ -1400,8 +2418,7 @@ heteroscedasticity and the fact that the standard deviation of
 coefficient is less than in the original model allow to make predictions
 with higher level of certainty.
 
-Conclusion
-==========
+# Conclusion
 
 Overall, the weighted ordinary least squares is a popular method of
 solving the problem of heteroscedasticity in regression models, which is
@@ -1423,10 +2440,9 @@ heteroscedasticity. The alternative methods include estimating
 heteroskedasticity-consistent standard errors, and other types of WOLS
 (e.g. iteratively reweighted least squares).
 
-------------------------------------------------------------------------
+-----
 
-Reference List
-==============
+# Reference List
 
 > *Oscar L. Olvera, Bruno D. Zumb, Heteroskedasticity in Multiple
 > Regression Analysis: What it is, How to Detect it and How to Solve it
