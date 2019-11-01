@@ -11,7 +11,7 @@ hits or visits via advertisements.
 
 We took a look at small business website statistics and saw how
 important advertising is. Let us review the artificially generated
-[data](https://drive.google.com/file/d/1Yb8_vaWtkmXOWxXT2n4ENCvlalILFYUg/view?usp=sharing).
+[data](/2019-10-30-Weighted-Ordinary-Least-Squares_files/website.csv).
 The summary of the dataset is presented below.
 
 ``` {.r}
@@ -243,7 +243,7 @@ See the visual demonstration of homoscedasticity and heteroscedasticity
 below:
 
 <center>
-[![HvsH](HHSKED.png)](https://towardsdatascience.com/the-concept-of-heteroscedasticity-c5652b746223){width="50%"}
+[![HvsH](/2019-10-30-Weighted-Ordinary-Least-Squares_files/HHSKED.png)]{width="50%"}
 </center>
 
 The left picture illustrates homoscedasticity. Let us start with the
@@ -499,8 +499,7 @@ However, as we know the pattern of weight allows to examine the residual
 plots for the first two weighted OLS models.
 
 ``` {.r}
-resid_compare(models = list(wols1, 
-                            wols2),
+resid_compare(models = list(wols1, wols2),
               plots = c("resid", "index"),
               title.opt = FALSE)
 ```
