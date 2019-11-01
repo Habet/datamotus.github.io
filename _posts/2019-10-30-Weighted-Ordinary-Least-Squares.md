@@ -764,7 +764,7 @@ in heteroscedasticity. Mathematically, homoscedasticity and
 heteroscedasticity may be defined as:
 
   - **Homoscedasticity:**
-    <pre>$\sigma_{\epsilon_i}^2=\sigma_{\epsilon}^2$ </pre>
+    $\sigma_{\epsilon_i}^2=\sigma_{\epsilon}^2$
     the same for all observations
   - **Heteroscedasticity:**
     <pre>$\sigma_{\epsilon_i}^2$ </pre>
