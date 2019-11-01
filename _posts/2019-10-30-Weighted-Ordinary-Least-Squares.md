@@ -174,236 +174,48 @@ The result of fitted linear regression is presented in the output below:
 model <- lm(Visits ~ Budget + AdType, data = web)
 
 stargazer::stargazer(model,
-  title = "DID Results",
+  title = "Results",
   dep.var.labels = c("Answers"),
-  out="models.htm",# out.header=TRUE,
-  type = "html",
-  header=FALSE, 
-  covariate.labels = c(
-    "Budget",
-    "Ad Type: Outdoor Ads",
-    "Ad Type: Radio and Podcasts",
-    "Ad Type: Social Media Ads",
+  out="models.htm", type = "text", header=FALSE, 
+  covariate.labels = c("Budget", "Ad Type: Outdoor Ads",
+    "Ad Type: Radio and Podcasts","Ad Type: Social Media Ads",
     "Ad Type: Video Ads"
-  )
-  )
+  ))
 ```
 
-<table style="text-align:center">
-<caption>
-<strong>DID Results</strong>
-</caption>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-<em>Dependent variable:</em>
-</td>
-</tr>
-<tr>
-<td>
-</td>
-<td colspan="1" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-Answers
-</td>
-</tr>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Budget
-</td>
-<td>
-1.017<sup>\*\*\*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(0.032)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Outdoor Ads
-</td>
-<td>
-17.623
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(28.957)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Radio and Podcasts
-</td>
-<td>
-31.784
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(29.003)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Social Media Ads
-</td>
-<td>
--40.288
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(29.366)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Ad Type: Video Ads
-</td>
-<td>
--10.368
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(28.737)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Constant
-</td>
-<td>
-3,995.437<sup>\*\*\*</sup>
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-(26.096)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Observations
-</td>
-<td>
-1,000
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-R<sup>2</sup>
-</td>
-<td>
-0.506
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Adjusted R<sup>2</sup>
-</td>
-<td>
-0.504
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-Residual Std. Error
-</td>
-<td>
-293.017 (df = 994)
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-F Statistic
-</td>
-<td>
-203.633<sup>\*\*\*</sup> (df = 5; 994)
-</td>
-</tr>
-<tr>
-<td colspan="2" style="border-bottom: 1px solid black">
-</td>
-</tr>
-<tr>
-<td style="text-align:left">
-<em>Note:</em>
-</td>
-<td style="text-align:right">
-<sup>*</sup>p\<0.1; <sup>**</sup>p\<0.05; <sup>***</sup>p\<0.01
-</td>
-</tr>
-</table>
+    ## 
+    ## Results
+    ## =======================================================
+    ##                                 Dependent variable:    
+    ##                             ---------------------------
+    ##                                       Answers          
+    ## -------------------------------------------------------
+    ## Budget                               1.017***          
+    ##                                       (0.032)          
+    ##                                                        
+    ## Ad Type: Outdoor Ads                  17.623           
+    ##                                      (28.957)          
+    ##                                                        
+    ## Ad Type: Radio and Podcasts           31.784           
+    ##                                      (29.003)          
+    ##                                                        
+    ## Ad Type: Social Media Ads             -40.288          
+    ##                                      (29.366)          
+    ##                                                        
+    ## Ad Type: Video Ads                    -10.368          
+    ##                                      (28.737)          
+    ##                                                        
+    ## Constant                           3,995.437***        
+    ##                                      (26.096)          
+    ##                                                        
+    ## -------------------------------------------------------
+    ## Observations                           1,000           
+    ## R2                                     0.506           
+    ## Adjusted R2                            0.504           
+    ## Residual Std. Error             293.017 (df = 994)     
+    ## F Statistic                  203.633*** (df = 5; 994)  
+    ## =======================================================
+    ## Note:                       *p<0.1; **p<0.05; ***p<0.01
 
 It is not surprising that the coefficients for the unique levels of
 variable `AdType` are not significant, because there is no effect on the
