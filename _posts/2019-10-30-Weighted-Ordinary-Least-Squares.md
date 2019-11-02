@@ -242,9 +242,9 @@ heteroscedasticity may be defined as:
 See the visual demonstration of homoscedasticity and heteroscedasticity
 below:
 
-<center>
+
 ![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/HHSKED.png){width="50%"}
-</center>
+
 
 The left picture illustrates homoscedasticity. Let us start with the
 first observation, where $X$ has the value of $X_1$ . If there was no
