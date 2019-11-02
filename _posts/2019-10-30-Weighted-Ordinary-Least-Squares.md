@@ -243,7 +243,7 @@ See the visual demonstration of homoscedasticity and heteroscedasticity
 below:
 
 <center>
-\[HvsH](/2019-10-30-Weighted-Ordinary-Least-Squares_files/HHSKED.png){width="50%"}
+(/2019-10-30-Weighted-Ordinary-Least-Squares_files/HHSKED.png){width="50%"}
 </center>
 
 The left picture illustrates homoscedasticity. Let us start with the
