@@ -11,8 +11,8 @@ hits or visits via advertisements.
 
 We took a look at small business website statistics and saw how
 important advertising is. Let us review the artificially generated
-[data](/2019-10-30-Weighted-Ordinary-Least-Squares_files/website.csv).
-The summary of the dataset is presented below.
+[data](/2019-10-30-Weighted-Least-Squares_files/website.csv). The
+summary of the dataset is presented below.
 
 ``` {.r}
 web <- as.data.frame(read.csv("website.csv"))
@@ -149,7 +149,7 @@ amount spent on this advertisement, respectively. There are the 5 types
 of advertisement in the data: Radio and Podcasts, Direct Mail, Video
 Ads, Social Media Ads, Outdoor Ads.
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown/unnamed-chunk-2-1.png)
+![](/2019-10-30-Weighted-Least-Squares_files/figure-markdown/unnamed-chunk-2-1.png)
 
 The left graph indicates that there is a positive correlation between
 the money spent on advertisement and the number of website visits. The
@@ -242,7 +242,7 @@ heteroscedasticity may be defined as:
 See the visual demonstration of homoscedasticity and heteroscedasticity
 below:
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown/HHSKED.png)
+![](/2019-10-30-Weighted-Least-Squares_files/figure-markdown/HHSKED.png)
 
 The left picture illustrates homoscedasticity. Let us start with the
 first observation, where $X$ has the value of $X_1$ . If there was no
@@ -335,7 +335,7 @@ resid_auxpanel(residuals = resid(model),
                plots = c("resid", "index"))
 ```
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown/unnamed-chunk-5-1.png)
+![](/2019-10-30-Weighted-Least-Squares_files/figure-markdown/unnamed-chunk-5-1.png)
 
 In our case we can conclude that as budget increases, the website visits
 tend to diverge.
@@ -346,7 +346,7 @@ The solution
 The two most common strategies for dealing with the possibility of
 heteroskedasticity is heteroskedasticity-consistent standard errors (or
 [robust errors](http://afhayes.com/public/BRM2007.pdf)) developed by
-White and **Weighted Ordinary Least Squares**.
+White and **Weighted Least Squares**.
 
 WOLS
 ----
@@ -502,7 +502,7 @@ resid_compare(models = list(wols1, wols2),
               title.opt = FALSE)
 ```
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown/unnamed-chunk-8-1.png)
+![](/2019-10-30-Weighted-Least-Squares_files/figure-markdown/unnamed-chunk-8-1.png)
 
 Apparently, the nonconstant variance of the residuals still results in
 heteroscedasticity. The issue is that the plots above use unweighted
@@ -519,7 +519,7 @@ resid_auxpanel(residuals = sqrt(1/web$Budget)*resid(wols1),
                plots = c("resid", "index"))
 ```
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown/unnamed-chunk-9-1.png)
+![](/2019-10-30-Weighted-Least-Squares_files/figure-markdown/unnamed-chunk-9-1.png)
 
 ``` {.r}
 resid_auxpanel(residuals = sqrt(1/web$Budget^2)*resid(wols2), 
@@ -527,7 +527,7 @@ resid_auxpanel(residuals = sqrt(1/web$Budget^2)*resid(wols2),
                plots = c("resid", "index"))
 ```
 
-![](/2019-10-30-Weighted-Ordinary-Least-Squares_files/figure-markdown/unnamed-chunk-9-2.png)
+![](/2019-10-30-Weighted-Least-Squares_files/figure-markdown/unnamed-chunk-9-2.png)
 
 It seems that the second WOLS model with the following weights
 $w_i=\frac{1}{x_i^2}$, because the variability of residuals is the same
