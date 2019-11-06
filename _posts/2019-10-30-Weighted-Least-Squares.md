@@ -1,9 +1,9 @@
 ﻿---
 layout: post
-title:  Look what we have done
+title:  Weighted Least Squares
 date:   2015-04-14 10:52:12
 excerpt:
-  Iste neque doloribus dolor quis ad sit dolores dolor sit perferendis. nemo in rerum ducimus possimus aspernatur quas est. dolorem eaque vel id quasi voluptatem eligendi rerum et quo ut. fuga qui ea voluptates sunt
+  Although homoscedasticity is often taken for granted in regression analysis, it is common to suppose that the distribution of the disturbance term is different for different observations in the sample.
 ---
 
 Introduction
