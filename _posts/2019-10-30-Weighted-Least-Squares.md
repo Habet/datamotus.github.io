@@ -1,8 +1,14 @@
 ﻿---
 layout: post
-title:  Weighted Least Squares
+title:  Solving the problem of heteroscedasticity through weighted regression
 excerpt:
   Although homoscedasticity is often taken for granted in regression analysis, it is common to suppose that the distribution of the disturbance term is different for different observations in the sample.
+keywords:
+  - weighted least squares
+  - heteroscedasticity
+  - regression ansalysis
+  - weighted least squares with r
+  - r programming
 ---
 
 Introduction
@@ -355,7 +361,7 @@ heteroskedasticity is heteroskedasticity-consistent standard errors (or
 [robust errors](http://afhayes.com/public/BRM2007.pdf)) developed by
 White and **Weighted Least Squares**.
 
-WOLS
+WLS
 ----
 
 OLS does not discriminate between the quality of the observations,
@@ -364,7 +370,7 @@ poor guides to the location of the line. Thus, it may be concluded that
 if we can find a way of assigning more weight to high-quality
 observations and less to the unreliable ones, we are likely to obtain a
 better fit. In other words, our estimators of $\beta_1$ and $\beta_2$
-will be more efficient. WOLS works by incorporating extra nonnegative
+will be more efficient. WLS works by incorporating extra nonnegative
 constants (weights) associated with each data point into the fitting
 criterion. We shall see how to do this below. Suppose the true
 relationship is
@@ -434,7 +440,7 @@ ${\sigma_i^2}$. Often the weights are determined by fitted values rather
 than the independent variable. Let us show these different models via
 statistical package R. Fortunately, the R function `lm()` ,which is used
 to perform the ordinary least squares, provides the argument `weights`
-to perform WOLS. By default the value of weights in `lm()` is `NULL`,
+to perform WLS. By default the value of weights in `lm()` is `NULL`,
 weighted least squares are used with weights `weights`, minimizing the
 sum of $w*e^2$.
 
@@ -501,7 +507,7 @@ standard errors are presented by the model with
 > Inverse of x and residuals with weights
 
 However, as we know the pattern of weight allows to examine the residual
-plots for the first two weighted OLS models.
+plots for the first two weighted LS models.
 
 ``` {.r}
 resid_compare(models = list(wols1, wols2),
@@ -536,7 +542,7 @@ resid_auxpanel(residuals = sqrt(1/web$Budget^2)*resid(wols2),
 
 ![](/2019-10-30-Weighted-Least-Squares_files/figure-markdown/unnamed-chunk-9-2.png)
 
-It seems that the second WOLS model with the following weights
+It seems that the second WLS model with the following weights
 $w_i=\frac{1}{x_i^2}$, because the variability of residuals is the same
 for all predicted values. We can now be more confident in results and
 state that with every \$100 increase in the amount of money spent on
@@ -551,10 +557,10 @@ Conclusion
 Overall, the weighted ordinary least squares is a popular method of
 solving the problem of heteroscedasticity in regression models, which is
 the application of the more general concept of **generalized least
-squares.** WOLS implementation in R is quite simple because it has a
+squares.** WLS implementation in R is quite simple because it has a
 distinct argument for weights. As we saw, weights can be estimated
 directly from sample variances of the response variable at each
-combination of predictor variables. WOLS can sometimes be used where
+combination of predictor variables. WLS can sometimes be used where
 different observations have been measured by various instruments,
 importance or accuracy, and where weights are used to take these
 circumstances into account.
@@ -562,10 +568,10 @@ circumstances into account.
 The disadvantage of weighted least squares is that the theory behind
 this method is based on the assumption that exact weight sizes are
 known. However, when it comes to practice, it can be quite difficult to
-determine weights or estimates of error variances. Note that WOLS is
+determine weights or estimates of error variances. Note that WLS is
 neither the only nor the best method of addressing the issue of
 heteroscedasticity. The alternative methods include estimating
-heteroskedasticity-consistent standard errors, and other types of WOLS
+heteroskedasticity-consistent standard errors, and other types of WLS
 (e.g. iteratively reweighted least squares).
 
 ------------------------------------------------------------------------
