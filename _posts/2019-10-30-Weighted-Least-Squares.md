@@ -1,7 +1,6 @@
 ﻿---
 layout: post
 title:  Weighted Least Squares
-date:   2015-04-14 10:52:12
 excerpt:
   Although homoscedasticity is often taken for granted in regression analysis, it is common to suppose that the distribution of the disturbance term is different for different observations in the sample.
 ---
