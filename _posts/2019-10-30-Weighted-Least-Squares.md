@@ -1,4 +1,4 @@
-Introduction 2
+﻿Introduction
 ============
 
 Nowadays, having a business implies օwning a website. The primary aim of
