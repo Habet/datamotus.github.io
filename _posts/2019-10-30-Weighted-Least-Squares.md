@@ -1,7 +1,7 @@
 Introduction
 ============
 
-Nowadays, having a business implies awning a website. The primary aim of
+Nowadays, having a business implies օwning a website. The primary aim of
 a website is to provide information, which is crucial in the modern
 business world. Suppose a website owner aims at increasing the number of
 visitors in order to have more views, sales or popularity. To achieve
