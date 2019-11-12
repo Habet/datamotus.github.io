@@ -221,7 +221,7 @@ ggplot() + geom_line(aes(x = Year, y = Co2, color = Entity)) +
   ggtitle("The emissions of CO2 per capita")
 ```
 
-![](11-15-2019-Outlier-Detection_files/figure-markdown/selected-1.png)
+![](2019-11-15-Outlier-Detection_files/figure-markdown/selected-1.png)
 
 These countries were not selected randomly. If you look at the time
 series of these countries separately, the different types of outliers:
@@ -290,7 +290,7 @@ ggplot(data = AO) +
   ggtitle("The emissions of CO2 per capita")
 ```
 
-![](11-15-2019-Outlier-Detection_files/figure-markdown/ao-1.png)
+![](2019-11-15-Outlier-Detection_files/figure-markdown/ao-1.png)
 
 We will now consider the time series of Venezuela and United Kingdom.
 The plot above shows that the value of the year 1946 (17 tonnes of
@@ -438,7 +438,7 @@ ggplot(data = out) +
   labs(y = "CO2", title = "Replacing the outliers")
 ```
 
-![](11-15-2019-Outlier-Detection_files/figure-markdown/replacement-1.png)
+![](2019-11-15-Outlier-Detection_files/figure-markdown/replacement-1.png)
 
 Innovational Outliers
 ---------------------
@@ -469,7 +469,7 @@ ggplot(data = IO) +
   ggtitle("The emissions of CO2 per capita")
 ```
 
-![](11-15-2019-Outlier-Detection_files/figure-markdown/io-1.png)
+![](2019-11-15-Outlier-Detection_files/figure-markdown/io-1.png)
 
 The time series for the United Arab Emirates shows innovational outliers
 in 1969 and 1998, which are to be tested:
@@ -577,7 +577,7 @@ ggplot(data = LS) +
   ggtitle("The emissions of CO2 per capita")
 ```
 
-![](11-15-2019-Outlier-Detection_files/figure-markdown/ls-1.png)
+![](2019-11-15-Outlier-Detection_files/figure-markdown/ls-1.png)
 
 A similar analysis for the level shift outlier was conducted for the
 time series of Iceland and Bahamas. The results are presented below:
