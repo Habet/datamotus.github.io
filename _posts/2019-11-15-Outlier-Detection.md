@@ -37,7 +37,7 @@ the initial data is 42,844 and the range of variable time span is 1751
 -- 2017. For the further analysis the observation before 1970 that have
 value of zero are omitted. The dataset used in this analysis can be
 found
-[here](/2019-11-15-Outlier-Detection_files/co-emissions-per-capita.csv)
+[here](/2019-11-15-Outlier-Detection_files/co-emissions-per-capita.csv).
 
 ``` {.r}
 # load the required libraries used in the article
