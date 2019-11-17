@@ -34,20 +34,8 @@
   <script src="{{ "/javascripts/imagesloaded.pkgd.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
   <script src="{{ "/javascripts/slick.min.js" | prepend: site.baseurl }}" type="text/javascript"></script>
   <script src="{{ "/javascripts/json2.js" | prepend: site.baseurl }}" type="text/javascript"></script>
+  <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-  <!-- Mathjax Support -->
-<script>
-MathJax = {
-  loader: {
-    load: ['input/tex-base', 'output/svg', 'ui/menu', '[tex]/require']
-  },
-  tex: {
-    packages: ['base', 'require']
-  }
-};
-</script>
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/startup.js">
-</script>
 </head>
