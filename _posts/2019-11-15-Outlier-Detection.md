@@ -517,12 +517,16 @@ tsoutliers::tso(ts(IO[IO$Entity == "Armenia", "Co2"],
     ##   type ind time coefhat  tstat
     ## 1   IO  35 1993 -0.9156 -7.571
 
+The number 35 is tagged as an innovative outlier.
+
 ``` {.r}
 IO[IO$Entity == "Armenia",][35,]
 ```
 
     ##       Entity Code Year       Co2
     ## 1720 Armenia  ARM 1993 0.7458196
+
+Detect innovative outlier with detectIO().
 
 ``` {.r}
 detectIO(arima(ts(IO[IO$Entity == "Armenia", "Co2"]), 
@@ -585,6 +589,9 @@ tsoutliers::tso(ts(LS[LS$Entity == "Iceland", "Co2"],
     ## Outliers:
     ##   type ind time coefhat tstat
     ## 1   LS  12 1947   5.162 9.654
+
+As can be seen from the output above, case number 12 is tagged as an
+outlier.
 
 ``` {.r}
 LS[LS$Entity == "Iceland",][12,]
