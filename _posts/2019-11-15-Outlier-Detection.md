@@ -205,7 +205,7 @@ particular countries: Venezuela, United Arab Emirates, and the Bahamas.
 ``` {.r}
 co %>% filter(Entity %in% c("Venezuela", "United Arab Emirates", "Bahamas")) %>%
 ggplot() + geom_line(aes(x = Year, y = Co2, color = Entity)) +
-  theme(legend.position="None") + facet_grid(.~Entity, scales = "free") +
+  theme(legend.position="None") + facet_grid(.~Entity, scales = "fixed") +
   ggtitle("The emissions of CO2 per capita")
 ```
 
@@ -272,7 +272,7 @@ have an additive outlier/outliers:
 ``` {.r}
 AO <- co[co$Entity %in% c("Brunei", "Mauritania", "Togo", "United Kingdom", "Venezuela", "Yemen"), ]
 ggplot(data = AO) + geom_line(aes(x = Year, y = Co2, color = Entity)) +
-  theme(legend.position="None") + facet_wrap(~Entity,scales = "free") +
+  theme(legend.position="None") + facet_wrap(~Entity, scales = "free") +
   ggtitle("The emissions of CO2 per capita")
 ```
 
@@ -593,7 +593,36 @@ LS[LS$Entity == "Iceland",][12,]
     ##        Entity Code Year      Co2
     ## 16501 Iceland  ISL 1950 5.188092
 
-<br></br> And for Iceland. <br></br>
+And for Bahamas:
+
+``` {.r}
+tsoutliers::tso(ts(LS[LS$Entity == "Bahamas", "Co2"], 
+  start = LS[LS$Entity == "Bahamas", "Year"][1]),types = "LS") 
+```
+
+    ## Series: ts(LS[LS$Entity == "Bahamas", "Co2"], start = LS[LS$Entity ==      "Bahamas", "Year"][1]) 
+    ## Regression with ARIMA(3,0,0) errors 
+    ## 
+    ## Coefficients:
+    ##          ar1    ar2     ar3     LS22      LS32
+    ##       0.1292  0.525  0.2965  26.6765  -23.6281
+    ## s.e.  0.1150  0.097  0.1150   1.9063    1.8062
+    ## 
+    ## sigma^2 estimated as 6.589:  log likelihood=-159.16
+    ## AIC=330.33   AICc=331.71   BIC=343.65
+    ## 
+    ## Outliers:
+    ##   type ind time coefhat  tstat
+    ## 1   LS  22 1971   26.68  13.99
+    ## 2   LS  32 1981  -23.63 -13.08
+
+``` {.r}
+LS[LS$Entity == "Bahamas",][c(22,32),]
+```
+
+    ##       Entity Code Year      Co2
+    ## 2570 Bahamas  BHS 1971 38.67267
+    ## 2580 Bahamas  BHS 1981 12.99207
 
 A dummy variable can be used to account for level shift outliers and
 innovative outliers in the data. Rather than omitting the outlier, a
