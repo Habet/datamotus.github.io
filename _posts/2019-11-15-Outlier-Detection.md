@@ -1,3 +1,9 @@
+---
+layout: post
+title:  Outlier detection in Air Pollution data
+excerpt: In the post, we applied methods for detecting additive, innovational and level shift outliers to air pollution data. 
+keywords: outlier detection, time series, air quality forecasting, time series, time series forecasting
+---
 Introduction and Data Description
 =================================
 
