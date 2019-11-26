@@ -656,8 +656,7 @@ in time series modeling. Here is the summary of these types of outliers:
 To illustrate, we described the time series of annual emissions of
 carbon dioxide per person to detect these outliers. The iterative
 procedure of finding an outlier from the package `tsoutliers` was used.
-The next step in outlier analysis should be their adjustment (I'M NOT
-SURE IF THE MEANING OF THIS SENTENCE IS CLEAR).
+The next step in outlier analysis should be their adjustment.
 
 Reference list
 ==============
