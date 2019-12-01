@@ -383,16 +383,12 @@ and
 
 So we have a heteroscedastic model. We could eliminate the
 heteroscedasticity by dividing each observation by its value of
-$\sigma_{\epsilon_i}$. The model becomes
-
-\$$
-git \frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}
+$\sigma_{\epsilon_i}$. The model becomes\$$
+\frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}
 $$
 
 The disturbance term $\frac{\epsilon_i}{\sigma_{\epsilon_i}}$ is
-homoscedastic because
-
-\$$ E[(\frac{\epsilon_i}{\sigma_{\epsilon_i}})^2] = \frac{1}{\sigma_{\epsilon_i}^2}E(\epsilon_i^2)=\frac{1}{\sigma_{\epsilon_i}^2}\sigma_{\epsilon_i}^2=1 $$
+homoscedastic because\$$ E[(\frac{\epsilon_i}{\sigma_{\epsilon_i}})^2] = \frac{1}{\sigma_{\epsilon_i}^2}E(\epsilon_i^2)=\frac{1}{\sigma_{\epsilon_i}^2}\sigma_{\epsilon_i}^2=1 $$
 
 Therefore, every observation will have a disturbance term drawn from a
 distribution with population variance 1, and the model will be
