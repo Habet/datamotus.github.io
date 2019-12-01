@@ -386,7 +386,9 @@ heteroscedasticity by dividing each observation by its value of
 $\sigma_{\epsilon_i}$. The model becomes
 
 $$
+\begin{align*}
 \frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}
+\end{align*}
 $$
 
 The disturbance term $\frac{\epsilon_i}{\sigma_{\epsilon_i}}$ is
