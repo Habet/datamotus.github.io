@@ -379,7 +379,7 @@ $Y_i = \beta_1+\beta_2X_i + \epsilon_i$
 
 and
 
-\\[var(\epsilon_i) = \sigma_{\epsilon_i}^2\\]
+$$ var(\epsilon_i) = \sigma_{\epsilon_i}^2 $$
 
 So we have a heteroscedastic model. We could eliminate the
 heteroscedasticity by dividing each observation by its value of
