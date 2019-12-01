@@ -394,7 +394,7 @@ Therefore, every observation will have a disturbance term drawn from a
 distribution with population variance 1, and the model will be
 homoscedastic. By rewriting the model, we will have
 
-$$Y_i' = \beta_1h_i + \beta_2X_i'+\epsilon_i',$$
+$Y_i' = \beta_1h_i + \beta_2X_i'+\epsilon_i',$
 
 where $Y_i'=\frac{Y_i}{\sigma_{\epsilon_i}}$,
 $h_i=\frac{1}{\sigma_{\epsilon_i}}$,
