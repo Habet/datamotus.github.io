@@ -392,7 +392,7 @@ $$
 The disturbance term $\frac{\epsilon_i}{\sigma_{\epsilon_i}}$ is
 homoscedastic because
 
-$$ E[(\frac{\epsilon_i}{\sigma_{\epsilon_i}})^2] = \frac{1}{\sigma_{\epsilon_i}^2}E(\epsilon_i^2)=\frac{1}{\sigma_{\epsilon_i}^2}\sigma_{\epsilon_i}^2=1 $$
+\$$ E[(\frac{\epsilon_i}{\sigma_{\epsilon_i}})^2] = \frac{1}{\sigma_{\epsilon_i}^2}E(\epsilon_i^2)=\frac{1}{\sigma_{\epsilon_i}^2}\sigma_{\epsilon_i}^2=1 $$
 
 Therefore, every observation will have a disturbance term drawn from a
 distribution with population variance 1, and the model will be
