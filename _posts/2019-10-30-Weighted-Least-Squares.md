@@ -385,8 +385,8 @@ So we have a heteroscedastic model. We could eliminate the
 heteroscedasticity by dividing each observation by its value of
 $\sigma_{\epsilon_i}$. The model becomes
 
-statement:\$$
-\frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}
+\$$
+git \frac{Y_i}{\sigma_{\epsilon_i}} = \beta_1\frac{1}{\sigma_{\epsilon_i}}+\beta_2\frac{X_i}{\sigma_{\epsilon_i}} + \frac{\epsilon_i}{\sigma_{\epsilon_i}}
 $$
 
 The disturbance term $\frac{\epsilon_i}{\sigma_{\epsilon_i}}$ is
