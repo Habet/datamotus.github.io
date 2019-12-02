@@ -450,7 +450,7 @@ treated or to be in the control group.
 
 The propensity score is the estimated conditional probability
 (propensity) of receiving treatment based on the covariates included in
-the propensity score model:\$$PS = P(X=1|Z=z),$$ where `PS` is propensity score, X is the binary variable with 0 value,
+the propensity score model:$PS = P(X=1|Z=z),$ where `PS` is propensity score, X is the binary variable with 0 value,
 if the student is in the control group and, `X = 1`, then a student is
 in the treatment group, and `Z` is covariates (student characteristics).
 
