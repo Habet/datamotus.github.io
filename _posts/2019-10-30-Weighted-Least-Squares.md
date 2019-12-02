@@ -179,7 +179,7 @@ role.
 To understand the effect of advertising let us consider the following
 multiple linear regression model:
 
-$$Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i$$
+$Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i$
 
 The result of fitted linear regression is presented in the output below:
 
@@ -404,9 +404,7 @@ $\epsilon_i'=\frac{\epsilon_i}{\sigma_{\epsilon_i}}$
 **Note** that there should not be a constant term in the equation. By
 regressing $Y'$ on $h$ and $X'$, we will obtain efficient estimates of
 $\beta_1$ and $\beta_2$ with unbiased standard errors. The general
-solution to this is
-
-$$\hat{\beta}=(X^TWX)^{-1}(X^TWY),$$
+solution to this is \$$\hat{\beta}=(X^TWX)^{-1}(X^TWY),$$
 
 where $W$ is the diagonal martrix with diagonal entries equal to weights
 and $Var(\epsilon)=W^{-1}\sigma^2$.
