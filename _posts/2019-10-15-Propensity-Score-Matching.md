@@ -450,7 +450,7 @@ treated or to be in the control group.
 
 The propensity score is the estimated conditional probability
 (propensity) of receiving treatment based on the covariates included in
-the propensity score model:$$PS = P(X=1|Z=z),$$ where `PS` is propensity score, X is the binary variable with 0 value,
+the propensity score model:\$$PS = P(X=1|Z=z),$$ where `PS` is propensity score, X is the binary variable with 0 value,
 if the student is in the control group and, `X = 1`, then a student is
 in the treatment group, and `Z` is covariates (student characteristics).
 
@@ -460,7 +460,7 @@ common set of explanatory variables (gender, age, math grade, overall
 grade of a student), such as:
 
 
-$$log \frac{P(X = 1)}{1-P(X = 1)} = \beta_0 + \beta_1Z_1 +...+\beta_kZ_k$$
+$log \frac{P(X = 1)}{1-P(X = 1)} = \beta_0 + \beta_1Z_1 +...+\beta_kZ_k$
 
 
 The propensity score plays an important role in balancing the study
