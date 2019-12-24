@@ -63,6 +63,33 @@ pacman::p_load(dplyr, readxl, knitr, kableExtra, networkD3, ggcorrplot,
                stringr, radiant.data, textshape, formattable, RColorBrewer, ggraph, igraph)
 ```
 
+    ## 
+    ## The downloaded binary packages are in
+    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
+    ## 
+    ## The downloaded binary packages are in
+    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
+    ## 
+    ## The downloaded binary packages are in
+    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
+    ## 
+    ##   There is a binary version available but the source version is later:
+    ##     binary source needs_compilation
+    ## car  3.0-5  3.0-6             FALSE
+    ## 
+    ## 
+    ## The downloaded binary packages are in
+    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
+    ## 
+    ## The downloaded binary packages are in
+    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
+    ## 
+    ## The downloaded binary packages are in
+    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
+    ## 
+    ## The downloaded binary packages are in
+    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
+
 In order to solve the problem of finding the key drivers of the
 restaurant industry, a survey was conducted asking customers to complete
 a questionnaire covering various aspects of the restaurant.
@@ -80,7 +107,7 @@ finally, each driver should be explained by `items of drivers`. Each
 `Driver of Target` has 13 explanatory variables - items of drivers
 grouped by a specific color.
 
-![](/2019-12-20-Shapley-value-regression_files/figure-markdown/causalgraph-1.png)
+<img src="/2019-12-20-Shapley-value-regression_files/figure-markdown/causalgraph-1.png" width="75%" />
 
 All variables are observed and collected via survey and measured in
 rating scales (1 to 10).
@@ -147,7 +174,7 @@ A restaurant that allows you to live the life you choose
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td1\_1
+Commitment
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 Target 1
@@ -158,7 +185,7 @@ Showing commitment to people
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td1\_2
+Update
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 </td>
@@ -168,7 +195,7 @@ Continuously updating restaurant
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td1\_3
+Dedication
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 </td>
@@ -178,7 +205,7 @@ Sincerely acting in your interest
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td1\_4
+Discovering better ways
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 </td>
@@ -188,7 +215,7 @@ Discovering better ways to win favor with you
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td1\_5
+Fulfill expectation
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 </td>
@@ -198,7 +225,7 @@ Focus on fulfilling guest's expectations
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td1\_6
+Comfort/relax
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 </td>
@@ -208,7 +235,7 @@ Delivering the resources to enable you to feel comfortable and relax
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td2\_1
+Guest complaint
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 Target 2
@@ -219,7 +246,7 @@ Taking into consideration guest complaints
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td2\_2
+Changing needs
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 </td>
@@ -229,7 +256,7 @@ Continuously staying relevant by understanding changing customer needs
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td2\_3
+Consumer health
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 </td>
@@ -239,7 +266,7 @@ Focus on consumer health
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td2\_4
+Menu by norms
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 </td>
@@ -249,7 +276,7 @@ Modifying of menu items driven by regulatory norms
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td2\_5
+Various segments
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 </td>
@@ -259,7 +286,7 @@ Work for to various customer segment
 </tr>
 <tr>
 <td style="text-align:left; padding-left: 2em;" indentlevel="1">
-td2\_6
+New mind-set
 </td>
 <td style="text-align:left;width: 5cm; font-weight: bold;font-style: italic;">
 </td>
@@ -409,7 +436,6 @@ Cleanliness in the bathroom
 </tr>
 </tbody>
 </table>
-
 There are a total of 28 questions. Thirteen are about restaurant
 service, food, delivery, and cleanliness. For example `Service2`:
 clients are asked to evaluate their satisfaction with the usage of
@@ -531,7 +557,7 @@ computation is done for $x_1$, $r=3$ and, thus, $r-1=2$, $k=3$ is the
 number of cases of possible models, $l$ is the number of models in each
 case:
 
-![](/2019-12-20-Shapley-value-regression_files/Shap1.PNG)
+![](/2019-12-20-Shapley-value-regression_files/Shap1.PNG){width="65%"}
 
 The weights of the regressions are based on the number of possible
 models. We will have
@@ -656,7 +682,6 @@ ShapValT2
 </tr>
 </tbody>
 </table>
-
 It can be sees that `Target 1` is the most important at 0.56. In other
 words, the overall satisfaction of the customer is mostly described by
 the ability of the restaurant to help clients step up in life. We can
@@ -743,7 +768,7 @@ the focus of the restaurant on consumer health (actually, the score for
 `Consumer health` is 0.1899209, the score for `Menu by norms` is
 0.1895162).
 
-![](/2019-12-20-Shapley-value-regression_files/Shap2.PNG)
+![](/2019-12-20-Shapley-value-regression_files/Shap2.PNG){width="55%"}
 
 Level 3
 -------
@@ -780,7 +805,7 @@ kable_styling( full_width = F, font_size = 13) %>%
   row_spec(0, bold = T, font_size = 9)
 ```
 
-![](/2019-12-20-Shapley-value-regression_files/Shap3.PNG)
+![](/2019-12-20-Shapley-value-regression_files/Shap3.PNG){width="85%"}
 
 It seems that *politeness* of staff is *the most important* item for all
 drivers (for both targets). In other words, the satisfaction of clients
