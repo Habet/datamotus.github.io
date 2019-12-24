@@ -1,4 +1,4 @@
-### Summary
+##### Summary
 
 Shapley value regression can deal with multicollinearity that is
 frequently encountered in marketing research that uses rating scale
@@ -7,7 +7,7 @@ theory as a method of discovering the relative importance of predictors
 in order to understand the key drivers of successful restaurant
 business.
 
-### Introduction
+##### Introduction
 
 In marketing research, the problem of multicollinearity can be raised as
 a result of using clients' rating responses. People tend to answer to
