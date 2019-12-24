@@ -1,5 +1,4 @@
-Summary
-====
+### Summary
 
 Shapley value regression can deal with multicollinearity that is
 frequently encountered in marketing research that uses rating scale
@@ -8,8 +7,7 @@ theory as a method of discovering the relative importance of predictors
 in order to understand the key drivers of successful restaurant
 business.
 
-Introduction
-=====
+### Introduction
 
 In marketing research, the problem of multicollinearity can be raised as
 a result of using clients' rating responses. People tend to answer to
@@ -53,8 +51,7 @@ restaurant business. The main purpose will be to detect key drivers in
 the restaurant business and to avoid the problem of the high correlation
 between variables using this approach.
 
-Data description
-================
+### Data description
 
 ``` {.r}
 # load the required libraries used in the article
@@ -62,33 +59,6 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, knitr, kableExtra, networkD3, ggcorrplot, 
                stringr, radiant.data, textshape, formattable, RColorBrewer, ggraph, igraph)
 ```
-
-    ## 
-    ## The downloaded binary packages are in
-    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
-    ## 
-    ## The downloaded binary packages are in
-    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
-    ## 
-    ## The downloaded binary packages are in
-    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
-    ## 
-    ##   There is a binary version available but the source version is later:
-    ##     binary source needs_compilation
-    ## car  3.0-5  3.0-6             FALSE
-    ## 
-    ## 
-    ## The downloaded binary packages are in
-    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
-    ## 
-    ## The downloaded binary packages are in
-    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
-    ## 
-    ## The downloaded binary packages are in
-    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
-    ## 
-    ## The downloaded binary packages are in
-    ##  /var/folders/kv/mdq6xcvs0b76kcp87psv1y8c0000gn/T//RtmpyuyaQV/downloaded_packages
 
 In order to solve the problem of finding the key drivers of the
 restaurant industry, a survey was conducted asking customers to complete
@@ -557,7 +527,7 @@ computation is done for $x_1$, $r=3$ and, thus, $r-1=2$, $k=3$ is the
 number of cases of possible models, $l$ is the number of models in each
 case:
 
-![](/2019-12-20-Shapley-value-regression_files/Shap1.PNG){width="65%"}
+![](/2019-12-20-Shapley-value-regression_files/Shap1.PNG)
 
 The weights of the regressions are based on the number of possible
 models. We will have
@@ -577,11 +547,9 @@ $$SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^
 In order to evaluate the key drivers of restaurant industries, we will
 use the regression described above.
 
-Implementing in R
-=================
+### Implementing in R
 
-Level 1
--------
+#### Level 1
 
 For the first level, we need to evaluate how the variables `Target 1` (a
 restaurant that enables you to step up in life) and `Target 2` (a
@@ -653,14 +621,7 @@ variable using the functions above:
 
     ## [1] 0.2084265
 
-
-
-
 Finally, calculated values are re-based so that they add up to 1:
-
-
-
-
 
 ``` {.r}
 shaplev1 <- data.frame(ShapValT1 = ShapValT1/(ShapValT1+ShapValT2), 
@@ -728,8 +689,7 @@ It can be seen from the table `Relative importance metrics:` that,
 although, the `lmg` value slightly differs from the above calculated
 one, the conclusion is the same.
 
-Level 2
--------
+#### Level 2
 
 To indicate the most important explanatory variable/s for `Target 1` and
 `Target 2` the drivers of these variables will now be studied. Now, the
@@ -775,10 +735,9 @@ the focus of the restaurant on consumer health (actually, the score for
 `Consumer health` is 0.1899209, the score for `Menu by norms` is
 0.1895162).
 
-![](/2019-12-20-Shapley-value-regression_files/Shap2.PNG){width="55%"}
+![](/2019-12-20-Shapley-value-regression_files/Shap2.PNG)
 
-Level 3
--------
+#### Level 3
 
 And finally, we will attempt to reveal the most important variable for
 each driver of targets. The result from package `relaimpo` is in the
@@ -812,7 +771,7 @@ kable_styling( full_width = F, font_size = 13) %>%
   row_spec(0, bold = T, font_size = 9)
 ```
 
-![](/2019-12-20-Shapley-value-regression_files/Shap3.PNG){width="85%"}
+![](/2019-12-20-Shapley-value-regression_files/Shap3.PNG)
 
 It seems that *politeness* of staff is *the most important* item for all
 drivers (for both targets). In other words, the satisfaction of clients
@@ -865,7 +824,7 @@ regressors in different models is different) instead of $R^2$ can be
 considered.
 
 Reference List
-==============
+--------------
 
 > Mishra, S.K. (2016) ?Shapley value regression and the resolution of
 > multicollinearity?, MPRA, (72116). Available at:
