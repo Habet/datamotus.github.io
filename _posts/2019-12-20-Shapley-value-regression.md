@@ -1,5 +1,5 @@
 Summary
-=======
+====
 
 Shapley value regression can deal with multicollinearity that is
 frequently encountered in marketing research that uses rating scale
@@ -9,7 +9,7 @@ in order to understand the key drivers of successful restaurant
 business.
 
 Introduction
-============
+=====
 
 In marketing research, the problem of multicollinearity can be raised as
 a result of using clients' rating responses. People tend to answer to
@@ -653,7 +653,14 @@ variable using the functions above:
 
     ## [1] 0.2084265
 
+
+
+
 Finally, calculated values are re-based so that they add up to 1:
+
+
+
+
 
 ``` {.r}
 shaplev1 <- data.frame(ShapValT1 = ShapValT1/(ShapValT1+ShapValT2), 
