@@ -59,7 +59,6 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(dplyr, readxl, knitr, kableExtra, networkD3, ggcorrplot, 
                stringr, radiant.data, textshape, formattable, RColorBrewer, ggraph, igraph)
 ```
-<p></p>
 
 In order to solve the problem of finding the key drivers of the
 restaurant industry, a survey was conducted asking customers to complete
@@ -92,7 +91,7 @@ kable(data_desc) %>%
   pack_rows("Items of Drivers", 16, 28) %>%
   column_spec(2, bold = T, italic = T, width = "5cm")
 ```
-<p></p>
+
 <table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -407,7 +406,6 @@ Cleanliness in the bathroom
 </tr>
 </tbody>
 </table>
-<p></p>
 There are a total of 28 questions. Thirteen are about restaurant
 service, food, delivery, and cleanliness. For example `Service2`:
 clients are asked to evaluate their satisfaction with the usage of
@@ -424,7 +422,7 @@ dim(df)
 ```
 
     ## [1] 500  28
-<p></p>
+
 There are 500 respondents who have answered 28 questions in the
 synthetic dataset. It can be seen that the ratings are highly
 correlated:
@@ -434,7 +432,7 @@ paste("The correlation between Target 1 and Target 2 is", round(cor(df[,2:3])[2]
 ```
 
     ## [1] "The correlation between Target 1 and Target 2 is 0.859"
-<p></p>
+
 There is high correlation between the effort of the restaurant to help
 the clients step up in life and its effort to provide the life their
 customers choose. The presence of a high correlation between the
@@ -487,8 +485,8 @@ We are going to study Shapley value to detect how it can be used to
 avoid multicollinearity and detecting the key driver for the restaurant
 industry.
 
-##### Shapley value regression
-
+Shapley value regression
+========================
 
 Shapley Value Regression is based on the thesis and post-doctoral work
 of an American mathematician and a Nobel Prize-winning economist [Lloyd
@@ -507,7 +505,9 @@ by the individual member of the game, the Shapley value decomposition
 should be used. The share of the regressor variable $x_i$ for a given
 set of $k$ predictor variables is given by the following formula:
 
-$S({x_i})=\dfrac{1}{k}\sum_{r=1}^{k}\dfrac{\sum_{c=1}^{l}(R^2_{(i,r)}-R^2_{(j,r-1)})_c}{l}$
+$$
+S({x_i})=\dfrac{1}{k}\sum_{r=1}^{k}\dfrac{\sum_{c=1}^{l}(R^2_{(i,r)}-R^2_{(j,r-1)})_c}{l}
+$$
 
 where
 
@@ -534,22 +534,21 @@ models. We will have
 
 -   2 regressions where $x_1$ is used with one other explanatory
     variable: `(x1, x2); (x1, x3)`
--   1 regression where $x_1$ is used its own `(x1)`\#\# D.N.WITH its
-    own? ON its own?
+-   1 regression where $x_1$ is used its own `(x1)`
 -   1 regression where $x_1$ is used with two other variables
     `(x1,x2,x3)`
 
 Thus we will have the following weighted Shapley value for the variable
 $x_1$:
 
-\\[SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3}) \\]
+$$SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3})$$
 
 In order to evaluate the key drivers of restaurant industries, we will
 use the regression described above.
 
-##### Implementing in R
+### Implementing in R
 
-##### Level 1
+#### Level 1
 
 For the first level, we need to evaluate how the variables `Target 1` (a
 restaurant that enables you to step up in life) and `Target 2` (a
@@ -603,7 +602,7 @@ shap <- function(formula, var){
       summary(lm(data=df, as.formula(paste0(paste(formula)[2],paste(formula)[1],1))))$r.squared
   )}
 ```
-<p></p>
+
 First, we need to calculate the Shapley value for each independent
 variable using the functions above:
 
@@ -620,7 +619,7 @@ variable using the functions above:
 ```
 
     ## [1] 0.2084265
-<p></p>
+
 Finally, calculated values are re-based so that they add up to 1:
 
 ``` {.r}
@@ -629,9 +628,6 @@ shaplev1 <- data.frame(ShapValT1 = ShapValT1/(ShapValT1+ShapValT2),
 kable(t(shaplev1)) %>%
  kable_styling(bootstrap_options = "striped", full_width = F)
 ```
-
-<p></p>
-
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <tbody>
@@ -653,15 +649,13 @@ ShapValT2
 </tr>
 </tbody>
 </table>
-<p></p>
 It can be sees that `Target 1` is the most important at 0.56. In other
 words, the overall satisfaction of the customer is mostly described by
 the ability of the restaurant to help clients step up in life. We can
 decompose the regression and find out what the r-squared is made of and
 have a similar result by using the function `calc.relimp` from the
 package `relaimpo`. The package provides the relative importance metric
-`lmg` introduced by Lindemann, Merenda, and Gold. \#\# D.N. WHY IS THIS
-WORK NOT MENTIONED IN THE REFERENCE LIST?
+`lmg` introduced by Lindemann, Merenda, and Gold.
 
 ``` {.r}
 library(relaimpo)
@@ -688,12 +682,12 @@ calc.relimp(reglev1, type = c("lmg"), rela = TRUE, rank = TRUE)
     ##                1X       2Xs
     ## Target1 0.6853051 0.5023914
     ## Target2 0.6533959 0.2157771
-<p></p>
+
 It can be seen from the table `Relative importance metrics:` that,
 although, the `lmg` value slightly differs from the above calculated
 one, the conclusion is the same.
 
-##### Level 2
+#### Level 2
 
 To indicate the most important explanatory variable/s for `Target 1` and
 `Target 2` the drivers of these variables will now be studied. Now, the
@@ -704,7 +698,7 @@ target correspondingly.
 reglev2t1 <- lm(Target1 ~ td1_1 + td1_2 + td1_3 + td1_4 + td1_5 + td1_6, data = df)
 reglev2t2 <- lm(Target2 ~ td2_1 + td2_2 + td2_3 + td2_4 + td2_5 + td2_6, data = df)
 ```
-<p></p>
+
 To see the relative importance of each variable, we need to calculate 6
 Shapley values using the approach above for each target variable. As the
 procedure of calculation is similar and in order to facilitate the
@@ -730,7 +724,7 @@ shaplev2 %>%
 kable(escape = F, booktabs = T) %>%
 kable_styling( full_width = F, font_size = 13)
 ```
-<p></p>
+
 In the case of Target 1, the focus of the restaurant on discovering
 better ways to win favor with its clients is the most important key
 driver for the target variable. For Target 2 (a restaurant that allows
@@ -741,7 +735,7 @@ the focus of the restaurant on consumer health (actually, the score for
 
 ![](/2019-12-20-Shapley-value-regression_files/Shap2.PNG)
 
-##### Level 3
+#### Level 3
 
 And finally, we will attempt to reveal the most important variable for
 each driver of targets. The result from package `relaimpo` is in the
@@ -801,11 +795,11 @@ Shapley Value Regression is widely used in ranked customer responses,
 because of multicollinearity. In order to understand the key drivers of
 successful restaurant business the Shapley Value, which shows the
 relative importance of predictors, can be used. The idea of Shapley
-value regression is in the changes \#\# D.N.IN THE CAHNGES? in $R^2$
-when the chosen predictor is removed from the model. So for each
-regressor, all possible subsets of the remaining predictors are used to
-evaluate the regression and the explanatory variable with the highest
-additional contribution will be the most important prediction.
+value regression is in the changes in $R^2$ when the chosen predictor is
+removed from the model. So for each regressor, all possible subsets of
+the remaining predictors are used to evaluate the regression and the
+explanatory variable with the highest additional contribution will be
+the most important prediction.
 
 Shapley value assigns relative ranking for each predictor by showing the
 dominance of explanatory variables: from the Shapley values regression,
@@ -827,8 +821,8 @@ will be applied. Also, for the future work adjusted $R^2$ (as number of
 regressors in different models is different) instead of $R^2$ can be
 considered.
 
-##### Reference List
-
+Reference List
+--------------
 
 > Mishra, S.K. (2016) ?Shapley value regression and the resolution of
 > multicollinearity?, MPRA, (72116). Available at:
