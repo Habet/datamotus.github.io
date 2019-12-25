@@ -509,7 +509,6 @@ set of $k$ predictor variables is given by the following formula:
 
 $S({x_i})=\dfrac{1}{k}\sum_{r=1}^{k}\dfrac{\sum_{c=1}^{l}(R^2_{(i,r)}-R^2_{(j,r-1)})_c}{l}$
 
-$Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i$
 where
 
 -   $k$ is the number of regressor variables in the multiple linear
@@ -543,7 +542,7 @@ models. We will have
 Thus we will have the following weighted Shapley value for the variable
 $x_1$:
 
-$SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3})$
+\\[SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3}) \\]
 
 In order to evaluate the key drivers of restaurant industries, we will
 use the regression described above.
