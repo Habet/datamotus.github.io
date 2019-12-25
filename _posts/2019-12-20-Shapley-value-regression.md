@@ -543,7 +543,7 @@ models. We will have
 Thus we will have the following weighted Shapley value for the variable
 $x_1$:
 
-$$SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3})$$
+$SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3})$
 
 In order to evaluate the key drivers of restaurant industries, we will
 use the regression described above.
