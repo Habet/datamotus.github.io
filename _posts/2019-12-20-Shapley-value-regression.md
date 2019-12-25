@@ -508,6 +508,7 @@ should be used. The share of the regressor variable $x_i$ for a given
 set of $k$ predictor variables is given by the following formula:
 
 $S({x_i})=\dfrac{1}{k}\sum_{r=1}^{k}\dfrac{\sum_{c=1}^{l}(R^2_{(i,r)}-R^2_{(j,r-1)})_c}{l}$
+
 $Visits_i = \beta_0 + \beta_1Budget_i + \beta_2AdType_i + \epsilon_i$
 where
 
