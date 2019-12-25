@@ -622,7 +622,7 @@ variable using the functions above:
     ## [1] 0.2084265
 
 Finally, calculated values are re-based so that they add up to 1:
-
+<br><br>
 ``` {.r}
 shaplev1 <- data.frame(ShapValT1 = ShapValT1/(ShapValT1+ShapValT2), 
                        ShapValT2 = ShapValT2/(ShapValT1+ShapValT2))
@@ -630,6 +630,7 @@ kable(t(shaplev1)) %>%
  kable_styling(bootstrap_options = "striped", full_width = F)
 ```
 
+<p></p>
 
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
