@@ -630,6 +630,8 @@ kable(t(shaplev1)) %>%
  kable_styling(bootstrap_options = "striped", full_width = F)
 ```
 
+
+
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <tbody>
 <tr>
