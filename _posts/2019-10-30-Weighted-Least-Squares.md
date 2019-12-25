@@ -375,6 +375,8 @@ constants (weights) associated with each data point into the fitting
 criterion. We shall see how to do this below. Suppose the true
 relationship is
 
+$SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3})$
+
 $Y_i = \beta_1+\beta_2X_i + \epsilon_i$
 
 and
