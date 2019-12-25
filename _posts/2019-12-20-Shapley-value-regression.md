@@ -507,7 +507,7 @@ by the individual member of the game, the Shapley value decomposition
 should be used. The share of the regressor variable $x_i$ for a given
 set of $k$ predictor variables is given by the following formula:
 
-$$
+\$$
 S({x_i})=\dfrac{1}{k}\sum_{r=1}^{k}\dfrac{\sum_{c=1}^{l}(R^2_{(i,r)}-R^2_{(j,r-1)})_c}{l}
 $$
 
@@ -551,7 +551,7 @@ use the regression described above.
 
 ##### Implementing in R
 
-###### Level 1
+##### Level 1
 
 For the first level, we need to evaluate how the variables `Target 1` (a
 restaurant that enables you to step up in life) and `Target 2` (a
@@ -695,7 +695,7 @@ It can be seen from the table `Relative importance metrics:` that,
 although, the `lmg` value slightly differs from the above calculated
 one, the conclusion is the same.
 
-###### Level 2
+##### Level 2
 
 To indicate the most important explanatory variable/s for `Target 1` and
 `Target 2` the drivers of these variables will now be studied. Now, the
@@ -743,7 +743,7 @@ the focus of the restaurant on consumer health (actually, the score for
 
 ![](/2019-12-20-Shapley-value-regression_files/Shap2.PNG)
 
-###### Level 3
+##### Level 3
 
 And finally, we will attempt to reveal the most important variable for
 each driver of targets. The result from package `relaimpo` is in the
