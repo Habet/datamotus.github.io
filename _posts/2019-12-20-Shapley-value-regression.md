@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  Shapley Value Regression
 excerpt: Shapley value regression can deal with multicollinearity that is frequently encountered in marketing research that uses rating scale data. The article studies Shapley Value decomposition from the game theory as a method of discovering the relative importance of predictors in order to understand the key drivers of successful restaurant
