@@ -17,7 +17,7 @@ population variances of the distributions of their coefficients, and
 thus greater the risk of obtaining unreliable coefficients. Although the
 estimated coefficients will be unbiased, their high variance will
 decrease the $t$ value, which leads to the failure in rejecting the null
-hypothesis $H_0:\beta = 0$, and following reduction in the probability
+hypothesis $`H_0:\beta = 0`$, and following reduction in the probability
 of correctly detecting a non-zero coefficient. However, high correlation
 does not necessarily mean having poor estimation: a large number of
 observations and sample variances of regressors with a low variance of
@@ -505,10 +505,11 @@ by the individual member of the game, the Shapley value decomposition
 should be used. The share of the regressor variable $x_i$ for a given
 set of $k$ predictor variables is given by the following formula:
 
+```math
 $$
 S({x_i})=\dfrac{1}{k}\sum_{r=1}^{k}\dfrac{\sum_{c=1}^{l}(R^2_{(i,r)}-R^2_{(j,r-1)})_c}{l}
 $$
-
+```
 where
 
 -   $k$ is the number of regressor variables in the multiple linear
