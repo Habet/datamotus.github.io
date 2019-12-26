@@ -507,10 +507,20 @@ does not show the effect of each variable in explaining the depending
 variable (in the cooperative game). To distinguish the contribution made
 by the individual member of the game, the Shapley value decomposition
 should be used. The share of the regressor variable $x_i$ for a given
-set of $k$ predictor variables is given by the following formula: $S({x_i}) = \frac{1}{k}\sum_{r=1}^{k} \frac{\sum_{c=1}^{l}}{y}$
+set of $k$ predictor variables is given by the following formula: $S({x_i}) = \frac{1}{k}\sum_{r=1}^{k} \frac{\sum_{c=1}^{l}}{l}$
 
 $S({x_i}) = \frac{1}{k} * \sum_{r=1}^{k} * \frac{ \sum_{c=1}^{l} (R^2_{i,r}-R^2_{j,r-1})}{l}$
 
+
+$S({x_i}) = \frac{1}{k}\sum_{r=1}^{k} \frac{\sum_{c=1}^{l}{(R^2_{i,r}-R^2_{j,r-1})_c}}{l}$
+
+
+$S({x_i}) = \frac{1}{k}\sum_{r=1}^{k} \frac{\sum_{c=1}^{l}}{(R^2_{i,r}-R^2_{j,r-1})}{l}$
+
+
+$S({x_i}) = \frac{1}{k}\sum_{r=1}^{k} \frac{\sum_{c=1}^{l}}{l}$
+
+$S({x_i}) = \frac{1}{k}\sum_{r=1}^{k} \frac{\sum_{c=1}^{l}}{l}$
 where
 
 -   $k$ is the number of regressor variables in the multiple linear
@@ -545,6 +555,12 @@ $x_1$:
 
 
 $SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3})$
+
+$SV_{x_1} = \dfrac{1}{3} * (R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6} * (R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6} * (R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3} * (R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3})$
+
+$SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})$
+
+$SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})$
 
 In order to evaluate the key drivers of restaurant industries, we will
 use the regression described above.
