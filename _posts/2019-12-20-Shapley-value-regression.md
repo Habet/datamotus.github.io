@@ -6,7 +6,7 @@ keywords: shapley value, multicollinearity, relative importance, r programming
 ---
 
 Introduction
-============
+------------
 
 In marketing research, the problem of multicollinearity can be raised as
 a result of using clients' rating responses. People tend to answer to
@@ -51,7 +51,7 @@ the restaurant business and to avoid the problem of the high correlation
 between variables using this approach.
 
 Data description
-================
+----------------
 
 ``` {.r}
 # load the required libraries used in the article
@@ -487,7 +487,7 @@ avoid multicollinearity and detecting the key driver for the restaurant
 industry.
 
 Shapley value regression
-========================
+------------------------
 
 Shapley Value Regression is based on the thesis and post-doctoral work
 of an American mathematician and a Nobel Prize-winning economist [Lloyd
@@ -555,7 +555,7 @@ In order to evaluate the key drivers of restaurant industries, we will
 use the regression described above.
 
 Implementing in R
-=================
+-----------------
 
 Level 1
 -------
@@ -806,7 +806,7 @@ consideration guest complaints, understanding the changing needs and a
 new mindset of customer and paying attention to consumer health.
 
 Conclusion
-==========
+----------
 
 Shapley Value Regression is widely used in ranked customer responses,
 because of multicollinearity. In order to understand the key drivers of
@@ -839,7 +839,7 @@ regressors in different models is different) instead of $R^2$ can be
 considered.
 
 Reference List
-==============
+--------------
 
 > Mishra, S.K. (2016) ?Shapley value regression and the resolution of
 > multicollinearity?, MPRA, (72116). Available at:
