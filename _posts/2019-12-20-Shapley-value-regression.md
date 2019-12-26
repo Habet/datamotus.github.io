@@ -539,7 +539,10 @@ computation is done for $x_1$, $r=3$ and, thus, $r-1=2$, $k=3$ is the
 number of cases of possible models, $l$ is the number of models in each
 case:
 
-![](/2019-12-20-Shapley-value-regression_files/Shap1.PNG){width="65%"}
+
+<img src="/2019-12-20-Shapley-value-regression_files/Shap1.PNG" width="65%" />
+
+<!--![](/2019-12-20-Shapley-value-regression_files/Shap1.PNG){width="65%"}-->
 
 The weights of the regressions are based on the number of possible
 models. We will have
@@ -756,7 +759,10 @@ the focus of the restaurant on consumer health (actually, the score for
 `Consumer health` is 0.1899209, the score for `Menu by norms` is
 0.1895162).
 
-![](/2019-12-20-Shapley-value-regression_files/Shap2.PNG){width="55%"}
+
+<img src="/2019-12-20-Shapley-value-regression_files/Shap2.PNG" width="55%" />
+
+<!--!![](/2019-12-20-Shapley-value-regression_files/Shap2.PNG){width="55%"}-->
 
 Level 3
 -------
@@ -792,7 +798,9 @@ kable_styling( full_width = F, font_size = 13) %>%
   row_spec(0, bold = T, font_size = 9)
 ```
 
-![](/2019-12-20-Shapley-value-regression_files/Shap3.PNG){width="85%"}
+<img src="/2019-12-20-Shapley-value-regression_files/Shap3.PNG" width="85%" />
+
+<!--![](/2019-12-20-Shapley-value-regression_files/Shap3.PNG){width="85%"}-->
 
 It seems that *politeness* of staff is *the most important* item for all
 drivers (for both targets). In other words, the satisfaction of clients
