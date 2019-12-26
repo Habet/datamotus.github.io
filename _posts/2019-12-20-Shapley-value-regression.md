@@ -1,19 +1,9 @@
 ---
 layout: post
-title:  Outlier detection in Air Pollution data
-excerpt: In the post, we applied methods for detecting additive, innovational and level shift outliers to air pollution data. 
-keywords: outlier detection, time series, air quality forecasting, time series, time series forecasting, time series
----
-
-
-
-<!---
-layout: post
-title: Shapley Value Regression
-excerpt: Shapley value regression can deal with multicollinearity that is frequently encountered in marketing research that uses rating scale data. The article studies Shapley Value decomposition from the game theory as a method of discovering the relative importance of predictors in order to understand the key drivers of successful restaurant
-business.
+title:  Shapley Value Regression
+excerpt: Shapley value regression can deal with multicollinearity that is frequently encountered in marketing research that uses rating scale data. The article studies Shapley Value decomposition from the game theory as a method of discovering the relative importance of predictors in order to understand the key drivers of successful restaurant business.
 keywords: shapley value, multicollinearity, relative importance, r programming
---->
+---
 
 Introduction
 ============
