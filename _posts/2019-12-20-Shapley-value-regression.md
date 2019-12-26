@@ -1,4 +1,5 @@
-##### Summary
+Summary
+=======
 
 Shapley value regression can deal with multicollinearity that is
 frequently encountered in marketing research that uses rating scale
@@ -7,7 +8,8 @@ theory as a method of discovering the relative importance of predictors
 in order to understand the key drivers of successful restaurant
 business.
 
-##### Introduction
+Introduction
+============
 
 In marketing research, the problem of multicollinearity can be raised as
 a result of using clients' rating responses. People tend to answer to
@@ -17,7 +19,7 @@ population variances of the distributions of their coefficients, and
 thus greater the risk of obtaining unreliable coefficients. Although the
 estimated coefficients will be unbiased, their high variance will
 decrease the $t$ value, which leads to the failure in rejecting the null
-hypothesis $`H_0:\beta = 0`$, and following reduction in the probability
+hypothesis $H_0:\beta = 0$, and following reduction in the probability
 of correctly detecting a non-zero coefficient. However, high correlation
 does not necessarily mean having poor estimation: a large number of
 observations and sample variances of regressors with a low variance of
@@ -51,7 +53,8 @@ restaurant business. The main purpose will be to detect key drivers in
 the restaurant business and to avoid the problem of the high correlation
 between variables using this approach.
 
-##### Data description
+Data description
+================
 
 ``` {.r}
 # load the required libraries used in the article
@@ -406,6 +409,7 @@ Cleanliness in the bathroom
 </tr>
 </tbody>
 </table>
+
 There are a total of 28 questions. Thirteen are about restaurant
 service, food, delivery, and cleanliness. For example `Service2`:
 clients are asked to evaluate their satisfaction with the usage of
@@ -505,12 +509,9 @@ by the individual member of the game, the Shapley value decomposition
 should be used. The share of the regressor variable $x_i$ for a given
 set of $k$ predictor variables is given by the following formula:
 
-```math
 $$
 S({x_i})=\dfrac{1}{k}\sum_{r=1}^{k}\dfrac{\sum_{c=1}^{l}(R^2_{(i,r)}-R^2_{(j,r-1)})_c}{l}
-$$
-```
-where
+$$ where
 
 -   $k$ is the number of regressor variables in the multiple linear
     regression model
@@ -528,14 +529,14 @@ computation is done for $x_1$, $r=3$ and, thus, $r-1=2$, $k=3$ is the
 number of cases of possible models, $l$ is the number of models in each
 case:
 
-![](/2019-12-20-Shapley-value-regression_files/Shap1.PNG)
+![](/2019-12-20-Shapley-value-regression_files/Shap1.PNG){width="65%"}
 
 The weights of the regressions are based on the number of possible
 models. We will have
 
 -   2 regressions where $x_1$ is used with one other explanatory
     variable: `(x1, x2); (x1, x3)`
--   1 regression where $x_1$ is used its own `(x1)`
+-   1 regression where $x_1$ is used alone `(x1)`
 -   1 regression where $x_1$ is used with two other variables
     `(x1,x2,x3)`
 
@@ -547,9 +548,11 @@ $$SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^
 In order to evaluate the key drivers of restaurant industries, we will
 use the regression described above.
 
-### Implementing in R
+Implementing in R
+=================
 
-#### Level 1
+Level 1
+-------
 
 For the first level, we need to evaluate how the variables `Target 1` (a
 restaurant that enables you to step up in life) and `Target 2` (a
@@ -650,6 +653,7 @@ ShapValT2
 </tr>
 </tbody>
 </table>
+
 It can be sees that `Target 1` is the most important at 0.56. In other
 words, the overall satisfaction of the customer is mostly described by
 the ability of the restaurant to help clients step up in life. We can
@@ -688,7 +692,8 @@ It can be seen from the table `Relative importance metrics:` that,
 although, the `lmg` value slightly differs from the above calculated
 one, the conclusion is the same.
 
-#### Level 2
+Level 2
+-------
 
 To indicate the most important explanatory variable/s for `Target 1` and
 `Target 2` the drivers of these variables will now be studied. Now, the
@@ -734,9 +739,10 @@ the focus of the restaurant on consumer health (actually, the score for
 `Consumer health` is 0.1899209, the score for `Menu by norms` is
 0.1895162).
 
-![](/2019-12-20-Shapley-value-regression_files/Shap2.PNG)
+![](/2019-12-20-Shapley-value-regression_files/Shap2.PNG){width="55%"}
 
-#### Level 3
+Level 3
+-------
 
 And finally, we will attempt to reveal the most important variable for
 each driver of targets. The result from package `relaimpo` is in the
@@ -748,7 +754,6 @@ shaplev3 <- sapply(colnames(df[-c(1:3, 16:28)]),
    Food3 + Food4 + Delivery1 + Delivery2 + Delivery3 + Cleanliness1 + Cleanliness2 + Cleanliness3"))
     reglev3  <- lm(form, data = df)
     calc.relimp(reglev3 , type = c("lmg"), rela = TRUE, rank = TRUE)$lmg})
-
 cn <- colnames(shaplev3)
 rownames(shaplev3) <- c("Politeness", "Technology", "Proper order",  "Food serving", "Food taste", 
   "Food variety","Food quality", "Delivery accuracy", "Delivery timing", "Delivery food quality", 
@@ -770,7 +775,7 @@ kable_styling( full_width = F, font_size = 13) %>%
   row_spec(0, bold = T, font_size = 9)
 ```
 
-![](/2019-12-20-Shapley-value-regression_files/Shap3.PNG)
+![](/2019-12-20-Shapley-value-regression_files/Shap3.PNG){width="85%"}
 
 It seems that *politeness* of staff is *the most important* item for all
 drivers (for both targets). In other words, the satisfaction of clients
@@ -823,15 +828,14 @@ regressors in different models is different) instead of $R^2$ can be
 considered.
 
 Reference List
---------------
+==============
 
 > Mishra, S.K. (2016) ?Shapley value regression and the resolution of
 > multicollinearity?, MPRA, (72116). Available at:
-> <https://mpra.ub.uni-muenchen.de/72116/>.
-
-> Lipovetsky, S. (2006) ?Entropy Criterion In Logistic Regression And
-> Shapley Value Of Predictors?, Journal of modern applied statistical
-> methods: JMASM, 5, pp. 95?106. doi: 10.22237/jmasm/1146456480.
+> <https://mpra.ub.uni-muenchen.de/72116/>. Lipovetsky, S. (2006)
+> ?Entropy Criterion In Logistic Regression And Shapley Value Of
+> Predictors?, Journal of modern applied statistical methods: JMASM, 5,
+> pp. 95?106. doi: 10.22237/jmasm/1146456480.
 
 > Hart S. (1989) Shapley Value. In: Eatwell J., Milgate M., Newman P.
 > (eds) Game Theory. The New Palgrave. Palgrave Macmillan, London
