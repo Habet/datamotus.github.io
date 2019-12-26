@@ -1,5 +1,3 @@
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">formula</script>
-
 Summary
 =======
 
@@ -511,7 +509,7 @@ by the individual member of the game, the Shapley value decomposition
 should be used. The share of the regressor variable $x_i$ for a given
 set of $k$ predictor variables is given by the following formula:
 
-$$S({x_i})=\dfrac{1}{k}\sum_{r=1}^{k}\dfrac{\sum_{c=1}^{l}(R^2_{(i,r)}-R^2_{(j,r-1)})_c}{l}$$
+$S({x_i}) = \dfrac{1}{k} * \sum_{r=1}^{k} * \dfrac{\sum_{c=1}^{l}(R^2_{(i,r)} - R^2_{(j,r-1)})}{l}$
 
 where
 
