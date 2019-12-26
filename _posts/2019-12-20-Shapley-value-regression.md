@@ -1,15 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha384-dq1/gEHSxPZQ7DdrM82ID4YVol9BYyU7GbWlIwnwyPzotpoc57wDw/guX8EaYGPx" crossorigin="anonymous"></script>
-<script>
-    renderMathInElement(document.body,{delimiters: [
-                        {left: "$$", right: "$$", display: true},
-                      {left: "$", right: "$", display: false}
-]});
-
-</script>
-
 Summary
 =======
 
@@ -521,9 +509,9 @@ by the individual member of the game, the Shapley value decomposition
 should be used. The share of the regressor variable $x_i$ for a given
 set of $k$ predictor variables is given by the following formula:
 
-$$
-S({x_i})=\dfrac{1}{k}\sum_{r=1}^{k}\dfrac{\sum_{c=1}^{l}(R^2_{(i,r)}-R^2_{(j,r-1)})_c}{l}
-$$ where
+$$S({x_i})=\dfrac{1}{k}\sum_{r=1}^{k}\dfrac{\sum_{c=1}^{l}(R^2_{(i,r)}-R^2_{(j,r-1)})_c}{l}$$ 
+
+where
 
 -   $k$ is the number of regressor variables in the multiple linear
     regression model
