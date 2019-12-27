@@ -422,6 +422,8 @@ df <- read_excel("Shapley_Data_Rest.xlsx", sheet = "Data")
 dim(df)
 ```
 
+<p>
+    
     ## [1] 500  28
 
 There are 500 respondents who have answered 28 questions in the
@@ -448,6 +450,8 @@ ggcorrplot(corr, lab = TRUE, method = "circle", lab_size = 3)}
 corfun(df[,4:9])
 ```
 
+<p>
+    
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot1-1.png)
 
 The plot above shows the correlation between the drivers of target 1. It
@@ -460,7 +464,8 @@ comfortable and relaxed).
 ``` {.r}
 corfun(df[,10:15])
 ```
-
+<p>
+    
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot2-1.png)
 
 The plot above shows the correlation between the drivers of target 2.
@@ -473,6 +478,8 @@ The highest correlation is between the variables `Menu by norms`
 corfun(df[,16:28])
 ```
 
+<p>
+    
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot3-1.png)
 
 Finally, for the last level, the correlation between the items of
@@ -572,6 +579,8 @@ reglev1 <- lm(Satisfaction ~ Target1 + Target2, data = df)
 summary(reglev1)
 ```
 
+<p>
+    
     ## 
     ## Call:
     ## lm(formula = Satisfaction ~ Target1 + Target2, data = df)
@@ -613,7 +622,7 @@ shap <- function(formula, var){
   )}
 ```
 
-First, we need to calculate the Shapley value for each independent
+<p> First, we need to calculate the Shapley value for each independent
 variable using the functions above:
 
 ``` {.r}
@@ -630,7 +639,7 @@ variable using the functions above:
 
     ## [1] 0.2084265
 
-Finally, calculated values are re-based so that they add up to 1:
+<p> Finally, calculated values are re-based so that they add up to 1:
 
 ``` {.r}
 shaplev1 <- data.frame(ShapValT1 = ShapValT1/(ShapValT1+ShapValT2), 
@@ -660,7 +669,7 @@ ShapValT2
 </tbody>
 </table>
 
-It can be sees that `Target 1` is the most important at 0.56. In other
+It can be seen that `Target 1` is the most important at 0.56. In other
 words, the overall satisfaction of the customer is mostly described by
 the ability of the restaurant to help clients step up in life. We can
 decompose the regression and find out what the r-squared is made of and
@@ -672,7 +681,8 @@ package `relaimpo`. The package provides the relative importance metric
 library(relaimpo)
 calc.relimp(reglev1, type = c("lmg"), rela = TRUE, rank = TRUE)
 ```
-
+<p>
+    
     ## Response variable: Satisfaction 
     ## Total response variance: 4.26796 
     ## Analysis based on 500 observations 
@@ -710,7 +720,7 @@ target correspondingly.
 reglev2t1 <- lm(Target1 ~ td1_1 + td1_2 + td1_3 + td1_4 + td1_5 + td1_6, data = df)
 reglev2t2 <- lm(Target2 ~ td2_1 + td2_2 + td2_3 + td2_4 + td2_5 + td2_6, data = df)
 ```
-
+<p>
 To see the relative importance of each variable, we need to calculate 6
 Shapley values using the approach above for each target variable. As the
 procedure of calculation is similar and in order to facilitate the
@@ -726,7 +736,8 @@ shaplev2 <- data.frame(cbind(c("Commitment", "Update", "Dedication", "Discoverin
   "Various segments", "New mind-set"), round(as.numeric(shaplev2t2),2)))
 colnames(shaplev2) <- c("Var T1", "Target1", "Var T2", "Target2")
 ```
-
+<p>
+    
 ``` {.r}
 shaplev2 %>%
   rownames_to_column('shap') %>%
@@ -737,7 +748,7 @@ kable(escape = F, booktabs = T) %>%
 kable_styling( full_width = F, font_size = 13)
 ```
 
-In the case of Target 1, the focus of the restaurant on discovering
+<p> In the case of Target 1, the focus of the restaurant on discovering
 better ways to win favor with its clients is the most important key
 driver for the target variable. For Target 2 (a restaurant that allows
 you to live the life you choose) the most two important variables are
@@ -784,6 +795,8 @@ kable_styling( full_width = F, font_size = 13) %>%
   row_spec(0, bold = T, font_size = 9)
 ```
 
+<p>
+    
 <img src="/2019-12-20-Shapley-value-regression_files/Shap3.PNG" width="85%" />
 
 <!--![](/2019-12-20-Shapley-value-regression_files/Shap3.PNG){width="85%"}-->
@@ -841,12 +854,12 @@ considered.
 Reference List
 --------------
 
-> Mishra, S.K. (2016) ?Shapley value regression and the resolution of
-> multicollinearity?, MPRA, (72116). Available at:
-> <https://mpra.ub.uni-muenchen.de/72116/>. Lipovetsky, S. (2006)
-> ?Entropy Criterion In Logistic Regression And Shapley Value Of
-> Predictors?, Journal of modern applied statistical methods: JMASM, 5,
-> pp. 95?106. doi: 10.22237/jmasm/1146456480.
+> Mishra, S.K. (2016) "Shapley value regression and the resolution of
+> multicollinearity", MPRA, (72116). Available at:
+> <https://mpra.ub.uni-muenchen.de/72116/>. 
+
+> Lipovetsky, S. (2006) "Entropy Criterion In Logistic Regression And Shapley Value Of
+> Predictors", Journal of modern applied statistical methods: JMASM
 
 > Hart S. (1989) Shapley Value. In: Eatwell J., Milgate M., Newman P.
 > (eds) Game Theory. The New Palgrave. Palgrave Macmillan, London
