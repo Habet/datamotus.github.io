@@ -91,7 +91,7 @@ kable(data_desc) %>%
   pack_rows("Items of Drivers", 16, 28) %>%
   column_spec(2, bold = T, italic = T, width = "5cm")
 ```
-
+<p>
 <table class="table table-striped" style="font-size: 14px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
