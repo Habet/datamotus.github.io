@@ -774,8 +774,9 @@ kable(escape = F, booktabs = T) %>%
 kable_styling( full_width = F, font_size = 13)
 ```
 
-<p>
-    
+
+<br>
+
 In the case of Target 1, the focus of the restaurant on discovering
 better ways to win favor with its clients is the most important key
 driver for the target variable. For Target 2 (a restaurant that allows
@@ -784,7 +785,6 @@ the focus of the restaurant on consumer health (actually, the score for
 `Consumer health` is 0.1899209, the score for `Menu by norms` is
 0.1895162).
 
-</p>
 
 
 <img src="/2019-12-20-Shapley-value-regression_files/Shap2.PNG" width="55%" />
