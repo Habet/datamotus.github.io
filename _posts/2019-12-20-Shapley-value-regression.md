@@ -728,6 +728,8 @@ calc.relimp(reglev1, type = c("lmg"), rela = TRUE, rank = TRUE)
     ## Target2 0.6533959 0.2157771
 
 
+<br>
+
 It can be seen from the table `Relative importance metrics:` that,
 although, the `lmg` value slightly differs from the above calculated
 one, the conclusion is the same.
