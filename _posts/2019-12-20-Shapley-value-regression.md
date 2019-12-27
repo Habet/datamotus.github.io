@@ -702,9 +702,10 @@ package `relaimpo`. The package provides the relative importance metric
 library(relaimpo)
 calc.relimp(reglev1, type = c("lmg"), rela = TRUE, rank = TRUE)
 ```
+   
+<br>
 
-<p>
-    
+
     ## Response variable: Satisfaction 
     ## Total response variance: 4.26796 
     ## Analysis based on 500 observations 
@@ -726,7 +727,6 @@ calc.relimp(reglev1, type = c("lmg"), rela = TRUE, rank = TRUE)
     ## Target1 0.6853051 0.5023914
     ## Target2 0.6533959 0.2157771
 
-</p>
 
 It can be seen from the table `Relative importance metrics:` that,
 although, the `lmg` value slightly differs from the above calculated
