@@ -60,11 +60,13 @@ pacman::p_load(dplyr, readxl, knitr, kableExtra, networkD3, ggcorrplot,
                stringr, radiant.data, textshape, formattable, RColorBrewer, ggraph, igraph)
 ```
 
+
 <p>
 In order to solve the problem of finding the key drivers of the
 restaurant industry, a survey was conducted asking customers to complete
 a questionnaire covering various aspects of the restaurant.
 </p>
+
 
 Below is the description of variables from the synthetic data of
 clients' responses to a questionnaire that measures how people feel
@@ -427,11 +429,13 @@ dim(df)
  
     ## [1] 500  28
 
+
 <p>
 There are 500 respondents who have answered 28 questions in the
 synthetic dataset. It can be seen that the ratings are highly
 correlated:
 </p>
+
 
 ``` {.r}
 paste("The correlation between Target 1 and Target 2 is", round(cor(df[,2:3])[2],3))
@@ -439,12 +443,14 @@ paste("The correlation between Target 1 and Target 2 is", round(cor(df[,2:3])[2]
 
     ## [1] "The correlation between Target 1 and Target 2 is 0.859"
 
+
 <p>
 There is high correlation between the effort of the restaurant to help
 the clients step up in life and its effort to provide the life their
 customers choose. The presence of a high correlation between the
 independent variables can produce erratic coefficients.
 </p>
+
 
 ``` {.r}
 corfun <- function(x){corr <- round(cor(x), 2)
@@ -454,7 +460,9 @@ ggcorrplot(corr, lab = TRUE, method = "circle", lab_size = 3)}
 ``` {.r}
 corfun(df[,4:9])
 ```
-    
+
+<br>
+
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot1-1.png)
 
 
@@ -482,6 +490,7 @@ The highest correlation is between the variables `Menu by norms`
 corfun(df[,16:28])
 ```
 
+<br>
     
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot3-1.png)
 
@@ -581,7 +590,9 @@ colnames(df)[3] <- "Target2"
 reglev1 <- lm(Satisfaction ~ Target1 + Target2, data = df)
 summary(reglev1)
 ```
-  
+
+<br>
+
     ## 
     ## Call:
     ## lm(formula = Satisfaction ~ Target1 + Target2, data = df)
@@ -623,10 +634,11 @@ shap <- function(formula, var){
   )}
 ```
 
-<p> 
+<br>
+
 We need to calculate the Shapley value for each independent
 variable using the functions above:
-</p>
+
 
 ``` {.r}
 (ShapValT1 <- 1/2*shap(formula = Satisfaction ~ +Target1+Target2, var = "Target1") +
@@ -642,9 +654,11 @@ variable using the functions above:
 
     ## [1] 0.2084265
 
-<p> 
+
+<br>
+
 Finally, calculated values are re-based so that they add up to 1:
-</p>
+
 
 ``` {.r}
 shaplev1 <- data.frame(ShapValT1 = ShapValT1/(ShapValT1+ShapValT2), 
@@ -652,6 +666,7 @@ shaplev1 <- data.frame(ShapValT1 = ShapValT1/(ShapValT1+ShapValT2),
 kable(t(shaplev1)) %>%
  kable_styling(bootstrap_options = "striped", full_width = F)
 ```
+
 <p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <tbody>
@@ -687,6 +702,7 @@ package `relaimpo`. The package provides the relative importance metric
 library(relaimpo)
 calc.relimp(reglev1, type = c("lmg"), rela = TRUE, rank = TRUE)
 ```
+
 <p>
     
     ## Response variable: Satisfaction 
@@ -709,6 +725,7 @@ calc.relimp(reglev1, type = c("lmg"), rela = TRUE, rank = TRUE)
     ##                1X       2Xs
     ## Target1 0.6853051 0.5023914
     ## Target2 0.6533959 0.2157771
+
 </p>
 
 It can be seen from the table `Relative importance metrics:` that,
@@ -755,13 +772,17 @@ kable(escape = F, booktabs = T) %>%
 kable_styling( full_width = F, font_size = 13)
 ```
 
-<p> In the case of Target 1, the focus of the restaurant on discovering
+<p>
+    
+In the case of Target 1, the focus of the restaurant on discovering
 better ways to win favor with its clients is the most important key
 driver for the target variable. For Target 2 (a restaurant that allows
 you to live the life you choose) the most two important variables are
 the focus of the restaurant on consumer health (actually, the score for
 `Consumer health` is 0.1899209, the score for `Menu by norms` is
-0.1895162). </p>
+0.1895162).
+
+</p>
 
 
 <img src="/2019-12-20-Shapley-value-regression_files/Shap2.PNG" width="55%" />
