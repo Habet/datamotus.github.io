@@ -60,12 +60,11 @@ pacman::p_load(dplyr, readxl, knitr, kableExtra, networkD3, ggcorrplot,
                stringr, radiant.data, textshape, formattable, RColorBrewer, ggraph, igraph)
 ```
 
+<br>
 
-<p>
 In order to solve the problem of finding the key drivers of the
 restaurant industry, a survey was conducted asking customers to complete
 a questionnaire covering various aspects of the restaurant.
-</p>
 
 
 Below is the description of variables from the synthetic data of
@@ -430,11 +429,11 @@ dim(df)
     ## [1] 500  28
 
 
-<p>
+<br>
+
 There are 500 respondents who have answered 28 questions in the
 synthetic dataset. It can be seen that the ratings are highly
 correlated:
-</p>
 
 
 ``` {.r}
@@ -444,12 +443,12 @@ paste("The correlation between Target 1 and Target 2 is", round(cor(df[,2:3])[2]
     ## [1] "The correlation between Target 1 and Target 2 is 0.859"
 
 
-<p>
+<br>
+
 There is high correlation between the effort of the restaurant to help
 the clients step up in life and its effort to provide the life their
 customers choose. The presence of a high correlation between the
 independent variables can produce erratic coefficients.
-</p>
 
 
 ``` {.r}
@@ -612,14 +611,16 @@ summary(reglev1)
     ## Residual standard error: 1.488 on 497 degrees of freedom
     ## Multiple R-squared:  0.4831, Adjusted R-squared:  0.481 
     ## F-statistic: 232.2 on 2 and 497 DF,  p-value: < 2.2e-16
-<p>
+
+<br>
+
 The implemented regression shows that both variables are statistically
 significant. And based on estimated coefficients the variable `Target 1`
 is more important. However, we cannot see the relative importance of
 each variable by just looking at the summary of linear regression
 models. So, the Shapley Values will be used, for both coefficients
 separately, to identify the most important driver of clients' overall
-satisfaction at the first level. </p>
+satisfaction at the first level. 
 
 Creating a universal function for Shapley value calculation:
 
@@ -653,7 +654,6 @@ variable using the functions above:
 ```
 
     ## [1] 0.2084265
-
 
 <br>
 
