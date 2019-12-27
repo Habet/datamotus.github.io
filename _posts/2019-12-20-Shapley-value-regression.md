@@ -60,9 +60,11 @@ pacman::p_load(dplyr, readxl, knitr, kableExtra, networkD3, ggcorrplot,
                stringr, radiant.data, textshape, formattable, RColorBrewer, ggraph, igraph)
 ```
 
+<p>
 In order to solve the problem of finding the key drivers of the
 restaurant industry, a survey was conducted asking customers to complete
 a questionnaire covering various aspects of the restaurant.
+</p>
 
 Below is the description of variables from the synthetic data of
 clients' responses to a questionnaire that measures how people feel
@@ -425,9 +427,11 @@ dim(df)
  
     ## [1] 500  28
 
+<p>
 There are 500 respondents who have answered 28 questions in the
 synthetic dataset. It can be seen that the ratings are highly
 correlated:
+</p>
 
 ``` {.r}
 paste("The correlation between Target 1 and Target 2 is", round(cor(df[,2:3])[2],3))
@@ -435,10 +439,12 @@ paste("The correlation between Target 1 and Target 2 is", round(cor(df[,2:3])[2]
 
     ## [1] "The correlation between Target 1 and Target 2 is 0.859"
 
+<p>
 There is high correlation between the effort of the restaurant to help
 the clients step up in life and its effort to provide the life their
 customers choose. The presence of a high correlation between the
 independent variables can produce erratic coefficients.
+</p>
 
 ``` {.r}
 corfun <- function(x){corr <- round(cor(x), 2)
@@ -448,12 +454,9 @@ ggcorrplot(corr, lab = TRUE, method = "circle", lab_size = 3)}
 ``` {.r}
 corfun(df[,4:9])
 ```
-
-<p>
     
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot1-1.png)
 
-</p>
 
 The plot above shows the correlation between the drivers of target 1. It
 can be seen that the Pearson correlation coefficients for all pairs are
@@ -465,11 +468,9 @@ comfortable and relaxed).
 ``` {.r}
 corfun(df[,10:15])
 ```
-<p>
+<br>
     
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot2-1.png)
-
-</p>
 
 The plot above shows the correlation between the drivers of target 2.
 Similarly, there are high correlations between all pairs of variables.
@@ -481,10 +482,9 @@ The highest correlation is between the variables `Menu by norms`
 corfun(df[,16:28])
 ```
 
-<p>
     
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot3-1.png)
-</p>
+
 Finally, for the last level, the correlation between the items of
 drivers is considered. As can be expected, there is high correlation in
 each group of items. The highest correlation is between the cleanliness
@@ -601,14 +601,14 @@ summary(reglev1)
     ## Residual standard error: 1.488 on 497 degrees of freedom
     ## Multiple R-squared:  0.4831, Adjusted R-squared:  0.481 
     ## F-statistic: 232.2 on 2 and 497 DF,  p-value: < 2.2e-16
-
+<p>
 The implemented regression shows that both variables are statistically
 significant. And based on estimated coefficients the variable `Target 1`
 is more important. However, we cannot see the relative importance of
 each variable by just looking at the summary of linear regression
 models. So, the Shapley Values will be used, for both coefficients
 separately, to identify the most important driver of clients' overall
-satisfaction at the first level.
+satisfaction at the first level. </p>
 
 Creating a universal function for Shapley value calculation:
 
@@ -624,8 +624,9 @@ shap <- function(formula, var){
 ```
 
 <p> 
-    First, we need to calculate the Shapley value for each independent
-variable using the functions above:</p>
+We need to calculate the Shapley value for each independent
+variable using the functions above:
+</p>
 
 ``` {.r}
 (ShapValT1 <- 1/2*shap(formula = Satisfaction ~ +Target1+Target2, var = "Target1") +
@@ -641,7 +642,9 @@ variable using the functions above:</p>
 
     ## [1] 0.2084265
 
-<p> Finally, calculated values are re-based so that they add up to 1:</p>
+<p> 
+Finally, calculated values are re-based so that they add up to 1:
+</p>
 
 ``` {.r}
 shaplev1 <- data.frame(ShapValT1 = ShapValT1/(ShapValT1+ShapValT2), 
@@ -649,7 +652,7 @@ shaplev1 <- data.frame(ShapValT1 = ShapValT1/(ShapValT1+ShapValT2),
 kable(t(shaplev1)) %>%
  kable_styling(bootstrap_options = "striped", full_width = F)
 ```
-
+<p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <tbody>
 <tr>
@@ -670,6 +673,7 @@ ShapValT2
 </tr>
 </tbody>
 </table>
+</p>
 
 It can be seen that `Target 1` is the most important at 0.56. In other
 words, the overall satisfaction of the customer is mostly described by
@@ -705,6 +709,7 @@ calc.relimp(reglev1, type = c("lmg"), rela = TRUE, rank = TRUE)
     ##                1X       2Xs
     ## Target1 0.6853051 0.5023914
     ## Target2 0.6533959 0.2157771
+</p>
 
 It can be seen from the table `Relative importance metrics:` that,
 although, the `lmg` value slightly differs from the above calculated
@@ -727,7 +732,7 @@ To see the relative importance of each variable, we need to calculate 6
 Shapley values using the approach above for each target variable. As the
 procedure of calculation is similar and in order to facilitate the
 computational process, we will use the result obtained using the
-function from `relaimpo`. The result is in the table below:
+function from `relaimpo`. The result is in the table below: </p>
 
 ``` {.r}
 shaplev2t1 <- calc.relimp(reglev2t1, type = c("lmg"), rela = TRUE, rank = TRUE)$lmg
@@ -738,7 +743,7 @@ shaplev2 <- data.frame(cbind(c("Commitment", "Update", "Dedication", "Discoverin
   "Various segments", "New mind-set"), round(as.numeric(shaplev2t2),2)))
 colnames(shaplev2) <- c("Var T1", "Target1", "Var T2", "Target2")
 ```
-<p>
+<br>
     
 ``` {.r}
 shaplev2 %>%
@@ -756,7 +761,7 @@ driver for the target variable. For Target 2 (a restaurant that allows
 you to live the life you choose) the most two important variables are
 the focus of the restaurant on consumer health (actually, the score for
 `Consumer health` is 0.1899209, the score for `Menu by norms` is
-0.1895162).
+0.1895162). </p>
 
 
 <img src="/2019-12-20-Shapley-value-regression_files/Shap2.PNG" width="55%" />
