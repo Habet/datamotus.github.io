@@ -406,6 +406,7 @@ Cleanliness in the bathroom
 </tr>
 </tbody>
 </table>
+</p>
 
 There are a total of 28 questions. Thirteen are about restaurant
 service, food, delivery, and cleanliness. For example `Service2`:
@@ -421,9 +422,7 @@ selected.
 df <- read_excel("Shapley_Data_Rest.xlsx", sheet = "Data")
 dim(df)
 ```
-
-<p>
-    
+ 
     ## [1] 500  28
 
 There are 500 respondents who have answered 28 questions in the
@@ -454,6 +453,8 @@ corfun(df[,4:9])
     
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot1-1.png)
 
+</p>
+
 The plot above shows the correlation between the drivers of target 1. It
 can be seen that the Pearson correlation coefficients for all pairs are
 more than 0.73. The highest correlation is between the variables
@@ -468,6 +469,8 @@ corfun(df[,10:15])
     
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot2-1.png)
 
+</p>
+
 The plot above shows the correlation between the drivers of target 2.
 Similarly, there are high correlations between all pairs of variables.
 The highest correlation is between the variables `Menu by norms`
@@ -481,7 +484,7 @@ corfun(df[,16:28])
 <p>
     
 ![](/2019-12-20-Shapley-value-regression_files/figure-markdown/corplot3-1.png)
-
+</p>
 Finally, for the last level, the correlation between the items of
 drivers is considered. As can be expected, there is high correlation in
 each group of items. The highest correlation is between the cleanliness
@@ -578,9 +581,7 @@ colnames(df)[3] <- "Target2"
 reglev1 <- lm(Satisfaction ~ Target1 + Target2, data = df)
 summary(reglev1)
 ```
-
-<p>
-    
+  
     ## 
     ## Call:
     ## lm(formula = Satisfaction ~ Target1 + Target2, data = df)
@@ -622,8 +623,9 @@ shap <- function(formula, var){
   )}
 ```
 
-<p> First, we need to calculate the Shapley value for each independent
-variable using the functions above:
+<p> 
+    First, we need to calculate the Shapley value for each independent
+variable using the functions above:</p>
 
 ``` {.r}
 (ShapValT1 <- 1/2*shap(formula = Satisfaction ~ +Target1+Target2, var = "Target1") +
@@ -639,7 +641,7 @@ variable using the functions above:
 
     ## [1] 0.2084265
 
-<p> Finally, calculated values are re-based so that they add up to 1:
+<p> Finally, calculated values are re-based so that they add up to 1:</p>
 
 ``` {.r}
 shaplev1 <- data.frame(ShapValT1 = ShapValT1/(ShapValT1+ShapValT2), 
@@ -795,7 +797,7 @@ kable_styling( full_width = F, font_size = 13) %>%
   row_spec(0, bold = T, font_size = 9)
 ```
 
-<p>
+<br>
     
 <img src="/2019-12-20-Shapley-value-regression_files/Shap3.PNG" width="85%" />
 
