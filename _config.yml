@@ -23,7 +23,7 @@ github_username:  jekyll
 #      css_class: 'highlight'
 #  coderay_css: style 
 #  enable_coderay: true
-  
+markdown: redcarpet
 
 exclude: ['*.Rmd']
 paginate: 3
