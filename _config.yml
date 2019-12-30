@@ -12,11 +12,11 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-markdown: kramdown
-kramdown:
-  input: GFM
+# markdown: kramdown
+#kramdown:
+ # input: GFM
 #  hard_wrap: true # Interprets line breaks literally
-  html_to_native: true
+ # html_to_native: true
 #  syntax_highlighter: rouge
 #  syntax_highlighter_opts:
         # Use existing pygments syntax highlighting css
