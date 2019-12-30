@@ -15,7 +15,7 @@ github_username:  jekyll
 markdown: kramdown
 kramdown:
   input: GFM
-  hard_wrap: true # Interprets line breaks literally
+#  hard_wrap: true # Interprets line breaks literally
   html_to_native: true
 #  syntax_highlighter: rouge
 #  syntax_highlighter_opts:
