@@ -1,5 +1,6 @@
 ---
 layout: post
+mathjax: true
 title:  Shapley Value Regression
 excerpt: Shapley value regression can deal with multicollinearity that is frequently encountered in marketing research that uses rating scale data. The article studies Shapley Value decomposition from the game theory as a method of discovering the relative importance of predictors in order to understand the key drivers of successful restaurant business.
 keywords: shapley value, multicollinearity, relative importance, r programming
@@ -526,9 +527,8 @@ by the individual member of the game, the Shapley value decomposition
 should be used. The share of the regressor variable $x_i$ for a given
 set of $k$ predictor variables is given by the following formula: 
 
-<!--$S({x_i}) = \frac{1}{k} * \sum_{r=1}^{k} * \frac{ \sum_{c=1}^{l} (R^2_{i,r}-R^2_{j,r-1})}{l}$-->
+$$ S({x_i}) = \frac{1}{k} * \sum_{r=1}^{k} * \frac{ \sum_{c=1}^{l} (R^2_{i,r}-R^2_{j,r-1})}{l} $$
 
-<img src="/2019-12-20-Shapley-value-regression_files/Form1.png"/>
 
 where
 
@@ -566,9 +566,9 @@ Thus we will have the following weighted Shapley value for the variable
 $x_1$:
 
 
-<!--$SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3})$-->
+$$ SV_{x_1} = \dfrac{1}{3}(R^2_{x_1}-R^2_{\beta_0})+\dfrac{1}{6}(R^2_{x_1;x_2}-R^2_{x_2}) + \dfrac{1}{6}(R^2_{x_1;x_3}-R^2_{x_3}) + \dfrac{1}{3}(R^2_{x_1;x_2;x_3}-R^2_{x_2;x_3}) $$
 
-<img src="/2019-12-20-Shapley-value-regression_files/Form2.png" width="50%" class="center"/>
+<!--<img src="/2019-12-20-Shapley-value-regression_files/Form2.png" width="50%" class="center"/>-->
 
 
 In order to evaluate the key drivers of restaurant industries, we will
