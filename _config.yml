@@ -19,9 +19,9 @@ kramdown:
  hard_wrap: false
  syntax_highlighter: rouge
 
-#sass:
- # sass_dir: _scss            ## sets the location of the stylesheet
-  #style: :compressed   
+sass:
+ sass_dir: _sass            ## sets the location of the stylesheet
+ style: :compressed   
 
 
 exclude: ['*.Rmd']
