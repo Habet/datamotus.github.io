@@ -15,13 +15,14 @@ github_username:  jekyll
 markdown: kramdown
 kramdown:
   input: GFM
-  hard_wrap: true
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
+  hard_wrap: true # Interprets line breaks literally
+  html_to_native: true
+#  syntax_highlighter: rouge
+#  syntax_highlighter_opts:
         # Use existing pygments syntax highlighting css
-      css_class: 'highlight'
-  coderay_css: style 
-  enable_coderay: true
+#      css_class: 'highlight'
+#  coderay_css: style 
+#  enable_coderay: true
   
 
 exclude: ['*.Rmd']
