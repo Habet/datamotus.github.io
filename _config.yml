@@ -15,12 +15,14 @@ github_username:  jekyll
 markdown: kramdown
 kramdown:
   input: GFM
+  hard_wrap: true
   syntax_highlighter: rouge
   syntax_highlighter_opts:
         # Use existing pygments syntax highlighting css
       css_class: 'highlight'
   coderay_css: style 
   enable_coderay: true
+  
 
 exclude: ['*.Rmd']
 paginate: 3
