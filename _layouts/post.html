@@ -9,9 +9,11 @@ section_id: blog
   <div class='large-12 columns'>
     <div class='mod modBlogPost big'>
       <div class='images'>
+        <p>
         {% for image in page.images %}
           <div class='image'><img alt="" src="{{site.url}}/{{image}}" /></div>
         {% endfor %}
+        </p>
       </div>
       <div class='content'>
         <p class='info'>
@@ -27,9 +29,19 @@ section_id: blog
           </span>
           -->
         </p>
-        <h3><a href="{{page.url}}">{{page.title}}</a></h3>
-        {{ content }}
-      </div>
+     <!--   <h3><a href="{{page.url}}">{{page.title}}</a></h3>
+        {{ content }} #L.Z.--> 
+      
+      <header class="post-header">
+    <h3>{{ page.title }}</h3>
+     </header>
+
+  <article class="post-content">
+  {{ content }}
+  </article>
+        
+    
+       </div>
     </div>
     <div class='two spacing'></div>
    
