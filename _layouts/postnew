@@ -3,32 +3,39 @@ layout: blog
 section_id: blog
 ---
 {% include mathjax.html %}
-
-<div class="post">
-
-    <div class='images'>
+<div class='post'>
+  <div class='large-12 columns'>
+    <div class='mod modBlogPost big'>
+      
+      <p class='images'>
         
         {% for image in page.images %}
           <div class='image'><img alt="" src="{{site.url}}/{{image}}" /></div>
         {% endfor %}
         
-      </div>
-
-
-  <article class="post-content">
-  
-  <header class="post-header">
-    <h2>{{ page.title }}</h2></header>
+      </p>
     
-    <p class="info">{{page.date | date: "%B %d, %Y" }}/
+      <p class='content'>
+        <p class='info'>
+          <span>{{page.date | date: "%B %d, %Y" }}</span>
+          /
           <span>
             by {{page.author}}
           </span>
           /
-          </p>
+        </p>
+        <h3><a href="{{page.url}}">{{page.title}}</a></h3>
+          <article class="post-content"> {{ content }} </article>
+           
+       </p>
+
+  </div>
   
-
-  <p>{{ content }}</p>
-  </article>
-
+    <div class='two spacing'></div>
+   
+    <a id='comments'></a>
+    
+    <div class='four spacing'></div>
+    <div class='four spacing'></div>
+  </div>
 </div>
