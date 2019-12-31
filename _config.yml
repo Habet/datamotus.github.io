@@ -11,6 +11,8 @@ url: "https://datamotus.com/" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
+highlighter: rouge
+
 # Build settings
 markdown: kmarkdown
 exclude: ['*.Rmd']
