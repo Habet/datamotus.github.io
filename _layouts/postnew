@@ -18,7 +18,7 @@ section_id: blog
   <article class="post-content">
   
   <header class="post-header">
-    <h4>{{ page.title }}</h4></header>
+    <h2>{{ page.title }}</h2></header>
     
     <p class="info">{{page.date | date: "%B %d, %Y" }}/
           <span>
