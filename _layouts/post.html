@@ -8,13 +8,16 @@ section_id: blog
 <div class='row'>
   <div class='large-12 columns'>
     <div class='mod modBlogPost big'>
+      <p>
       <div class='images'>
-        <p>
+        
         {% for image in page.images %}
           <div class='image'><img alt="" src="{{site.url}}/{{image}}" /></div>
         {% endfor %}
-        </p>
+        
       </div>
+      </p>
+    <p>
       <div class='content'>
         <p class='info'>
           <span>{{page.date | date: "%B %d, %Y" }}</span>
@@ -34,7 +37,9 @@ section_id: blog
         
     
        </div>
-    </div>
+  </p>
+  </div>
+  
     <div class='two spacing'></div>
    
     <a id='comments'></a>
