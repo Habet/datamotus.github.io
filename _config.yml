@@ -12,9 +12,10 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-markdown: kmarkdown
-
-
+markdown: kramdown
+permalink: /:categories/:title/
+highlight: pygments
+excerpt_separator: "\n\n"
 exclude: ['*.Rmd']
 paginate: 3
 paginate_path: "blog/page:num"
