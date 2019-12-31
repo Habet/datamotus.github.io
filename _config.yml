@@ -12,20 +12,6 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-highlighter: rouge
-
-markdown: redcarpet # this might be set to "kramdown" currently
-redcarpet:
-  extensions: # these are optional, see: https://github.com/vmg/redcarpet#and-its-like-really-simple-to-use
-  - autolink
-  - fenced_code_blocks
-  - lax_spacing
-  - strikethrough
-  - superscript
-  - tables
-  - footnotes
-  - highlight
-  
-#exclude: ['*.Rmd']
-#paginate: 3
-#paginate_path: "blog/page:num"
+exclude: ['*.Rmd']
+paginate: 3
+paginate_path: "blog/page:num"
