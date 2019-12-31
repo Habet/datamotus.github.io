@@ -207,12 +207,12 @@ carbon to tones of carbon dioxide ($CO_2$) using a conversion factor of
 We will now explore the pattern of $CO_2$ by looking at the data of 3
 particular countries: Venezuela, United Arab Emirates, and the Bahamas.
 
-``` {.r}
+{% highlight r%}
 co %>% filter(Entity %in% c("Venezuela", "United Arab Emirates", "Bahamas")) %>%
 ggplot() + geom_line(aes(x = Year, y = Co2, color = Entity)) +
   theme(legend.position="None") + facet_grid(.~Entity, scales = "fixed") +
   ggtitle("The emissions of CO2 per capita")
-```
+{% endhighlight %}
 
 ![](/2019-11-15-Outlier-Detection_files/figure-markdown/selected-1.png)
 
@@ -274,12 +274,12 @@ have an additive outlier/outliers:
 -   Venezuela
 -   Yemen
 
-``` {.r}
+{% highlight r%}
 AO <- co[co$Entity %in% c("Brunei", "Mauritania", "Togo", "United Kingdom", "Venezuela", "Yemen"), ]
 ggplot(data = AO) + geom_line(aes(x = Year, y = Co2, color = Entity)) +
   theme(legend.position="None") + facet_wrap(~Entity, scales = "free") +
   ggtitle("The emissions of CO2 per capita")
-```
+{% endhighlight %}
 
 ![](/2019-11-15-Outlier-Detection_files/figure-markdown/ao-1.png)
 
@@ -288,10 +288,10 @@ The plot above shows that the value of the year 1946 (17 tonnes of
 carbon dioxide) in Venezuela is not typical for the data. To check this
 assumption the `tso` function can be used.
 
-``` {.r}
+{% highlight r%}
 tsoutliers::tso(ts(AO[AO$Entity == "Venezuela", "Co2"], 
   start = AO[AO$Entity == "Venezuela", "Year"][1]), types = "AO")
-```
+{% endhighlight %}
 
     ## Series: ts(AO[AO$Entity == "Venezuela", "Co2"], start = AO[AO$Entity ==      "Venezuela", "Year"][1]) 
     ## Regression with ARIMA(0,1,0) errors 
@@ -311,9 +311,9 @@ tsoutliers::tso(ts(AO[AO$Entity == "Venezuela", "Co2"],
 We will now study the value of CO2 in Venezuela tested as an outlier
 (with the index of 34).
 
-``` {.r}
+{% highlight r%}
 AO[AO$Entity == "Venezuela",][34,]
-```
+{% endhighlight %}
 
     ##          Entity Code Year      Co2
     ## 41780 Venezuela  VEN 1946 17.03064
@@ -326,10 +326,10 @@ outliers are detected or until a maximum number of iterations (by
 default, 4) is reached (Chen and Liu, 2013). There is yet another `TSA`
 function that can be used to check the existence of additive outliers.
 
-``` {.r}
+{% highlight r%}
 detectAO(arima(ts(AO[AO$Entity == "Venezuela", "Co2"]), 
   order = c(0, 0, 0)), alpha = 0.05, robust = TRUE) 
-```
+{% endhighlight %}
 
     ##              [,1]
     ## ind     34.000000
@@ -347,10 +347,10 @@ the outlier effects jointly rather than sequentially. Besides, a
 procedure based solely on iteratively adjusted residuals may often
 result in biased estimates for adjacent outliers.
 
-``` {.r}
+{% highlight r%}
 tsoutliers::tso(ts(AO[AO$Entity == "United Kingdom", "Co2"], 
   start = AO[AO$Entity == "United Kingdom", "Year"][1]), types = c("AO","LS", "IO")) 
-```
+{% endhighlight %}
 
     ## Series: ts(AO[AO$Entity == "United Kingdom", "Co2"], start = AO[AO$Entity ==      "United Kingdom", "Year"][1]) 
     ## Regression with ARIMA(1,2,2) errors 
@@ -369,9 +369,9 @@ tsoutliers::tso(ts(AO[AO$Entity == "United Kingdom", "Co2"],
     ## 2   IO 122 1921 -0.1929  -1.092
     ## 3   AO 127 1926 -4.6164 -14.155
 
-``` {.r}
+{% highlight r%}
 AO[AO$Entity == "United Kingdom", ][c(94,122,127),]
-```
+{% endhighlight %}
 
     ##               Entity Code Year      Co2
     ## 40421 United Kingdom  GBR 1893 8.958951
@@ -390,10 +390,10 @@ designed to identify and to suggest potential replacement values, can be
 used. In our data of the United Kingdom there are three outliers and,
 correspondingly, three replacements:
 
-``` {.r}
+{% highlight r%}
 tsoutliers(ts(AO[AO$Entity == "United Kingdom", "Co2"],
   start = AO[AO$Entity == "United Kingdom", "Year"][1]))
-```
+{% endhighlight %}
 
     ## $index
     ## [1]  94 122 127
@@ -401,22 +401,22 @@ tsoutliers(ts(AO[AO$Entity == "United Kingdom", "Co2"],
     ## $replacements
     ## [1] 10.12905 10.18127 10.10963
 
-``` {.r}
+{% highlight r%}
 replUnKing <- ts(AO[AO$Entity == "United Kingdom", "Co2"], 
   start = AO[AO$Entity == "United Kingdom", "Year"][1])
 replUnKing[c(94, 122, 127)] <- c(10.12905, 10.18127, 10.10963)
-```
+{% endhighlight %}
 
 An alternative useful function identifying and replacing outliers is
 `tsclean()` from the same package. In this case, linear interpolation is
 used to estimate missing values and to replace outliers.
 
-``` {.r}
+{% highlight r%}
 replUnKing <- tsclean(ts(AO[AO$Entity == "United Kingdom", "Co2"], 
   start = AO[AO$Entity == "United Kingdom", "Year"][1]))
-```
+{% endhighlight %}
 
-``` {.r}
+{% highlight r%}
 out <- data.frame(
   UK = ts(AO[AO$Entity == "United Kingdom", "Co2"], 
     start = AO[AO$Entity == "United Kingdom", "Year"][1]),
@@ -427,7 +427,7 @@ ggplot(data = out) +
   geom_line(aes(x = Year, y = replUnKing, color="#E7B800")) +
   scale_color_discrete(name = " ", labels = c("Replaced", "UK CO2"))+ 
   labs(y = "CO2", title = "Replacing the outliers")
-```
+{% endhighlight %}
 
 ![](/2019-11-15-Outlier-Detection_files/figure-markdown/replacement-1.png)
 
@@ -449,7 +449,7 @@ having innovational outlier/outliers:
 -   The United Arab Emirates
 -   Mauritania
 
-``` {.r}
+{% highlight r%}
 IO <- co[co$Entity %in% c("Cape Verde", "Iran", "Germany", "Armenia", 
   "United Arab Emirates", "Mauritania"), ]
 
@@ -458,17 +458,17 @@ ggplot(data = IO) +
   theme(legend.position="None") +
   facet_wrap(~Entity,scales = "free") +
   ggtitle("The emissions of CO2 per capita")
-```
+{% endhighlight %}
 
 ![](/2019-11-15-Outlier-Detection_files/figure-markdown/io-1.png)
 
 The time series for the United Arab Emirates shows innovational outliers
 in 1969 and 1998, which are to be tested:
 
-``` {.r}
+{% highlight r%}
 tsoutliers::tso(ts(IO[IO$Entity == "United Arab Emirates","Co2"], 
   start = IO[IO$Entity == "United Arab Emirates", "Year"][1]),types = c("LS","IO")) 
-```
+{% endhighlight %}
 
     ## Series: ts(IO[IO$Entity == "United Arab Emirates", "Co2"], start = IO[IO$Entity ==      "United Arab Emirates", "Year"][1]) 
     ## Regression with ARIMA(2,0,0) errors 
@@ -487,9 +487,9 @@ tsoutliers::tso(ts(IO[IO$Entity == "United Arab Emirates","Co2"],
     ## 2   LS  26 1984   9.071  1.511
     ## 3   IO  40 1998   9.204  2.496
 
-``` {.r}
+{% highlight r%}
 IO[IO$Entity == "United Arab Emirates",][c(11,40),]
-```
+{% endhighlight %}
 
     ##                     Entity Code Year       Co2
     ## 40279 United Arab Emirates  ARE 1969 100.61529
@@ -502,10 +502,10 @@ Armenia's level of $CO_2$ has an innovational outlier in 1993. It can
 also be seen through the function `detectIO()` and can be visually
 studied in the graph above.
 
-``` {.r}
+{% highlight r%}
 tsoutliers::tso(ts(IO[IO$Entity == "Armenia", "Co2"],
   start = IO[IO$Entity == "Armenia", "Year"][1]),types = c("IO", "AO")) 
-```
+{% endhighlight %}
 
     ## Series: ts(IO[IO$Entity == "Armenia", "Co2"], start = IO[IO$Entity ==      "Armenia", "Year"][1]) 
     ## Regression with ARIMA(0,1,0) errors 
@@ -524,19 +524,19 @@ tsoutliers::tso(ts(IO[IO$Entity == "Armenia", "Co2"],
 
 The number 35 is tagged as an innovative outlier.
 
-``` {.r}
+{% highlight r%}
 IO[IO$Entity == "Armenia",][35,]
-```
+{% endhighlight %}
 
     ##       Entity Code Year       Co2
     ## 1720 Armenia  ARM 1993 0.7458196
 
 Detect innovative outlier with detectIO().
 
-``` {.r}
+{% highlight r%}
 detectIO(arima(ts(IO[IO$Entity == "Armenia", "Co2"]), 
   order = c(0, 1, 0)), alpha = 0.05, robust = TRUE) 
-```
+{% endhighlight %}
 
     ##             [,1]      [,2]
     ## ind     35.00000 51.000000
@@ -562,23 +562,23 @@ level shift outlier/outliers:
 -   Bahamas
 -   Lithuania
 
-``` {.r}
+{% highlight r%}
 LS <- co[co$Entity %in% c("Iceland", "North Korea", "Yemen", "Bahamas", "Lithuania"), ]
 
 ggplot(data = LS) + geom_line(aes(x = Year, y = Co2, color = Entity)) +
   theme(legend.position="None") + facet_wrap(~Entity,scales = "free") +
   ggtitle("The emissions of CO2 per capita")
-```
+{% endhighlight %}
 
 ![](/2019-11-15-Outlier-Detection_files/figure-markdown/ls-1.png)
 
 A similar analysis for the level shift outlier was conducted for the
 time series of Iceland and Bahamas. The results are presented below:
 
-``` {.r}
+{% highlight r%}
 tsoutliers::tso(ts(LS[LS$Entity == "Iceland", "Co2"], 
   start = LS[LS$Entity == "Iceland", "Year"][1]), types = c("LS", "AO"))
-```
+{% endhighlight %}
 
     ## Series: ts(LS[LS$Entity == "Iceland", "Co2"], start = LS[LS$Entity ==      "Iceland", "Year"][1]) 
     ## Regression with ARIMA(0,1,0) errors 
@@ -598,19 +598,19 @@ tsoutliers::tso(ts(LS[LS$Entity == "Iceland", "Co2"],
 As can be seen from the output above, case number 12 is tagged as an
 outlier.
 
-``` {.r}
+{% highlight r%}
 LS[LS$Entity == "Iceland",][12,]
-```
+{% endhighlight %}
 
     ##        Entity Code Year      Co2
     ## 16501 Iceland  ISL 1950 5.188092
 
 And for Bahamas:
 
-``` {.r}
+{% highlight r%}
 tsoutliers::tso(ts(LS[LS$Entity == "Bahamas", "Co2"], 
   start = LS[LS$Entity == "Bahamas", "Year"][1]),types = "LS") 
-```
+{% endhighlight %}
 
     ## Series: ts(LS[LS$Entity == "Bahamas", "Co2"], start = LS[LS$Entity ==      "Bahamas", "Year"][1]) 
     ## Regression with ARIMA(3,0,0) errors 
@@ -628,9 +628,9 @@ tsoutliers::tso(ts(LS[LS$Entity == "Bahamas", "Co2"],
     ## 1   LS  22 1971   26.68  13.99
     ## 2   LS  32 1981  -23.63 -13.08
 
-``` {.r}
+{% highlight r%}
 LS[LS$Entity == "Bahamas",][c(22,32),]
-```
+{% endhighlight %}
 
     ##       Entity Code Year      Co2
     ## 2570 Bahamas  BHS 1971 38.67267
