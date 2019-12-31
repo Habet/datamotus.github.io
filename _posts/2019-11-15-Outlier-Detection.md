@@ -44,25 +44,25 @@ value of zero are omitted. The dataset used in this analysis can be
 found
 [here](/2019-11-15-Outlier-Detection_files/co-emissions-per-capita.csv).
 
-``` {.r}
+{% highlight r %}
 # load the required libraries used in the article
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(ggplot2, dplyr, kableExtra, tsoutliers, forecast, TSA)
-```
+{% endhighlight %}
 
-``` {.r}
+{% highlight r %}
 co <- read.csv("co-emissions-per-capita.csv")
 cond <- which(co$Year < 1970 & co$Co2 == 0)
 co <- co[-cond,]
-```
+{% endhighlight %}
 
 We can look at the summary of the dataframe.
 
-``` {.r}
+{% highlight r %}
 options(knitr.kable.NA = '')
 knitr::kable(summary(co), digits=2) %>%
 kable_styling(bootstrap_options = "striped", full_width = F)
-```
+{% endhighlight %}
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
