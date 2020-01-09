@@ -512,7 +512,9 @@ Now, we are going to plot the changes in the data. The reference year
 for Co2 is chosen as 2011. In the remaining three plots only the
 countries with changes are shown (with respect to the base year).
 
-{% highlight r %}
+
+```{.r}
+
 themeplot <- theme(text = element_text(family = "Gill Sans", size = 8), legend.key.size = unit(0.5, 
     "lines"), panel.grid = element_blank(), plot.title = element_text(size = 30), 
     plot.subtitle = element_text(size = 10), axis.text = element_blank(), axis.title = element_blank(), 
@@ -540,7 +542,9 @@ finalplot <- function(base = 2011, current = 2014, var = Co2, data = map.world_j
             aes(x = long, y = lat, group = group.y))
     }
 }
-{% endhighlight %}
+
+```
+<br>
 
 To see the changes in two directions (increase *or* decrease), we need
 to create functions that extract from the initial data the name of the
