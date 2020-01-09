@@ -1,9 +1,9 @@
 ---
 layout: post
 mathjax: true
-title:  Shapley Value Regression
-excerpt: Shapley value regression can deal with multicollinearity that is frequently encountered in marketing research that uses rating scale data. The article studies Shapley Value decomposition from the game theory as a method of discovering the relative importance of predictors in order to understand the key drivers of successful restaurant business.
-keywords: shapley value, multicollinearity, relative importance, r programming
+title:  Changes in air pollution
+excerpt: It is hard to eliminate the health effects of the toxic contaminators on health. Air pollutants can be the cause of death from stroke, lung cancer, childhood cancer, and another heart disease. Apart from affecting our health, a decrease in the level of air quality is causing long-term environmental damage by driving climate change, which is itself a danger for people and their health. In the article, changes in the quality of air are detected using historical data of four types of air pollutants: carbon dioxide, sulphur dioxide, particulate matter and concentration of ozone in the air. 
+keywords: air quality, air pollutants, world map, changes
 ---
 
 
