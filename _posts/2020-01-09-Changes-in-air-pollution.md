@@ -247,8 +247,10 @@ observations, the extremal values are included in the same group (the
 last or the first). See the code below for grouping four above-mentioned
 pollutant types; the new variable `group` for each data will be created.
 
-{% highlight r %}
+
 # Creating groups
+
+{% highlight r %}
 co$group <- cut(co$Co2, breaks = c(0, 1.5, 3, 6, 12.5, 25, 37.5, max(co$Co2)))
 so$group <- cut(so$So2, breaks = c(0, 0.001, 0.017, 0.034, 0.07, 0.2, max(so$So2)))
 pm$group <- cut(pm$PM, breaks = c(min(pm$PM), 12, 24, 44.7, 65.4, 86.1, max(pm$PM)))
