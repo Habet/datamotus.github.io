@@ -133,6 +133,8 @@ range(unique(so$Year))
 
     ## [1] 1850 2000
 
+<br>
+
 The variable `So2` shows the tonnes of measured emissions per capita
 (1850-2000). One of the main causes of $SO_2$ emissions is the use of
 coal as a source of energy. $SO_2$ emissions sharply rise after
@@ -156,6 +158,8 @@ summary(so$So2)
 
     ##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
     ## 0.0000167 0.0002001 0.0015000 0.0178443 0.0162977 0.4250609
+
+<br>
 
 ### Particulate matter (PM)
 
@@ -193,6 +197,8 @@ summary(pm$PM)
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     ##   3.291  15.199  21.950  30.160  37.624 203.744
+
+<br>
 
 ### Ozone (O3)
 
@@ -237,6 +243,9 @@ summary(oz$OZ)
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     ##    5.00   45.00   54.00   54.55   63.00  116.00
 
+<br>
+
+
 Categorization/Grouping
 -----------------------
 
@@ -247,8 +256,10 @@ observations, the extremal values are included in the same group (the
 last or the first). See the code below for grouping four above-mentioned
 pollutant types; the new variable `group` for each data will be created.
 
+<br>
 
-# Creating groups
+Creating groups
+---------------
 
 {% highlight r %}
 co$group <- cut(co$Co2, breaks = c(0, 1.5, 3, 6, 12.5, 25, 37.5, max(co$Co2)))
@@ -471,6 +482,8 @@ Freq OZ
 </tbody>
 </table>
 
+<br>
+
 Maps
 ----
 
@@ -482,7 +495,10 @@ data to create a world map.
 map.world <- map_data("world")
 {% endhighlight %}
 
-### Co2
+<br>
+
+Co2
+---
 
 In order to use the information from the built-in data (especially data
 about the longitude and latitude of locations to plot countries as
@@ -1039,7 +1055,8 @@ Ukraine
 </tbody>
 </table>
 
-### SO2
+SO2
+---
 
 To see the changes onthe map the data for sulphur dioxide is created:
 
@@ -2598,7 +2615,8 @@ Yemen
 </tbody>
 </table>
 
-### PM
+PM
+--
 
 To see the changes on the map the data for particulate matter is
 created:
@@ -3710,7 +3728,8 @@ Sierra Leone
 </tbody>
 </table>
 
-### OZ
+OZ
+--
 
 To see the changes on the map the data for ozone is created:
 
