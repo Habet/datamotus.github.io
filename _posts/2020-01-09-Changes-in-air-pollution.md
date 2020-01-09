@@ -550,8 +550,7 @@ To see the changes in two directions (increase *or* decrease), we need
 to create functions that extract from the initial data the name of the
 country which experienced increase or decrease, the year of change and
 the group:
-
-{% highlight r %}
+```{.r}
 returndataup <- function(data, base, current) {
     
     data %>% filter(Year == base | Year == current) %>% 
@@ -566,7 +565,9 @@ returndatadown <- function(data, base, current) {
     left_join(., map.world, by = c(Entity = "region")) %>% 
     distinct(Entity, .keep_all = TRUE) %>% select(Entity, Year, group.x)
 }
-{% endhighlight %}
+```
+
+<br>
 
 And, finally, using the function above the changes can be detected on
 the created map:
