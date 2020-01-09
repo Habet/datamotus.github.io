@@ -64,21 +64,22 @@ matter](https://ourworldindata.org/air-pollution) measuring less than
 based on territorial emissions derived by [Our World in
 Data](https://ourworldindata.org/).
 
-``` {.r}
+
+{% highlight r %}
 # load the required libraries used in the article
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(ggplot2, dplyr, kableExtra, tidyverse, magrittr, ggmap, ggpubr, stringr, RColorBrewer, reshape2)
-```
+{% endhighlight %}
 
 The variables `Entity` and `Code` show the country and/ or area and its
 code, where the level of a particular pollutant was measured.
 
 ### Carbon dioxide (CO2)
 
-``` {.r}
+{% highlight r %}
 co <- read.csv("co.csv")
 range(unique(co$Year))
-```
+{% endhighlight %}
 
     ## [1] 1800 2017
 
@@ -106,26 +107,29 @@ increased heart rate and difficulty during breathing will occur.
 
 The summary of carbon dioxide emissions is represented below:
 
-``` {.r}
+
+{% highlight r %}
 summary(co$Co2)
-```
+{% endhighlight %}
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     ##   0.000   0.201   1.071   3.555   4.503 252.645
 
 ### Sulphur dioxide (SO2)
 
-``` {.r}
+
+{% highlight r %}
 so <- read.csv("so.csv")
-```
+{% endhighlight %}
 
 The number of observations in the initial data is 2079 and the covered
 time span is 1850-2000 (represented by decades). Data contains 130
 countries.
 
-``` {.r}
+
+{% highlight r %}
 range(unique(so$Year))
-```
+{% endhighlight %}
 
     ## [1] 1850 2000
 
@@ -145,26 +149,28 @@ mean.
 
 The summary of sulphur dioxide emissions is represented below:
 
-``` {.r}
+
+{% highlight r %}
 summary(so$So2)
-```
+{% endhighlight %}
 
     ##      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
     ## 0.0000167 0.0002001 0.0015000 0.0178443 0.0162977 0.4250609
 
 ### Particulate matter (PM)
 
-``` {.r}
+
+{% highlight r %}
 pm <- read.csv("pm.csv")
-```
+{% endhighlight %}
 
 The number of observations in the initial data is 2090 and the covered
 time span is 1990-2016 (the frequency of the data is not regular). Data
 contains 189 countries.
 
-``` {.r}
+{% highlight r %}
 range(unique(pm$Year))
-```
+{% endhighlight %}
 
     ## [1] 1990 2016
 
@@ -181,26 +187,26 @@ Guideline the limits for PM is 10 $\frac{mg}{m^3}$ annual mean.
 
 The summary of this variable is represented below:
 
-``` {.r}
+{% highlight r %}
 summary(pm$PM)
-```
+{% endhighlight %}
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     ##   3.291  15.199  21.950  30.160  37.624 203.744
 
 ### Ozone (O3)
 
-``` {.r}
+{% highlight r %}
 oz <- read.csv("oz.csv")
-```
+{% endhighlight %}
 
 The number of observations in the initial data is 1316 and the covered
 time span is 1990-2015 (the frequency of the data is not regular). Data
 contains 188 countries.
 
-``` {.r}
+{% highlight r %}
 range(unique(oz$Year))
-```
+{% endhighlight %}
 
     ## [1] 1990 2015
 
@@ -224,9 +230,9 @@ is 100 $\frac{mg}{m^3}$ 8-hour mean.
 
 The summary of the level of ozone concentration is represented below:
 
-``` {.r}
+{% highlight r %}
 summary(oz$OZ)
-```
+{% endhighlight %}
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     ##    5.00   45.00   54.00   54.55   63.00  116.00
@@ -241,7 +247,7 @@ observations, the extremal values are included in the same group (the
 last or the first). See the code below for grouping four above-mentioned
 pollutant types; the new variable `group` for each data will be created.
 
-``` {.r}
+{% highlight r %}
 # Creating groups
 co$group <- cut(co$Co2, breaks = c(0, 1.5, 3, 6, 12.5, 25, 37.5, max(co$Co2)))
 so$group <- cut(so$So2, breaks = c(0, 0.001, 0.017, 0.034, 0.07, 0.2, max(so$So2)))
@@ -252,7 +258,7 @@ gr <- data.frame(table(co$group), rbind(data.frame(table(so$group)), c(NA, NA)),
 colnames(gr) <- c("CO2", "Freq CO2", "SO2", "Freq SO2", "PM", "Freq PM", "OZ", "Freq OZ")
 options(knitr.kable.NA = "")
 knitr::kable(gr, digits = 2) %>% kable_styling(bootstrap_options = "striped", full_width = F)
-```
+{% endhighlight %}
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -470,9 +476,9 @@ When the groups are created, the results can be shown using the world
 map. We are going to use the function `map_data()` which contains the
 data to create a world map.
 
-``` {.r}
+{% highlight r %}
 map.world <- map_data("world")
-```
+{% endhighlight %}
 
 ### Co2
 
@@ -486,25 +492,25 @@ names in both data. As data is cleaned, there is no difference between
 the countries names. The detection of dissimilarities for further 3 data
 will be done in the same way.
 
-``` {.r}
+{% highlight r %}
 # Detect dissimilarities
 unique(na.omit(co$Entity))[c(which(!unique(na.omit(co$Entity)) %in% unique(na.omit(map.world$region))))]
-```
+{% endhighlight %}
 
     ## factor(0)
     ## 193 Levels: Afghanistan Albania Algeria Andorra Angola ... Zimbabwe
 
 Then, these two separate datasets should be joined together.
 
-``` {.r}
+{% highlight r %}
 map.world_joined <- left_join(co, map.world, by = c('Entity'='region'))
-```
+{% endhighlight %}
 
 Now, we are going to plot the changes in the data. The reference year
 for Co2 is chosen as 2011. In the remaining three plots only the
 countries with changes are shown (with respect to the base year).
 
-``` {.r}
+{% highlight r %}
 themeplot <- theme(text = element_text(family = "Gill Sans", size = 8), legend.key.size = unit(0.5, 
     "lines"), panel.grid = element_blank(), plot.title = element_text(size = 30), 
     plot.subtitle = element_text(size = 10), axis.text = element_blank(), axis.title = element_blank(), 
@@ -532,14 +538,14 @@ finalplot <- function(base = 2011, current = 2014, var = Co2, data = map.world_j
             aes(x = long, y = lat, group = group.y))
     }
 }
-```
+{% endhighlight %}
 
 To see the changes in two directions (increase *or* decrease), we need
 to create functions that extract from the initial data the name of the
 country which experienced increase or decrease, the year of change and
 the group:
 
-``` {.r}
+{% highlight r %}
 returndataup <- function(data, base, current) {
     
     data %>% filter(Year == base | Year == current) %>% 
@@ -554,24 +560,24 @@ returndatadown <- function(data, base, current) {
     left_join(., map.world, by = c(Entity = "region")) %>% 
     distinct(Entity, .keep_all = TRUE) %>% select(Entity, Year, group.x)
 }
-```
+{% endhighlight %}
 
 And, finally, using the function above the changes can be detected on
 the created map:
 
-``` {.r}
+{% highlight r %}
 annotate_figure(ggarrange(finalplot(2011, 2011), finalplot(2011, 2013), 
   finalplot(2011, 2015), finalplot(2011, 2017), ncol = 2, nrow = 2, common.legend = F),
   top = text_grob("Carbon dioxide emissions in 2011, 2013, 2015 and 2017", 
   face = "bold", size = 12))
-```
+{% endhighlight %}
 
 ![](/2020-01-09-Changes-in-air-pollution_files/figure-markdown/cogr-1.png)
 
 Countries that experienced an increase in the level of carbon dioxide
 emissions:
 
-``` {.r}
+{% highlight r %}
 coup <- rbind(co%>%select(Entity, Year, group)%>%filter(Year == 2011)%>%
   rename(group.x = group), returndataup(co, 2011, 2013),
   returndataup(co, 2011, 2015),
@@ -580,7 +586,7 @@ coup <- rbind(co%>%select(Entity, Year, group)%>%filter(Year == 2011)%>%
 options(knitr.kable.NA = '')
 knitr::kable(dcast(coup%>%filter(Entity %in% names(which(table(coup$Entity) > 1))), Entity~Year))%>% 
 kable_styling(bootstrap_options = "striped", full_width = F)
-```
+{% endhighlight %}
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -801,7 +807,7 @@ Venezuela
 Countries that experienced a decrease in the level of carbon dioxide
 emissions:
 
-``` {.r}
+{% highlight r %}
 codown <- rbind(co%>%select(Entity, Year, group)%>%filter(Year == 2011)%>%
   rename(group.x = group), returndatadown(co, 2011, 2013),
   returndatadown(co, 2011, 2015),
@@ -810,7 +816,7 @@ codown <- rbind(co%>%select(Entity, Year, group)%>%filter(Year == 2011)%>%
 options(knitr.kable.NA = '')
 knitr::kable(dcast(codown%>%filter(Entity %in% names(which(table(codown$Entity) > 1))), Entity~Year))%>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
-```
+{% endhighlight %}
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -1030,31 +1036,31 @@ Ukraine
 
 To see the changes onthe map the data for sulphur dioxide is created:
 
-``` {.r}
+{% highlight r %}
 map.world_joined2 <- left_join(so, map.world, by = c('Entity'='region' ))
-```
+{% endhighlight %}
 
-``` {.r}
+{% highlight r %}
 annotate_figure(ggarrange(finalplot(1970, 1970, So2, map.world_joined2, so), 
   finalplot(1970, 1980, So2, map.world_joined2, so), finalplot(1970, 1990, So2, map.world_joined2, 
   so), finalplot(1970, 2000, So2, map.world_joined2, so), ncol = 2, nrow = 2, common.legend = F),
   top = text_grob("Sulphur dioxide emissions in 1970, 1980, 1990 and 2000", 
   face = "bold", size = 12))
-```
+{% endhighlight %}
 
 ![](/2020-01-09-Changes-in-air-pollution_files/figure-markdown/sogr-1.png)
 
 Countries that experienced an increase in the level of sulfur dioxide
 emissions:
 
-``` {.r}
+{% highlight r %}
 soup <- rbind(so %>% select(Entity, Year, group) %>% filter(Year == 1970) %>% 
     rename(group.x = group), returndataup(so, 1970, 1980), returndataup(so, 1970, 1990),
     returndataup(so, 1970, 2000)) %>% arrange(Entity) %>% rename(Group = group.x)
 options(knitr.kable.NA = "")
 knitr::kable(dcast(soup %>% filter(Entity %in% names(which(table(soup$Entity) > 1))), Entity ~ Year)) %>%
   kable_styling(bootstrap_options = "striped", full_width = F)
-```
+{% endhighlight %}
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -1817,14 +1823,15 @@ Yemen
 Countries that experienced a decrease in the level of sulfur dioxide
 emissions:
 
-``` {.r}
+
+{% highlight r %}
 soup <- rbind(so %>% select(Entity, Year, group) %>% filter(Year == 1970) %>% 
     rename(group.x = group), returndataup(so, 1970, 1980), returndataup(so, 1970, 1990),
     returndataup(so, 1970, 2000)) %>% arrange(Entity) %>% rename(Group = group.x)
 options(knitr.kable.NA = "")
 knitr::kable(dcast(soup %>% filter(Entity %in% names(which(table(soup$Entity) > 1))), Entity ~ Year)) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
-```
+{% endhighlight %}
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -2589,16 +2596,17 @@ Yemen
 To see the changes on the map the data for particulate matter is
 created:
 
-``` {.r}
-map.world_joined3 <- left_join(pm, map.world, by = c('Entity'='region'))
-```
 
-``` {.r}
+{% highlight r %}
+map.world_joined3 <- left_join(pm, map.world, by = c('Entity'='region'))
+{% endhighlight %}
+
+{% highlight r %}
 annotate_figure(ggarrange(finalplot(2010,2010, PM, map.world_joined3, pm),
   finalplot(2010,2012, PM, map.world_joined3, pm), finalplot(2010,2014, PM, map.world_joined3, pm),
   finalplot(2010,2016, PM, map.world_joined3, pm), ncol = 2, nrow = 2, common.legend = F),
   top = text_grob("Particulate matter esmissions in 2010, 2012, 2014, 2016", face = "bold", size = 12))
-```
+{% endhighlight %}
 
 ![](/2020-01-09-Changes-in-air-pollution_files/figure-markdown/pmgr-1.png)
 
@@ -2611,14 +2619,14 @@ Here is the list of countries which experienced changes in 2012, 2014
 and 2016 (reference year is 2010), correspondingly. Countries which
 experienced an increase in the level of particulate matter:
 
-``` {.r}
+{% highlight r %}
 pmup <- rbind(pm %>% select(Entity, Year, group) %>% filter(Year == 2011) %>%
     rename(group.x = group), returndataup(pm, 2010, 2012), returndataup(pm, 2010, 2014), 
     returndataup(pm, 2010, 2016)) %>% arrange(Entity) %>% rename(Group = group.x)
 options(knitr.kable.NA = "")
 knitr::kable(dcast(pmup %>% filter(Entity %in% names(which(table(pmup$Entity) > 1))), Entity ~ Year)) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
-```
+{% endhighlight %}
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -3479,14 +3487,14 @@ Zimbabwe
 Countries which experienced a decrease in the level of particulate
 matter:
 
-``` {.r}
+{% highlight r %}
 pmdown <- rbind(pm %>% select(Entity, Year, group) %>% filter(Year == 2011) %>% 
     rename(group.x = group), returndatadown(pm, 2010, 2012), returndatadown(pm, 2010, 2014), 
     returndatadown(pm, 2010, 2016)) %>% arrange(Entity) %>% rename(Group = group.x)
 options(knitr.kable.NA = "")
 knitr::kable(dcast(pmdown %>% filter(Entity %in% names(which(table(pmdown$Entity) > 1))), Entity ~ Year)) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
-```
+{% endhighlight %}
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -3699,30 +3707,30 @@ Sierra Leone
 
 To see the changes on the map the data for ozone is created:
 
-``` {.r}
+{% highlight r %}
 map.world_joined4 <- left_join(oz,map.world, by = c('Entity'='region' ))
-```
+{% endhighlight %}
 
-``` {.r}
+{% highlight r %}
 annotate_figure(ggarrange(finalplot(2005, 2005, OZ, map.world_joined4, oz), 
    finalplot(2005, 2010, OZ, map.world_joined4, oz), finalplot(2005, 2013, OZ, map.world_joined4, oz), 
    finalplot(2005, 2015, OZ, map.world_joined4, oz), ncol = 2, nrow = 2, common.legend = F), 
    top = text_grob("Concentration of ozone in 2005, 2010, 2013, 2015", face = "bold", size = 12))
-```
+{% endhighlight %}
 
 ![](/2020-01-09-Changes-in-air-pollution_files/figure-markdown/ozgr-1.png)
 
 Countries which experienced an increase in the level of ozone
 concentration:
 
-``` {.r}
+{% highlight r %}
 ozup <- rbind(oz %>% select(Entity, Year, group) %>% filter(Year == 2005) %>% 
     rename(group.x = group), returndataup(oz, 2005, 2010), returndataup(oz, 2005, 2013), 
     returndataup(oz, 2005, 2015)) %>% arrange(Entity) %>% rename(Group = group.x)
 options(knitr.kable.NA = "")
 knitr::kable(dcast(ozup %>% filter(Entity %in% names(which(table(ozup$Entity) > 1))), Entity ~ Year)) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
-```
+{% endhighlight %}
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -4061,14 +4069,14 @@ Zimbabwe
 Countries which experienced a decrease in the level of ozone
 concentration:
 
-``` {.r}
+{% highlight r %}
 ozdown <- rbind(oz %>% select(Entity, Year, group) %>% filter(Year == 2005) %>% 
     rename(group.x = group), returndatadown(oz, 2005, 2010), returndatadown(oz, 2005, 2013), 
     returndatadown(oz, 2005, 2015)) %>% arrange(Entity) %>% rename(Group = group.x)
 options(knitr.kable.NA = "")
 knitr::kable(dcast(ozdown %>% filter(Entity %in% names(which(table(ozdown$Entity) > 1))), Entity ~ Year)) %>% 
   kable_styling(bootstrap_options = "striped", full_width = F)
-```
+{% endhighlight %}
 
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
