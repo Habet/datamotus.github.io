@@ -14,7 +14,7 @@ github_username:  jekyll
 highlighter: rouge
 
 # Build settings
-markdown: kmarkdown
+markdown: GFM
 exclude: ['*.Rmd']
 paginate: 3
 paginate_path: "blog/page:num"
