@@ -17,7 +17,7 @@
   section_id: portfolio
   children:
     - name: R training with ASUE 
-      path: portfolio-R training.html
+      path: portfolio-R-training.html
 #    - name: Portfolio item
 #      path: portfolio-item.html
 - name: Contact
