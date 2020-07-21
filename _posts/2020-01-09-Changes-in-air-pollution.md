@@ -1,4 +1,5 @@
 ---
+layout: simple
 mathjax: true
 title:  Changes in air pollution
 excerpt: It is hard to eliminate the health effects of the toxic contaminators on health. Air pollutants can be the cause of death from stroke, lung cancer, childhood cancer, and another heart disease. Apart from affecting our health, a decrease in the level of air quality is causing long-term environmental damage by driving climate change, which is itself a danger for people and their health. In the article, changes in the quality of air are detected using historical data of four types of air pollutants - carbon dioxide, sulphur dioxide, particulate matter and concentration of ozone in the air.   
