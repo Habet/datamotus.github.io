@@ -14,8 +14,9 @@ github_username:  jekyll
 highlighter: rouge
 
 # Build settings
-markdown: kramdown
-theme: jekyll-theme-dinky
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 exclude: ['*.Rmd']
 paginate: 3
 paginate_path: "blog/page:num"
