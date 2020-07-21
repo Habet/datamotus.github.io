@@ -65,11 +65,11 @@ based on territorial emissions derived by [Our World in
 Data](https://ourworldindata.org/).
 
 
-{% highlight ruby %}
+```r
 # load the required libraries used in the article
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(ggplot2, dplyr, kableExtra, tidyverse, magrittr, ggmap, ggpubr, stringr, RColorBrewer, reshape2)
-{% endhighlight %}
+```
 
 The variables `Entity` and `Code` show the country and/ or area and its
 code, where the level of a particular pollutant was measured.
