@@ -2,6 +2,8 @@
   <h2>Blog Name</h2>
 </div>
 
+{% include mathjax.html %}
+
 <div class="row">
   <div class="leftcolumn">
     <div class="card">
