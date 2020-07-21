@@ -14,9 +14,13 @@ github_username:  jekyll
 highlighter: rouge
 
 # Build settings
+markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: html
+    css_class : 'syntax'
 exclude: ['*.Rmd']
 paginate: 3
 paginate_path: "blog/page:num"
