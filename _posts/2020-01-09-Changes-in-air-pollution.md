@@ -108,7 +108,7 @@ increased heart rate and difficulty during breathing will occur.
 The summary of carbon dioxide emissions is represented below:
 
 
-{% highlight r %}
+{% highlight r linenos %}
 summary(co$Co2)
 {% endhighlight %}
 
