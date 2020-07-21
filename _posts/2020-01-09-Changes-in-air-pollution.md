@@ -76,10 +76,10 @@ code, where the level of a particular pollutant was measured.
 
 ### Carbon dioxide (CO2)
 
-{% highlight r %}
+~~~ ruby
 co <- read.csv("co.csv")
 range(unique(co$Year))
-{% endhighlight %}
+~~~
 
     ## [1] 1800 2017
 
@@ -118,9 +118,8 @@ summary(co$Co2)
 ### Sulphur dioxide (SO2)
 
 
-{% highlight r %}
+
 so <- read.csv("so.csv")
-{% endhighlight %}
 
 The number of observations in the initial data is 2079 and the covered
 time span is 1850-2000 (represented by decades). Data contains 130
