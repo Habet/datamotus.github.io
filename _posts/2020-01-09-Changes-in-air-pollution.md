@@ -65,21 +65,21 @@ based on territorial emissions derived by [Our World in
 Data](https://ourworldindata.org/).
 
 
-```r
+{% highlight r %}
 # load the required libraries used in the article
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(ggplot2, dplyr, kableExtra, tidyverse, magrittr, ggmap, ggpubr, stringr, RColorBrewer, reshape2)
-```
+{% endhighlight %}
 
 The variables `Entity` and `Code` show the country and/ or area and its
 code, where the level of a particular pollutant was measured.
 
 ### Carbon dioxide (CO2)
 
-~~~ ruby
+{% highlight r %}
 co <- read.csv("co.csv")
 range(unique(co$Year))
-~~~
+{% endhighlight %}
 
  ## [1] 1800 2017
 
@@ -108,7 +108,7 @@ increased heart rate and difficulty during breathing will occur.
 The summary of carbon dioxide emissions is represented below:
 
 
-{% highlight ruby linenos %}
+{% highlight r %}
 summary(co$Co2)
 {% endhighlight %}
 
@@ -118,9 +118,9 @@ summary(co$Co2)
 ### Sulphur dioxide (SO2)
 
 
-~~~ r
+{% highlight r %}
 so <- read.csv("so.csv")
-~~~ 
+{% endhighlight %}
 
 
 The number of observations in the initial data is 2079 and the covered
