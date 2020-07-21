@@ -81,7 +81,7 @@ co <- read.csv("co.csv")
 range(unique(co$Year))
 ~~~
 
-    ## [1] 1800 2017
+`inline`{:.language-yaml .highlight}    ## [1] 1800 2017
 
 The number of observations in the initial data is 16739 and the covered
 time span is 1800-2017. Data contains 194 countries.
