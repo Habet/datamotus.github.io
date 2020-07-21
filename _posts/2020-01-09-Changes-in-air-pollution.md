@@ -108,7 +108,7 @@ increased heart rate and difficulty during breathing will occur.
 The summary of carbon dioxide emissions is represented below:
 
 
-{% highlight r linenos %}
+{% highlight ruby linenos %}
 summary(co$Co2)
 {% endhighlight %}
 
@@ -118,8 +118,10 @@ summary(co$Co2)
 ### Sulphur dioxide (SO2)
 
 
-
+~~~ r
 so <- read.csv("so.csv")
+~~~ 
+
 
 The number of observations in the initial data is 2079 and the covered
 time span is 1850-2000 (represented by decades). Data contains 130
