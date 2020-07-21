@@ -4,3 +4,112 @@ section_id: blog
 ---
 
 {% include mathjax.html %}
+<div class='post'>
+  <div class='large-12 columns'>
+    <div class='mod modBlogPost big'>
+      <p>
+      <div class='images'>
+        
+        {% for image in page.images %}
+          <div class='image'><img alt="" src="{{site.url}}/{{image}}" /></div>
+        {% endfor %}
+        
+      </div>
+      </p>
+    <p>
+      <div class='content'>
+        <p class='info'>
+          <span>{{page.date | date: "%B %d, %Y" }}</span>
+          /
+          <span>
+            by {{page.author}}
+          </span>
+          /
+          <!--
+          <span>
+            <a href="#">4 comments</a>
+          </span>
+          -->
+        </p>
+        <h3><a href="{{page.url}}">{{page.title}}</a></h3>
+          <article class="post-content"> {{ content }} </article>
+          <link href="/css/pygments.css" rel="stylesheet">
+    
+       </div>
+  </p>
+  </div>
+  
+    <div class='two spacing'></div>
+   
+    <a id='comments'></a>
+    <!--
+    <div class='comments-wrapper'>
+      <h3 class='comments-count'>6 Comments</h3>
+      <ul class='comments'>
+      
+        <li>
+          <div class='meta'>
+            <p class='avatar'>
+              <img width="39" height="39" alt="" src="{{site.url}}/images/avatar.png" />
+            </p>
+            <p class='info'>
+              <span class='name'>Amy</span>
+              <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+              <a href='#comment-form'>Reply</a>
+            </p>
+          </div>
+          <p>
+           
+          </p>
+        </li>
+        <li>
+        
+          <div class='meta'>
+            <p class='avatar'>
+              <img width="39" height="39" alt="" src="{{site.url}}/images/avatar.png" />
+            </p>
+            <p class='info'>
+              <span class='name'>Amy</span>
+              <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+              <a href='#comment-form'>Reply</a>
+            </p>
+          </div>
+          <p></p>
+          <ul class='children'>
+          
+            <li>
+              <div class='meta'>
+                <p class='avatar'>
+                  <img width="39" height="39" alt="" src="{{site.url}}/images/avatar.png" />
+                </p>
+                <p class='info'>
+                  <span class='name'>Amy</span>
+                  <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+                  <a href='#comment-form'>Reply</a>
+                </p>
+              </div>
+              <p></p>
+            </li>
+          </ul>
+        </li>
+        
+        <li>
+          <div class='meta'>
+            <p class='avatar'>
+              <img width="39" height="39" alt="" src="{{site.url}}/images/avatar.png" />
+            </p>
+            <p class='info'>
+              <span class='name'>Amy</span>
+              <span class='datetime'>October 15, 2011 at 3:30 pm</span>
+              <a href='#comment-form'>Reply</a>
+            </p>
+          </div>
+          <p></p>
+        </li>
+        
+      </ul>
+    </div> -->
+    <div class='four spacing'></div>
+    <div class='four spacing'></div>
+  </div>
+</div>
