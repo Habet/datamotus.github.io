@@ -81,7 +81,7 @@ co <- read.csv("co.csv")
 range(unique(co$Year))
 {% endhighlight %}
 
-    ## [1] 1800 2017
+ ## [1] 1800 2017
 
 The number of observations in the initial data is 16739 and the covered
 time span is 1800-2017. Data contains 194 countries.
@@ -121,6 +121,7 @@ summary(co$Co2)
 {% highlight r %}
 so <- read.csv("so.csv")
 {% endhighlight %}
+
 
 The number of observations in the initial data is 2079 and the covered
 time span is 1850-2000 (represented by decades). Data contains 130
